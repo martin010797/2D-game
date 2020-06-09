@@ -42,5 +42,8 @@ public class MenuState extends State {
         //g.setColor(Color.red);
         //g.fillRect(handler.getMouseManager().getMouseX(), handler.getMouseManager().getMouseY(), 8,8);
         uiManager.render(g);
+        /*g.setColor(Color.blue);
+        g.setFont(new Font("Serif", Font.BOLD, 12));
+        g.drawString("testing string", 150, 150);*/
     }
 }

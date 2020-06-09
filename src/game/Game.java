@@ -117,6 +117,7 @@ public class Game implements Runnable {
         //g.drawImage(sheet.crop(0,0,32, 32),5,5,null);
         //g.drawImage(sheet.crop(32,32,32, 32),35,5,null);
 
+
         /*
         for (int i = 0; i < 15; i++){
             for (int j = 0; j < 15; j++){
