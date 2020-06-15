@@ -59,7 +59,7 @@ public class Game implements Runnable {
         //mouse manager
         display.getJFrame().addMouseListener(mouseManager);
         display.getJFrame().addMouseMotionListener(mouseManager);
-        //these two should be added becouase without it, it will behave glitchy
+        //these two should be added because without it, it will behave glitchy
         display.getCanvas().addMouseListener(mouseManager);
         display.getCanvas().addMouseMotionListener(mouseManager);
         //testImage = ImageLoader.loadImage("/textures/image.png");
@@ -176,7 +176,7 @@ public class Game implements Runnable {
 
     //starting thread
     //always when you start or stop thread have to use synchronized
-    public synchronized void star(){
+    public synchronized void start(){
         if (running)
             return;
         running = true;

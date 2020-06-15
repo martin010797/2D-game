@@ -10,6 +10,9 @@ import java.awt.image.BufferedImage;
 public class Player extends Creature {
 
     private Animation animDown, animUp, animLeft, animRight;
+    private float projectileSpeed = 2.0f;
+
+    private boolean shooting = false;
 
     public Player(Handler pHandler, float x, float y) {
         super(pHandler, x, y,Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
@@ -53,6 +56,17 @@ public class Player extends Creature {
             xMove = -speed;
         if (handler.getKeyManager().right)
             xMove = speed;
+
+        //TODO implement shooting
+        //probalby create new class for projectile
+        if (handler.getKeyManager().space){
+            shooting = true;
+            //System.out.println("shooting");
+        }
+        if (!handler.getKeyManager().space){
+            shooting = false;
+            //System.out.println("not shooting");
+        }
     }
 
     @Override
@@ -85,4 +99,12 @@ public class Player extends Creature {
         }
         return Assets.player_down[0];
     }
+    public float getProjectileSpeed() {
+        return projectileSpeed;
+    }
+
+    public void setProjectileSpeed(float projectileSpeed) {
+        this.projectileSpeed = projectileSpeed;
+    }
+
 }
