@@ -6,6 +6,7 @@ import game.Game;
 import game.Handler;
 import jdk.jshell.execution.Util;
 import statics.Rock;
+import statics.Spawner;
 import statics.Tree;
 import tiles.Tile;
 import utils.Utils;
@@ -28,9 +29,13 @@ public class World {
         handler = pHandler;
         entityManager = new EntityManager(handler, new Player(handler, 200, 200));
         //adding other entities
-        entityManager.addEntity(new Tree(handler, 350, 200));
-        entityManager.addEntity(new Rock(handler, 100,100));
-        entityManager.addEntity(new Rock(handler, 300,120));
+        //entityManager.addEntity(new Tree(handler, 350, 200));
+        //entityManager.addEntity(new Rock(handler, 100,100));
+        //entityManager.addEntity(new Rock(handler, 300,120));
+        entityManager.addEntity(new Spawner(handler, 64, 64));
+        entityManager.addEntity(new Spawner(handler, 64,640));
+        entityManager.addEntity(new Spawner(handler, 1088,64));
+        entityManager.addEntity(new Spawner(handler, 1088,640));
 
         //creating world from file
         loadWorld(pPath);
@@ -74,7 +79,7 @@ public class World {
         Tile t = Tile.tiles[tiles[x][y]];
         if (t == null){
             //default return water tile
-            return Tile.waterTile;
+            return Tile.nothingTile;
         }else
             return t;
     }
