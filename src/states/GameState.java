@@ -1,5 +1,6 @@
 package states;
 
+import creatures.Enemy;
 import creatures.Player;
 import game.Game;
 import game.Handler;
@@ -8,6 +9,8 @@ import tiles.Tile;
 import worlds.World;
 
 import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class GameState extends State {
 

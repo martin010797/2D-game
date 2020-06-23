@@ -1,5 +1,6 @@
 package worlds;
 
+import creatures.Enemy;
 import creatures.Player;
 import entities.EntityManager;
 import game.Game;
@@ -12,18 +13,34 @@ import tiles.Tile;
 import utils.Utils;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class World {
+
+    private static final int NUMBEROFENEMIES = 30, MAXNUMBEROFENEMIESONSCREEN = 20, NUMBEROFSPAWNERS = 4, ZERO = 0;
+    private static final int FIRSTSPAWNER = 0, SECONDSPAWNER = 1, THIRDSPAWNER = 2, FOURTHSPAWNER = 3;
+    private static final int XFIRSTSPAWNER = 0, YFIRSTSPAWNER = 0, XSECONDSPAWNER = 0, YSECONDSPAWNER = 639,
+        XTHIRDSPAWNER = 1152, YTHIRDSPAWNER = 0, XFOURTHSPAWNER = 1152, YFOURTHSPAWNER = 639;
+    private static final int ONESECOND = 1000;
 
     private Handler handler;
     //how big world will be (number of tiles)
     private int width, height;
+
     private int spawnX, spawnY;
     //x and y coordinates
     private int[][] tiles;
     //entities
     private EntityManager entityManager;
+    //array list of enemies
+    //private ArrayList<Enemy> enemies;
+    private int defeatedEnemies = 0;
 
+    //for timing
+    private long now;
+    private long lastTime = System.currentTimeMillis();;
+    private long delta = 0;
 
     public World(Handler pHandler, String pPath){
         handler = pHandler;
@@ -32,20 +49,82 @@ public class World {
         //entityManager.addEntity(new Tree(handler, 350, 200));
         //entityManager.addEntity(new Rock(handler, 100,100));
         //entityManager.addEntity(new Rock(handler, 300,120));
-        entityManager.addEntity(new Spawner(handler, 64, 64));
-        entityManager.addEntity(new Spawner(handler, 64,640));
-        entityManager.addEntity(new Spawner(handler, 1088,64));
-        entityManager.addEntity(new Spawner(handler, 1088,640));
+        Spawner spawner1 = new Spawner(handler, XFIRSTSPAWNER, YFIRSTSPAWNER);
+        entityManager.addEntity(spawner1, 0);
+        entityManager.getSpawners().add(spawner1);
+        Spawner spawner2 = new Spawner(handler, XSECONDSPAWNER, YSECONDSPAWNER);
+        entityManager.addEntity(spawner2, 1);
+        entityManager.getSpawners().add(spawner2);
+        Spawner spawner3 = new Spawner(handler, XTHIRDSPAWNER, YTHIRDSPAWNER);
+        entityManager.addEntity(spawner3, 2);
+        entityManager.getSpawners().add(spawner3);
+        Spawner spawner4 = new Spawner(handler, XFOURTHSPAWNER, YFOURTHSPAWNER);
+        entityManager.addEntity(spawner4, 3);
+        entityManager.getSpawners().add(spawner4);
 
         //creating world from file
         loadWorld(pPath);
 
         entityManager.getPlayer().setX(spawnX);
         entityManager.getPlayer().setY(spawnY);
+
+        //enemies = new ArrayList<Enemy>();
+
+    }
+
+    public boolean elapsedOneSecond(){
+        now = System.currentTimeMillis();
+        delta += now - lastTime;
+        lastTime = now;
+        if (delta >= ONESECOND)
+            return true;
+        else
+            return false;
     }
 
     public void tick(){
         entityManager.tick();
+        if (NUMBEROFENEMIES == defeatedEnemies){
+            System.out.println("WIN");
+        }
+        if (entityManager.getEnemies().size() < MAXNUMBEROFENEMIESONSCREEN && (defeatedEnemies + entityManager.getEnemies().size()) < NUMBEROFENEMIES){
+            //entityManager.getSpawners().get(0).setOpening(true);
+            if (elapsedOneSecond()){
+                int randomSpawner = ThreadLocalRandom.current().nextInt(ZERO, NUMBEROFSPAWNERS);
+                switch (randomSpawner){
+                    case FIRSTSPAWNER:{
+                        Enemy e = new Enemy(handler, XFIRSTSPAWNER, YFIRSTSPAWNER);
+                        entityManager.getSpawners().get(FIRSTSPAWNER).setOpening(true);
+                        entityManager.getEnemies().add(e);
+                        entityManager.addEntity(e);
+                        break;
+                    }
+                    case SECONDSPAWNER:{
+                        Enemy e = new Enemy(handler, XSECONDSPAWNER, YSECONDSPAWNER);
+                        entityManager.getSpawners().get(SECONDSPAWNER).setOpening(true);
+                        entityManager.getEnemies().add(e);
+                        entityManager.addEntity(e);
+                        break;
+                    }
+                    case THIRDSPAWNER:{
+                        Enemy e = new Enemy(handler, XTHIRDSPAWNER, YTHIRDSPAWNER);
+                        entityManager.getSpawners().get(THIRDSPAWNER).setOpening(true);
+                        entityManager.getEnemies().add(e);
+                        entityManager.addEntity(e);
+                        break;
+                    }
+                    case FOURTHSPAWNER:{
+                        Enemy e = new Enemy(handler, XFOURTHSPAWNER, YFOURTHSPAWNER);
+                        entityManager.getSpawners().get(FOURTHSPAWNER).setOpening(true);
+                        entityManager.getEnemies().add(e);
+                        entityManager.addEntity(e);
+                        break;
+                    }
+                }
+                delta = 0;
+            }
+
+        }
     }
 
     public void render(Graphics g){
@@ -123,6 +202,26 @@ public class World {
 
     public EntityManager getEntityManager() {
         return entityManager;
+    }
+
+    public int getSpawnX() {
+        return spawnX;
+    }
+
+    public void setSpawnX(int spawnX) {
+        this.spawnX = spawnX;
+    }
+
+    public int getSpawnY() {
+        return spawnY;
+    }
+
+    public void setSpawnY(int spawnY) {
+        this.spawnY = spawnY;
+    }
+
+    public void addDefeatedEnemy(){
+        defeatedEnemies++;
     }
 
 }

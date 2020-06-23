@@ -9,27 +9,27 @@ import tiles.Tile;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Projectile extends Entity {
+public abstract class Projectile extends Entity {
 
-    private static final float DEFAULT_SPEED = 6.0f;
+    //private static final float DEFAULT_SPEED = 6.0f;
 
-    private Player player;
-    private float speed;
-    private float xMove, yMove;
-    private Direction direction;
-    private BufferedImage projectileImage;
-    private boolean destroyed = false;
+    protected Player player;
+    protected float speed;
+    protected float xMove, yMove;
+    protected Direction direction;
+    protected BufferedImage projectileImage;
+    protected boolean destroyed = false;
 
     public Projectile(Handler pHandler, float x, float y, int pWidth, int pHeight, Direction pDirection, Player pPlayer) {
         super(pHandler, x, y, pWidth, pHeight);
 
-        speed = DEFAULT_SPEED;
+        //speed = DEFAULT_SPEED;
         xMove = 0;
         yMove = 0;
         direction = pDirection;
         player = pPlayer;
 
-        switch (direction){
+        /*switch (direction){
             case UP:
                 projectileImage = Assets.projectile_up;
                 break;
@@ -54,13 +54,13 @@ public class Projectile extends Entity {
             case DOWN_RIGHT:
                 projectileImage = Assets.projectile_down_right;
                 break;
-        }
+        }*/
 
         //change later
-        bounds.x = 27;
-        bounds.y = 27;
-        bounds.width = 10;
-        bounds.height = 10;
+        //bounds.x = 27;
+        //bounds.y = 27;
+        //bounds.width = 10;
+        //bounds.height = 10;
     }
 
     public void move(){
@@ -127,8 +127,7 @@ public class Projectile extends Entity {
         return handler.getWorld().getTile(x,y).isSolid();
     }
 
-
-    @Override
+    /*@Override
     public void tick() {
         switch (direction){
             case UP:
@@ -171,14 +170,14 @@ public class Projectile extends Entity {
         }
 
         move();
-    }
+    }*/
 
-    @Override
+    /*@Override
     public void render(Graphics g) {
         //g.setColor(Color.red);
         //g.fillRect((int) (x + bounds.x), (int) (y + bounds.y), bounds.width, bounds.height);
         g.drawImage(projectileImage,(int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-    }
+    }*/
 
     //getters and setters
 
