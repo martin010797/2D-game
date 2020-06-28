@@ -46,7 +46,7 @@ public class Player extends Creature {
     private long nowBanner;
     private long deltaBanner = 0;
     private long lastTimeBanner = System.currentTimeMillis();
-    //TODO implement banner for not enought money for purchase
+    //TODO implement banner for not enough money for purchase
 
     //wait time before buying next item
     private long nowWaitTime;
@@ -369,6 +369,9 @@ public class Player extends Creature {
                         remainingProjectiles = ShotgunProjectile.MAX_NUMBER_OF_PROJECTILES;
                     }else {
                         System.out.println("not enough money");
+                        notEnoughMoney = true;
+                        deltaBanner = 0;
+                        lastTimeBanner = System.currentTimeMillis();
                         deltaItemQ = 0;
                     }
                     ignoreBuyShotgun = true;
@@ -396,6 +399,9 @@ public class Player extends Creature {
                         remainingProjectiles = RifleProjectile.MAX_NUMBER_OF_PROJECTILES;
                     }else {
                         System.out.println("not enough money");
+                        notEnoughMoney = true;
+                        deltaBanner = 0;
+                        lastTimeBanner = System.currentTimeMillis();
                         deltaItemW = 0;
                     }
                     ignoreBuyRifle = true;
@@ -423,6 +429,9 @@ public class Player extends Creature {
                         remainingProjectiles = RPGProjectile.MAX_NUMBER_OF_PROJECTILES;
                     }else {
                         System.out.println("not enough money");
+                        notEnoughMoney = true;
+                        deltaBanner = 0;
+                        lastTimeBanner = System.currentTimeMillis();
                         deltaItemE = 0;
                     }
                     ignoreBuyRPG = true;
@@ -505,11 +514,32 @@ public class Player extends Creature {
             }
         }
 
+        //renderinng type of projectile and progress of spending it
         renderTypeOfProjectile(g);
+        //rendering banner
+        if (notEnoughMoney){
+            renderNotEnoughMoneyBanner(g);
+        }
         //collision box
         //if I want to see collison box
         //g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
                 //(int) (y + bounds.y - handler.getGameCamera().getyOffset()), bounds.width, bounds.height);
+    }
+
+    //if I'll decide to have more banners I'l create class for that
+    public void renderNotEnoughMoneyBanner(Graphics g){
+        nowBanner = System.currentTimeMillis();
+        deltaBanner += nowBanner - lastTimeBanner;
+        lastTimeBanner = nowBanner;
+        if (deltaBanner <= 3000){
+            //drawing banner
+            g.drawImage(Assets.banner_not_enough_money, handler.getGame().getWidth() / 2 - (handler.getGame().getWidth()/5)/2,
+                    handler.getGame().getHeight() / 4 - (handler.getGame().getHeight()/18)/2,
+                    handler.getGame().getWidth()/5,
+                    handler.getGame().getHeight()/18, null);
+        }else {
+            notEnoughMoney = false;
+        }
     }
 
     public void renderTypeOfProjectile(Graphics g){

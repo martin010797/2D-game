@@ -25,6 +25,7 @@ public class Assets {
     public static BufferedImage one, two, three, four, five, six,seven, eight, nine, zero;
     public static BufferedImage store_rpg_green, store_rpg_red, store_rifle_green, store_rifle_red, store_shotgun_green,
             store_shotgun_red;
+    public static BufferedImage banner_not_enough_money;
     //arrays
     public static BufferedImage[] btn_start;
     public static BufferedImage[] spawner_door;
@@ -241,5 +242,6 @@ public class Assets {
         store_rifle_red = sheet.crop(6 * width, 14 * height, width * 2, height);
         store_shotgun_green = sheet.crop(0, 17 * height, width * 2, height);
         store_shotgun_red = sheet.crop(2 * width, 17 * height, width * 2, height);
+        banner_not_enough_money = sheet.crop(0, 19 * height, width * 10, height);
     }
 }
