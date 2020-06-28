@@ -3,22 +3,18 @@ package worlds;
 import creatures.Enemy;
 import creatures.Player;
 import entities.EntityManager;
-import game.Game;
 import game.Handler;
-import jdk.jshell.execution.Util;
-import statics.Rock;
+import graphics.Assets;
 import statics.Spawner;
-import statics.Tree;
 import tiles.Tile;
 import utils.Utils;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class World {
 
-    private static final int NUMBEROFENEMIES = 30, MAXNUMBEROFENEMIESONSCREEN = 20, NUMBEROFSPAWNERS = 4, ZERO = 0;
+    private static final int NUMBEROFENEMIES = 60, MAXNUMBEROFENEMIESONSCREEN = 20, NUMBEROFSPAWNERS = 4, ZERO = 0;
     private static final int FIRSTSPAWNER = 0, SECONDSPAWNER = 1, THIRDSPAWNER = 2, FOURTHSPAWNER = 3;
     private static final int XFIRSTSPAWNER = 0, YFIRSTSPAWNER = 0, XSECONDSPAWNER = 0, YSECONDSPAWNER = 639,
         XTHIRDSPAWNER = 1152, YTHIRDSPAWNER = 0, XFOURTHSPAWNER = 1152, YFOURTHSPAWNER = 639;
@@ -45,10 +41,7 @@ public class World {
     public World(Handler pHandler, String pPath){
         handler = pHandler;
         entityManager = new EntityManager(handler, new Player(handler, 200, 200));
-        //adding other entities
-        //entityManager.addEntity(new Tree(handler, 350, 200));
-        //entityManager.addEntity(new Rock(handler, 100,100));
-        //entityManager.addEntity(new Rock(handler, 300,120));
+
         Spawner spawner1 = new Spawner(handler, XFIRSTSPAWNER, YFIRSTSPAWNER);
         entityManager.addEntity(spawner1, 0);
         entityManager.getSpawners().add(spawner1);
@@ -146,6 +139,14 @@ public class World {
                 }*/
             }
         }
+        for (int i = 0; i < 5; i++){
+            g.drawImage(Assets.player_stats_background, i * Tile.TILEWIDTH, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+        }
+        g.drawImage(Assets.bubble_background1, 0, handler.getGame().getHeight() - Tile.TILEHEIGHT, Tile.TILEWIDTH - 20 ,Tile.TILEHEIGHT , null);
+        g.drawImage(Assets.static_player_down, - 7, handler.getGame().getHeight() - Tile.TILEHEIGHT + 3,Tile.TILEWIDTH - 7 ,Tile.TILEHEIGHT - 7 , null);
+        g.drawImage(Assets.bubble_background1, 100, handler.getGame().getHeight() - Tile.TILEHEIGHT + 3,Tile.TILEWIDTH - 22 ,Tile.TILEHEIGHT - 7 , null);
+        g.drawImage(Assets.coin, 92, handler.getGame().getHeight() - Tile.TILEHEIGHT + 3,Tile.TILEWIDTH - 7 ,Tile.TILEHEIGHT - 7 , null);
+
         //entities
         entityManager.render(g);
     }
@@ -153,11 +154,11 @@ public class World {
     public Tile getTile(int x, int y){
         //make sure its not outside of the map
         if (x < 0 || y < 0 || x >= width || y >= height)
-            return Tile.grassTile;
+            return Tile.nothingTile;
 
         Tile t = Tile.tiles[tiles[x][y]];
         if (t == null){
-            //default return water tile
+            //default return nothing tile
             return Tile.nothingTile;
         }else
             return t;

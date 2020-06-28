@@ -52,17 +52,6 @@ public class EntityManager {
             entities.remove(killedEnemy);
             handler.getWorld().addDefeatedEnemy();
         }
-        /*
-        Iterator itr = projectiles.iterator();
-        while (itr.hasNext()){
-            Projectile p = (Projectile) itr.next();
-            //p.render(g);
-            if (p.isDestroyed())
-                itr.remove();
-            else
-                p.render(g);
-        }
-         */
         Iterator itr = entities.iterator();
         while (itr.hasNext()){
             Entity e = (Entity) itr.next();

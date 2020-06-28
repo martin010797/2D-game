@@ -2,5 +2,7 @@ package entities;
 
 public enum TypeOfProjectile {
     DEFAULT,
-    RIFLE
+    RIFLE,
+    RPG,
+    SHOTGUN
 }

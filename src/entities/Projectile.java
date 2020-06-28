@@ -28,39 +28,6 @@ public abstract class Projectile extends Entity {
         yMove = 0;
         direction = pDirection;
         player = pPlayer;
-
-        /*switch (direction){
-            case UP:
-                projectileImage = Assets.projectile_up;
-                break;
-            case DOWN:
-                projectileImage = Assets.projectile_down;
-                break;
-            case LEFT:
-                projectileImage = Assets.projectile_left;
-                break;
-            case RIGHT:
-                projectileImage = Assets.projectile_right;
-                break;
-            case UP_LEFT:
-                projectileImage = Assets.projectile_up_left;
-                break;
-            case UP_RIGHT:
-                projectileImage = Assets.projectile_up_right;
-                break;
-            case DOWN_LEFT:
-                projectileImage = Assets.projectile_down_left;
-                break;
-            case DOWN_RIGHT:
-                projectileImage = Assets.projectile_down_right;
-                break;
-        }*/
-
-        //change later
-        //bounds.x = 27;
-        //bounds.y = 27;
-        //bounds.width = 10;
-        //bounds.height = 10;
     }
 
     public void move(){
@@ -126,58 +93,6 @@ public abstract class Projectile extends Entity {
     private boolean collisionWithTile(int x, int y){
         return handler.getWorld().getTile(x,y).isSolid();
     }
-
-    /*@Override
-    public void tick() {
-        switch (direction){
-            case UP:
-                projectileImage = Assets.projectile_up;
-                yMove = -speed;
-                break;
-            case DOWN:
-                projectileImage = Assets.projectile_down;
-                yMove = speed;
-                break;
-            case LEFT:
-                projectileImage = Assets.projectile_left;
-                xMove = -speed;
-                break;
-            case RIGHT:
-                projectileImage = Assets.projectile_right;
-                xMove = speed;
-                break;
-                //temporary
-            case UP_LEFT:
-                projectileImage = Assets.projectile_up_left;
-                yMove = -speed;
-                xMove = -speed;
-                break;
-            case UP_RIGHT:
-                projectileImage = Assets.projectile_up_right;
-                yMove = -speed;
-                xMove = speed;
-                break;
-            case DOWN_LEFT:
-                projectileImage = Assets.projectile_down_left;
-                yMove = speed;
-                xMove = -speed;
-                break;
-            case DOWN_RIGHT:
-                projectileImage = Assets.projectile_down_right;
-                yMove = speed;
-                xMove = speed;
-                break;
-        }
-
-        move();
-    }*/
-
-    /*@Override
-    public void render(Graphics g) {
-        //g.setColor(Color.red);
-        //g.fillRect((int) (x + bounds.x), (int) (y + bounds.y), bounds.width, bounds.height);
-        g.drawImage(projectileImage,(int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-    }*/
 
     //getters and setters
 

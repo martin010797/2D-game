@@ -8,12 +8,14 @@ import graphics.Assets;
 import java.awt.*;
 
 public class RifleProjectile extends Projectile {
-
-    private static final float DEFAULT_SPEED = 10.0f;
+    public static final int PRICE = 10;
+    public static final int MAX_NUMBER_OF_PROJECTILES = 230;
+    private static final float DEFAULT_SPEED = 14.0f;
 
     public RifleProjectile(Handler pHandler, float x, float y, int pWidth, int pHeight, Direction pDirection, Player pPlayer) {
         super(pHandler, x, y, pWidth, pHeight, pDirection, pPlayer);
         speed = DEFAULT_SPEED;
+
 
         switch (direction){
             case UP:
@@ -42,7 +44,6 @@ public class RifleProjectile extends Projectile {
                 break;
         }
 
-        //change later
         bounds.x = 27;
         bounds.y = 27;
         bounds.width = 15;
@@ -51,6 +52,7 @@ public class RifleProjectile extends Projectile {
 
     @Override
     public void tick() {
+        float diagonalSpeed = (float) (Math.sqrt((double)((speed*speed)/2)));
         switch (direction){
             case UP:
                 yMove = -speed;
@@ -65,20 +67,20 @@ public class RifleProjectile extends Projectile {
                 xMove = speed;
                 break;
             case UP_LEFT:
-                yMove = -speed;
-                xMove = -speed;
+                yMove = -diagonalSpeed;
+                xMove = -diagonalSpeed;
                 break;
             case UP_RIGHT:
-                yMove = -speed;
-                xMove = speed;
+                yMove = -diagonalSpeed;
+                xMove = diagonalSpeed;
                 break;
             case DOWN_LEFT:
-                yMove = speed;
-                xMove = -speed;
+                yMove = diagonalSpeed;
+                xMove = -diagonalSpeed;
                 break;
             case DOWN_RIGHT:
-                yMove = speed;
-                xMove = speed;
+                yMove = diagonalSpeed;
+                xMove = diagonalSpeed;
                 break;
         }
 
