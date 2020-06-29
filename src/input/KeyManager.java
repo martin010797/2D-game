@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class KeyManager implements KeyListener {
 
     private boolean[] keys;
-    public boolean up,down,right,left,space;
+    public boolean up,down,right,left,space,q,w,e;
 
     public KeyManager(){
         keys = new boolean[256];
@@ -14,11 +14,14 @@ public class KeyManager implements KeyListener {
 
     public void tick(){
         //up = keys[KeyEvent.VK_W];
-        up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_W];
-        down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
-        left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_A];
-        right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D];
-        space = keys[KeyEvent.VK_SPACE];
+        up = keys[KeyEvent.VK_UP];
+        down = keys[KeyEvent.VK_DOWN];
+        left = keys[KeyEvent.VK_LEFT];
+        right = keys[KeyEvent.VK_RIGHT];
+        space = keys[KeyEvent.VK_SPACE] || keys[KeyEvent.VK_S];
+        q = keys[KeyEvent.VK_Q];
+        w = keys[KeyEvent.VK_W];
+        e = keys[KeyEvent.VK_E];
     }
 
     @Override

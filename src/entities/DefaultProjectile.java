@@ -49,6 +49,7 @@ public class DefaultProjectile extends Projectile{
 
     @Override
     public void tick() {
+        float diagonalSpeed = (float) (Math.sqrt((double)((speed*speed)/2)));
         switch (direction){
             case UP:
                 //projectileImage = Assets.projectile_up;
@@ -68,23 +69,23 @@ public class DefaultProjectile extends Projectile{
                 break;
             case UP_LEFT:
                 //projectileImage = Assets.projectile_up_left;
-                yMove = -speed;
-                xMove = -speed;
+                yMove = -diagonalSpeed;
+                xMove = -diagonalSpeed;
                 break;
             case UP_RIGHT:
                 //projectileImage = Assets.projectile_up_right;
-                yMove = -speed;
-                xMove = speed;
+                yMove = -diagonalSpeed;
+                xMove = diagonalSpeed;
                 break;
             case DOWN_LEFT:
                 //projectileImage = Assets.projectile_down_left;
-                yMove = speed;
-                xMove = -speed;
+                yMove = diagonalSpeed;
+                xMove = -diagonalSpeed;
                 break;
             case DOWN_RIGHT:
                 //projectileImage = Assets.projectile_down_right;
-                yMove = speed;
-                xMove = speed;
+                yMove = diagonalSpeed;
+                xMove = diagonalSpeed;
                 break;
         }
 

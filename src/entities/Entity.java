@@ -63,13 +63,6 @@ public abstract class Entity {
     public abstract void tick();
     public abstract void render(Graphics g);
 
-
-    /*
-        if (!chceckEntityCollision(xMove, 0f))
-                moveX();
-            if (!chceckEntityCollision(0f, yMove))
-                moveY();
-         */
     public boolean chceckEntityCollision(float xOffset, float yOffset){
         for (Entity e: handler.getWorld().getEntityManager().getEntities()){
             if (this instanceof Enemy && e instanceof Enemy){
@@ -103,6 +96,7 @@ public abstract class Entity {
                 continue;
             if (e.equals(this))
                 continue;
+            //TODO change for projectiles
             //checking if entity dont want to leave map
             if ((int) (x + bounds.x + xOffset) < 0 || ((int) (x + bounds.x + bounds.width + xOffset) > handler.getWidth())
                     || (int) (y + bounds.y + yOffset) < 0)
@@ -112,6 +106,10 @@ public abstract class Entity {
                 if (this instanceof Player && e instanceof Enemy){
                     //if ((this instanceof Player && e instanceof Enemy) || (this instanceof Enemy && e instanceof Player)){
                     ((Player) this).die();
+                }
+                //rpg projectile wont destroy after hitting enemy
+                if ((this instanceof RPGProjectile && e instanceof Enemy) || (this instanceof Enemy && e instanceof RPGProjectile) ){
+                    return false;
                 }
                 return true;
             }
@@ -154,13 +152,25 @@ public abstract class Entity {
             //if both are projectiles
             if (this instanceof Projectile && e instanceof Projectile)
                 continue;
-            if ((int) (x + bounds.x + xOffset) < 0 || ((int) (x + bounds.x + bounds.width + xOffset) > handler.getWidth())
-                    || (int) (y + bounds.y + yOffset) < 0)
-                return true;
+            //checking if entity dont want to leave map
+            //different for projectile to allow player to shoot while he is near edge of the map
+            if (this instanceof Projectile){
+                if ((int) (x + bounds.x + xOffset) < -20 || ((int) (x + bounds.x + bounds.width + xOffset) > handler.getWidth() + 25)
+                        || (int) (y + bounds.y + yOffset) < -20)
+                    return true;
+            }else {
+                if ((int) (x + bounds.x + xOffset) < 0 || ((int) (x + bounds.x + bounds.width + xOffset) > handler.getWidth())
+                        || (int) (y + bounds.y + yOffset) < 0)
+                    return true;
+            }
+
             if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
                 if (this instanceof Projectile && e instanceof Enemy){
                     ((Enemy) e).setDead(true);
-                    //System.out.println("kill");
+                }
+                //rpg projectile wont destroy after hitting enemy
+                if ((this instanceof RPGProjectile && e instanceof Enemy) || (this instanceof Enemy && e instanceof RPGProjectile) ){
+                    return false;
                 }
                 return true;
             }

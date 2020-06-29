@@ -12,6 +12,7 @@ public class Enemy extends Creature {
 
     private static final int MINVALUEOFDIRECTIONN = 0, MAXVALUEOFDIRECTION = 7, PROBABILITYOFDIRECTIONCHANGE = 1,
             HUNDREDPERCENT = 100, ZERO = 0, UNDEFINED = -1;
+    private static final float ENEMY_SPEED = 1.5f;
     private static final int UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3, UPLEFT = 4, UPRIGHT = 5, DOWNLEFT = 6, DOWNRIGHT = 7;
     private static final int SIZE_OF_REACH = 150;
 
@@ -29,6 +30,8 @@ public class Enemy extends Creature {
         bounds.y = 2;
         bounds.width = 22;
         bounds.height = 60;
+
+        speed = ENEMY_SPEED;
 
         //animations
         animDown = new Animation(175, Assets.enemy_down);
@@ -123,35 +126,36 @@ public class Enemy extends Creature {
 
         yMove = 0;
         xMove = 0;
+        float diagonalSpeed = (float) (Math.sqrt((double)((speed*speed)/2)));
         if(direction != null){
             switch (direction){
                 case UP:
-                    yMove = -speed * 3 / 4;
+                    yMove = -speed;
                     break;
                 case DOWN:
-                    yMove = speed * 3 / 4;
+                    yMove = speed;
                     break;
                 case RIGHT:
-                    xMove = speed * 3 / 4;
+                    xMove = speed;
                     break;
                 case LEFT:
-                    xMove = -speed * 3 / 4;
+                    xMove = -speed;
                     break;
                 case DOWN_RIGHT:
-                    xMove = speed * 2 / 4;
-                    yMove = speed * 2 / 4;
+                    xMove = diagonalSpeed;
+                    yMove = diagonalSpeed;
                     break;
                 case DOWN_LEFT:
-                    xMove = -speed * 2 / 4;
-                    yMove = speed * 2 / 4;
+                    xMove = -diagonalSpeed;
+                    yMove = diagonalSpeed;
                     break;
                 case UP_LEFT:
-                    xMove = -speed * 2 / 4;
-                    yMove = -speed * 2 / 4;
+                    xMove = -diagonalSpeed;
+                    yMove = -diagonalSpeed;
                     break;
                 case UP_RIGHT:
-                    xMove = speed * 2 / 4;
-                    yMove = -speed * 2 / 4;
+                    xMove = diagonalSpeed;
+                    yMove = -diagonalSpeed;
                     break;
             }
         }
