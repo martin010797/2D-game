@@ -40,6 +40,7 @@ public class World {
 
     public World(Handler pHandler, String pPath){
         handler = pHandler;
+        loadWorld(pPath);
         entityManager = new EntityManager(handler, new Player(handler, 200, 200));
 
         Spawner spawner1 = new Spawner(handler, XFIRSTSPAWNER, YFIRSTSPAWNER);
@@ -56,7 +57,7 @@ public class World {
         entityManager.getSpawners().add(spawner4);
 
         //creating world from file
-        loadWorld(pPath);
+        //loadWorld(pPath);
 
         entityManager.getPlayer().setX(spawnX);
         entityManager.getPlayer().setY(spawnY);

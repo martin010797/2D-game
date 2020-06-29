@@ -3,6 +3,7 @@ import entities.*;
 import game.Handler;
 import graphics.Animation;
 import graphics.Assets;
+import graphics.OneTimeAnimation;
 import tiles.Tile;
 
 import java.awt.*;
@@ -16,12 +17,14 @@ public class Player extends Creature {
             NUMBER_WIDTH = 32, NUMBER_HEIGHT = 32, CONFIRMATION_TIME = 1000, ONESECOND = 1000, DEFAULT_PROJECTILES_REMINING = -1, SHOTGUN_PROJECTILE_DELTA = 300;
 
     private Animation animDown, animUp, animLeft, animRight, animDownLeft, animDownRight, animUpLeft, animUpRight;
+    private OneTimeAnimation animation_respawn;
     private Direction direction;
     private ArrayList<Projectile> projectiles;
     private int numberOfLives;
     private boolean dead = false;
     private boolean endOfGame = false;
     private boolean immortal = false;
+    private boolean invisible = false;
     private TypeOfProjectile typeOfProjectile;
     private int remainingProjectiles = DEFAULT_PROJECTILES_REMINING;
     private int numberOfCoins = 0;
@@ -46,7 +49,6 @@ public class Player extends Creature {
     private long nowBanner;
     private long deltaBanner = 0;
     private long lastTimeBanner = System.currentTimeMillis();
-    //TODO implement banner for not enough money for purchase
 
     //wait time before buying next item
     private long nowWaitTime;
@@ -89,6 +91,11 @@ public class Player extends Creature {
         animUpRight = new Animation(175, Assets.player_up_right);
 
         projectiles = new ArrayList<Projectile>();
+        animation_respawn = new OneTimeAnimation(100,Assets.respawn_animation);
+
+        immortal = true;
+        lastTimeRespawn = System.currentTimeMillis();
+        animation_respawn.setLastTime(System.currentTimeMillis());
     }
 
     public void respawn(){
@@ -99,6 +106,8 @@ public class Player extends Creature {
         x = handler.getWorld().getSpawnX();
         y = handler.getWorld().getSpawnY();
         immortal = true;
+        animation_respawn.setLastTime(System.currentTimeMillis());
+        //invisible = true;
     }
 
     public void die(){
@@ -128,8 +137,11 @@ public class Player extends Creature {
         animDownLeft.tick();
         animDownRight.tick();
 
+        //respawning
+        animation_respawn.tick();
+
         //dead and respawn
-        if (dead){
+        if (dead || immortal){
             nowRespawn = System.currentTimeMillis();
             deltaRespawn += nowRespawn - lastTimeRespawn;
             lastTimeRespawn = nowRespawn;
@@ -145,8 +157,10 @@ public class Player extends Creature {
             }
         }
         //movement
-        getInput();
-        move();
+        if (animation_respawn.getCurrentFrame() == null){
+            getInput();
+            move();
+        }
         //if I want to have him in the center
         //handler.getGameCamera().centerOnEntity(this);
         for (Projectile p: projectiles) {
@@ -452,7 +466,17 @@ public class Player extends Creature {
 
         //g.fillRect((int) (x + bounds.x), (int) (y + bounds.y), bounds.width, bounds.height);
         //if I want to have it in center
-        g.drawImage(getCurrentAnimationFrame(),(int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+
+        //respawning
+        if (animation_respawn.getCurrentFrame() != null){
+            g.drawImage(animation_respawn.getCurrentFrame(),(int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+        }else{
+            g.drawImage(getCurrentAnimationFrame(),(int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+            if (immortal)
+                g.drawImage(Assets.immortalBubble,(int) (x - 5 - handler.getGameCamera().getxOffset()),
+                        (int) (y - 5 - handler.getGameCamera().getyOffset()),
+                        width + 10, height + 10, null);
+        }
 
         Iterator itr = projectiles.iterator();
         while (itr.hasNext()){

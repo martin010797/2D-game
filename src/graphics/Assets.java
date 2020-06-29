@@ -25,7 +25,7 @@ public class Assets {
     public static BufferedImage one, two, three, four, five, six,seven, eight, nine, zero;
     public static BufferedImage store_rpg_green, store_rpg_red, store_rifle_green, store_rifle_red, store_shotgun_green,
             store_shotgun_red;
-    public static BufferedImage banner_not_enough_money;
+    public static BufferedImage banner_not_enough_money, immortalBubble;
     //arrays
     public static BufferedImage[] btn_start;
     public static BufferedImage[] spawner_door;
@@ -35,6 +35,7 @@ public class Assets {
     public static BufferedImage[] coin_animation;
     public static BufferedImage[] player_down, player_up, player_left, player_right;
     public static BufferedImage[] player_down_left, player_down_right, player_up_left, player_up_right;
+    public static BufferedImage[] respawn_animation;
 
 
 
@@ -56,6 +57,7 @@ public class Assets {
         spawner_door = new BufferedImage[5];
         coin_animation = new BufferedImage[12];
         loadingBarArray = new BufferedImage[32];
+        respawn_animation = new BufferedImage[6];
 
         //enemy
         enemy_down = new BufferedImage[2];
@@ -227,6 +229,13 @@ public class Assets {
         loadingBarArray[30] = sheet.crop(6 * width, 13 * height, width, height);
         loadingBarArray[31] = sheet.crop(7 * width, 13 * height, width, height);
 
+        //respawn animation
+        respawn_animation[0] = sheet.crop(5 * width, 18 * height, width, height);
+        respawn_animation[1] = sheet.crop(4 * width, 18 * height, width, height);
+        respawn_animation[2] = sheet.crop(3 * width, 18 * height, width, height);
+        respawn_animation[3] = sheet.crop(2 * width, 18 * height, width, height);
+        respawn_animation[4] = sheet.crop(width, 18 * height, width, height);
+        respawn_animation[5] = sheet.crop(0, 18 * height, width, height);
 
         //others
         enemy = sheet.crop(0,3 * width, width, height);
@@ -243,5 +252,6 @@ public class Assets {
         store_shotgun_green = sheet.crop(0, 17 * height, width * 2, height);
         store_shotgun_red = sheet.crop(2 * width, 17 * height, width * 2, height);
         banner_not_enough_money = sheet.crop(0, 19 * height, width * 10, height);
+        immortalBubble = sheet.crop(6 * width, 18 * height, width, height);
     }
 }
