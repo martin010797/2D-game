@@ -140,14 +140,14 @@ public class World {
                 }*/
             }
         }
-        for (int i = 0; i < 5; i++){
+        for (int i = 0; i < 6; i++){
             g.drawImage(Assets.player_stats_background, i * Tile.TILEWIDTH, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
         }
         g.drawImage(Assets.bubble_background1, 0, handler.getGame().getHeight() - Tile.TILEHEIGHT, Tile.TILEWIDTH - 20 ,Tile.TILEHEIGHT , null);
         g.drawImage(Assets.static_player_down, - 7, handler.getGame().getHeight() - Tile.TILEHEIGHT + 3,Tile.TILEWIDTH - 7 ,Tile.TILEHEIGHT - 7 , null);
         g.drawImage(Assets.bubble_background1, 100, handler.getGame().getHeight() - Tile.TILEHEIGHT + 3,Tile.TILEWIDTH - 22 ,Tile.TILEHEIGHT - 7 , null);
         g.drawImage(Assets.coin, 92, handler.getGame().getHeight() - Tile.TILEHEIGHT + 3,Tile.TILEWIDTH - 7 ,Tile.TILEHEIGHT - 7 , null);
-
+        g.drawImage(Assets.player_ability, 5 * Tile.TILEWIDTH, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
         //entities
         entityManager.render(g);
     }

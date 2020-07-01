@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class RifleProjectile extends Projectile {
     public static final int PRICE = 10;
-    public static final int MAX_NUMBER_OF_PROJECTILES = 230;
+    public static final int MAX_NUMBER_OF_PROJECTILES = 150;
     private static final float DEFAULT_SPEED = 14.0f;
 
     public RifleProjectile(Handler pHandler, float x, float y, int pWidth, int pHeight, Direction pDirection, Player pPlayer) {

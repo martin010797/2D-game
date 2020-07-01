@@ -14,7 +14,8 @@ import java.util.Iterator;
 public class Player extends Creature {
 
     private static final int DEFAULT_DELTA_PROJECTILE = 250, RIFLE_PROJECTILE_DELTA = 100, RPG_PROJECTILE_DELTA = 280, DEFAULT_NUMBER_OF_LIVES = 3,
-            NUMBER_WIDTH = 32, NUMBER_HEIGHT = 32, CONFIRMATION_TIME = 1000, ONESECOND = 1000, DEFAULT_PROJECTILES_REMINING = -1, SHOTGUN_PROJECTILE_DELTA = 300;
+            NUMBER_WIDTH = 32, NUMBER_HEIGHT = 32, CONFIRMATION_TIME = 750, ONESECOND = 1000, DEFAULT_PROJECTILES_REMINING = -1,
+            SHOTGUN_PROJECTILE_DELTA = 300, ABILITYCHARGETIME = 15000;
 
     private Animation animDown, animUp, animLeft, animRight, animDownLeft, animDownRight, animUpLeft, animUpRight;
     private OneTimeAnimation animation_respawn;
@@ -44,6 +45,11 @@ public class Player extends Creature {
     private long lastTimeItemQ = System.currentTimeMillis();
     private long lastTimeItemW = System.currentTimeMillis();
     private long lastTimeItemE = System.currentTimeMillis();
+
+    //ability
+    private boolean abilityReady = false;
+    private long lastTimeAbility = System.currentTimeMillis();
+    private long timerAbility = 0;
 
     //wait time before disappearing banner
     private long nowBanner;
@@ -155,6 +161,13 @@ public class Player extends Creature {
                 System.out.println("alive");
                 deltaRespawn = 0;
             }
+        }
+        //special ability
+        timerAbility += System.currentTimeMillis() - lastTimeAbility;
+        lastTimeAbility = System.currentTimeMillis();
+        if (timerAbility >= ABILITYCHARGETIME && !abilityReady){
+            abilityReady = true;
+            //System.out.println("ability ready");
         }
         //movement
         if (animation_respawn.getCurrentFrame() == null){
@@ -453,6 +466,41 @@ public class Player extends Creature {
             }
         }
 
+        //ability
+        if (handler.getKeyManager().a && abilityReady){
+            specialAbility();
+            abilityReady = false;
+            timerAbility = 0;
+            lastTimeAbility = System.currentTimeMillis();
+        }
+    }
+
+    public void specialAbility(){
+        //UP
+        Projectile newProjectile = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.UP, this);
+        projectiles.add(newProjectile);
+        //DOWN
+        Projectile newProjectile2 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.DOWN, this);
+        projectiles.add(newProjectile2);
+        //LEFT
+        Projectile newProjectile3 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.LEFT, this);
+        projectiles.add(newProjectile3);
+        //RIGHT
+        Projectile newProjectile4 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.RIGHT, this);
+        projectiles.add(newProjectile4);
+        //UP LEFT
+        Projectile newProjectile5 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.UP_LEFT, this);
+        projectiles.add(newProjectile5);
+        //UP RIGHT
+        Projectile newProjectile6 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.UP_RIGHT, this);
+        projectiles.add(newProjectile6);
+        //DOWN LEFT
+        Projectile newProjectile7 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.DOWN_LEFT, this);
+        projectiles.add(newProjectile7);
+        //DOWN RIGHT
+        Projectile newProjectile8 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.DOWN_RIGHT, this);
+        projectiles.add(newProjectile8);
+        //System.out.println("ability used");
     }
 
     @Override
@@ -537,6 +585,21 @@ public class Player extends Creature {
                 break;
             }
         }
+
+        //rendering bar for ability
+        if (abilityReady)
+            g.drawImage(Assets.loading_bar_green_full, Tile.TILEWIDTH * 5, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+        else {
+            rest = timerAbility;
+            for (int i = 0; i < 32; i++){
+                rest -= (int) (ABILITYCHARGETIME / 32);
+                if (rest <= (int) (ABILITYCHARGETIME / 32)){
+                    g.drawImage(Assets.loadingBarArray[31 - i], Tile.TILEWIDTH * 5, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+                    break;
+                }
+            }
+        }
+
 
         //renderinng type of projectile and progress of spending it
         renderTypeOfProjectile(g);
