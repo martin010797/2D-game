@@ -5,7 +5,11 @@ import creatures.Player;
 import entities.EntityManager;
 import game.Handler;
 import graphics.Assets;
+import jdk.swing.interop.SwingInterOpUtils;
+import statics.DoubleCoinsBoost;
+import statics.ImmortalityBoost;
 import statics.Spawner;
+import statics.SpeedBoost;
 import tiles.Tile;
 import utils.Utils;
 
@@ -14,11 +18,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class World {
 
-    private static final int NUMBEROFENEMIES = 60, MAXNUMBEROFENEMIESONSCREEN = 20, NUMBEROFSPAWNERS = 4, ZERO = 0;
+    private static final int NUMBEROFENEMIES = 60, MAXNUMBEROFENEMIESONSCREEN = 20, NUMBEROFSPAWNERS = 4, ZERO = 0,
+            NUMBER_OF_BOOSTS = 3;
     private static final int FIRSTSPAWNER = 0, SECONDSPAWNER = 1, THIRDSPAWNER = 2, FOURTHSPAWNER = 3;
+    private static final int FIRST_BOOST = 0, SECOND_BOOST = 1, THIRD_BOOST = 2;
     private static final int XFIRSTSPAWNER = 0, YFIRSTSPAWNER = 0, XSECONDSPAWNER = 0, YSECONDSPAWNER = 639,
         XTHIRDSPAWNER = 1152, YTHIRDSPAWNER = 0, XFOURTHSPAWNER = 1152, YFOURTHSPAWNER = 639;
-    private static final int ONESECOND = 1000;
+    private static final int ONESECOND = 1000, BOOST_TIMER_EACH = 20000;
 
     private Handler handler;
     //how big world will be (number of tiles)
@@ -37,6 +43,10 @@ public class World {
     private long now;
     private long lastTime = System.currentTimeMillis();;
     private long delta = 0;
+
+    //timing booster
+    private long lastTimeBooster = System.currentTimeMillis();
+    private long timerBooster = 0;
 
     public World(Handler pHandler, String pPath){
         handler = pHandler;
@@ -140,7 +150,7 @@ public class World {
                 }*/
             }
         }
-        for (int i = 0; i < 6; i++){
+        for (int i = 0; i < 7; i++){
             g.drawImage(Assets.player_stats_background, i * Tile.TILEWIDTH, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
         }
         g.drawImage(Assets.bubble_background1, 0, handler.getGame().getHeight() - Tile.TILEHEIGHT, Tile.TILEWIDTH - 20 ,Tile.TILEHEIGHT , null);
@@ -148,6 +158,41 @@ public class World {
         g.drawImage(Assets.bubble_background1, 100, handler.getGame().getHeight() - Tile.TILEHEIGHT + 3,Tile.TILEWIDTH - 22 ,Tile.TILEHEIGHT - 7 , null);
         g.drawImage(Assets.coin, 92, handler.getGame().getHeight() - Tile.TILEHEIGHT + 3,Tile.TILEWIDTH - 7 ,Tile.TILEHEIGHT - 7 , null);
         g.drawImage(Assets.player_ability, 5 * Tile.TILEWIDTH, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+
+        /*
+        timerAbility += System.currentTimeMillis() - lastTimeAbility;
+        lastTimeAbility = System.currentTimeMillis();
+        if (timerAbility >= ABILITYCHARGETIME && !abilityReady){
+            abilityReady = true;
+            //System.out.println("ability ready");
+        }
+         */
+
+        timerBooster += System.currentTimeMillis() - lastTimeBooster;
+        lastTimeBooster = System.currentTimeMillis();
+        if (timerBooster >= BOOST_TIMER_EACH){
+            int randomBoost = ThreadLocalRandom.current().nextInt(ZERO, NUMBER_OF_BOOSTS);
+            int randomX = ThreadLocalRandom.current().nextInt((int) (Tile.TILEWIDTH * 2) , (int) (width * Tile.TILEWIDTH - Tile.TILEWIDTH * 2 + 1));
+            int randomY = ThreadLocalRandom.current().nextInt((int) (Tile.TILEHEIGHT * 2), (int) (height * Tile.TILEWIDTH - Tile.TILEHEIGHT * 2 + 1));
+            switch (randomBoost){
+                case FIRST_BOOST:{
+                    DoubleCoinsBoost boost = new DoubleCoinsBoost(handler, randomX, randomY, Tile.TILEWIDTH, Tile.TILEHEIGHT);
+                    entityManager.addEntity(boost);
+                    break;
+                }
+                case SECOND_BOOST:{
+                    ImmortalityBoost boost = new ImmortalityBoost(handler, randomX, randomY, Tile.TILEWIDTH, Tile.TILEHEIGHT);
+                    entityManager.addEntity(boost);
+                    break;
+                }
+                case THIRD_BOOST:{
+                    SpeedBoost boost = new SpeedBoost(handler, randomX, randomY, Tile.TILEWIDTH, Tile.TILEHEIGHT);
+                    entityManager.addEntity(boost);
+                    break;
+                }
+            }
+            timerBooster = 0;
+        }
         //entities
         entityManager.render(g);
     }
