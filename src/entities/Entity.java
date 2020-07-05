@@ -2,9 +2,14 @@ package entities;
 
 import creatures.Enemy;
 import creatures.Player;
+import creatures.TypeOfBoost;
 import game.Game;
 import game.Handler;
 import org.w3c.dom.css.Rect;
+import statics.Boost;
+import statics.DoubleCoinsBoost;
+import statics.ImmortalityBoost;
+import statics.SpeedBoost;
 
 import java.awt.*;
 import java.util.Comparator;
@@ -65,6 +70,13 @@ public abstract class Entity {
 
     public boolean chceckEntityCollision(float xOffset, float yOffset){
         for (Entity e: handler.getWorld().getEntityManager().getEntities()){
+            //avoiding collisions enemy with boosts
+            if (this instanceof Enemy && e instanceof Boost || this instanceof Boost && e instanceof Enemy)
+                continue;
+            //avoiding collisions projectile with boosts
+            if (this instanceof Projectile && e instanceof Boost || this instanceof Boost && e instanceof Projectile)
+                continue;
+
             if (this instanceof Enemy && e instanceof Enemy){
                 //to avoid collisions enemy with enemy
                 continue;
@@ -96,7 +108,6 @@ public abstract class Entity {
                 continue;
             if (e.equals(this))
                 continue;
-            //TODO change for projectiles
             //checking if entity dont want to leave map
             if ((int) (x + bounds.x + xOffset) < 0 || ((int) (x + bounds.x + bounds.width + xOffset) > handler.getWidth())
                     || (int) (y + bounds.y + yOffset) < 0)
@@ -111,6 +122,19 @@ public abstract class Entity {
                 if ((this instanceof RPGProjectile && e instanceof Enemy) || (this instanceof Enemy && e instanceof RPGProjectile) ){
                     return false;
                 }
+                //checking collision player with boosts
+                if (this instanceof Player && e instanceof SpeedBoost){
+                    ((Player) this).setTypeOfBoost(TypeOfBoost.SPEED);
+                    ((SpeedBoost) e).destroy();
+                }
+                if (this instanceof Player && e instanceof DoubleCoinsBoost){
+                    ((Player) this).setTypeOfBoost(TypeOfBoost.DOUBLE_COINS);
+                    ((DoubleCoinsBoost) e).destroy();
+                }
+                if (this instanceof Player && e instanceof ImmortalityBoost){
+                    ((Player) this).setTypeOfBoost(TypeOfBoost.IMMORTALITY);
+                    ((ImmortalityBoost) e).destroy();
+                }
                 return true;
             }
         }
@@ -119,6 +143,12 @@ public abstract class Entity {
 
     public boolean chceckEntityCollisionExcludeEntity(float xOffset, float yOffset, Entity pEntity){
         for (Entity e: handler.getWorld().getEntityManager().getEntities()){
+            //avoiding collisions enemy with boosts
+            if (this instanceof Enemy && e instanceof Boost || this instanceof Boost && e instanceof Enemy)
+                continue;
+            //avoiding collisions projectile with boosts
+            if (this instanceof Projectile && e instanceof Boost || this instanceof Boost && e instanceof Projectile)
+                continue;
             //not getting collison with coins
             if (this instanceof Coin || e instanceof Coin){
                 if (e instanceof Coin && this instanceof Player ){

@@ -3,6 +3,7 @@ package entities;
 import creatures.Enemy;
 import creatures.Player;
 import game.Handler;
+import statics.Boost;
 import statics.Spawner;
 
 import java.awt.*;
@@ -57,6 +58,10 @@ public class EntityManager {
             Entity e = (Entity) itr.next();
             if (e instanceof Coin){
                 if(((Coin) e).isDestroyed())
+                    itr.remove();
+            }
+            if (e instanceof Boost){
+                if (((Boost) e).isDestroyed())
                     itr.remove();
             }
         }

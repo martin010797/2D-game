@@ -25,8 +25,10 @@ public class Assets {
     public static BufferedImage one, two, three, four, five, six,seven, eight, nine, zero;
     public static BufferedImage store_rpg_green, store_rpg_red, store_rifle_green, store_rifle_red, store_shotgun_green,
             store_shotgun_red;
-    public static BufferedImage banner_not_enough_money, immortalBubble;
+    public static BufferedImage banner_not_enough_money, immortalBubble, player_ability, loading_bar_green_full,no_active_boost,
+            speed_boost, double_coins_boost, immortality_boost;
     //arrays
+    public static BufferedImage[] speed_boost_array, double_coins_boost_array, immortality_boost_array;
     public static BufferedImage[] btn_start;
     public static BufferedImage[] spawner_door;
     public static BufferedImage[] enemy_down, enemy_up, enemy_right, enemy_left, enemy_down_left, enemy_down_right,
@@ -68,6 +70,11 @@ public class Assets {
         enemy_down_right = new BufferedImage[2];
         enemy_up_left = new BufferedImage[2];
         enemy_up_right = new BufferedImage[2];
+
+        //boosts
+        double_coins_boost_array = new BufferedImage[2];
+        immortality_boost_array = new BufferedImage[2];
+        speed_boost_array = new BufferedImage[2];
 
         //menu
         btn_start = new BufferedImage[2];
@@ -237,6 +244,18 @@ public class Assets {
         respawn_animation[4] = sheet.crop(width, 18 * height, width, height);
         respawn_animation[5] = sheet.crop(0, 18 * height, width, height);
 
+        //boosts
+        no_active_boost = sheet.crop(6 * width, 20 * height, width, height);
+        speed_boost = sheet.crop(7 * width, 20 * height, width, height);
+        immortality_boost = sheet.crop(8 * width, 20 * height, width, height);
+        double_coins_boost = sheet.crop(9 * width, 20 * height, width, height);
+        speed_boost_array[0] = sheet.crop(0, 20 * height, width, height);
+        speed_boost_array[1] = sheet.crop(width, 20 * height, width, height);
+        immortality_boost_array[0] = sheet.crop(2 * width, 20 * height, width, height);
+        immortality_boost_array[1] = sheet.crop(3 * width, 20 * height, width, height);
+        double_coins_boost_array[0] = sheet.crop(4 * width, 20 * height, width, height);
+        double_coins_boost_array[1] = sheet.crop(5 * width, 20 * height, width, height);
+
         //others
         enemy = sheet.crop(0,3 * width, width, height);
         nothing = sheet.crop(9 * width, 7 * height, width, height);
@@ -253,5 +272,7 @@ public class Assets {
         store_shotgun_red = sheet.crop(2 * width, 17 * height, width * 2, height);
         banner_not_enough_money = sheet.crop(0, 19 * height, width * 10, height);
         immortalBubble = sheet.crop(6 * width, 18 * height, width, height);
+        player_ability = sheet.crop(7 * width, 18 * height, width, height);
+        loading_bar_green_full = sheet.crop(8 * width, 18 * height, width, height);
     }
 }

@@ -4,17 +4,22 @@ import game.Handler;
 import graphics.Animation;
 import graphics.Assets;
 import graphics.OneTimeAnimation;
+import statics.DoubleCoinsBoost;
+import statics.ImmortalityBoost;
+import statics.SpeedBoost;
 import tiles.Tile;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Player extends Creature {
 
     private static final int DEFAULT_DELTA_PROJECTILE = 250, RIFLE_PROJECTILE_DELTA = 100, RPG_PROJECTILE_DELTA = 280, DEFAULT_NUMBER_OF_LIVES = 3,
-            NUMBER_WIDTH = 32, NUMBER_HEIGHT = 32, CONFIRMATION_TIME = 1000, ONESECOND = 1000, DEFAULT_PROJECTILES_REMINING = -1, SHOTGUN_PROJECTILE_DELTA = 300;
+            NUMBER_WIDTH = 32, NUMBER_HEIGHT = 32, CONFIRMATION_TIME = 750, ONESECOND = 1000, DEFAULT_PROJECTILES_REMINING = -1,
+            SHOTGUN_PROJECTILE_DELTA = 300, ABILITYCHARGETIME = 15000, NO_BOOST_DURATION = -1;
 
     private Animation animDown, animUp, animLeft, animRight, animDownLeft, animDownRight, animUpLeft, animUpRight;
     private OneTimeAnimation animation_respawn;
@@ -24,7 +29,6 @@ public class Player extends Creature {
     private boolean dead = false;
     private boolean endOfGame = false;
     private boolean immortal = false;
-    private boolean invisible = false;
     private TypeOfProjectile typeOfProjectile;
     private int remainingProjectiles = DEFAULT_PROJECTILES_REMINING;
     private int numberOfCoins = 0;
@@ -45,6 +49,17 @@ public class Player extends Creature {
     private long lastTimeItemW = System.currentTimeMillis();
     private long lastTimeItemE = System.currentTimeMillis();
 
+    //ability
+    private boolean abilityReady = false;
+    private long lastTimeAbility = System.currentTimeMillis();
+    private long timerAbility = 0;
+
+    //boost
+    private TypeOfBoost typeOfBoost;
+    private long durationOfBoost = NO_BOOST_DURATION;
+    private long timerBoost = 0;
+    private long lastTimeBoost = System.currentTimeMillis();
+
     //wait time before disappearing banner
     private long nowBanner;
     private long deltaBanner = 0;
@@ -64,7 +79,6 @@ public class Player extends Creature {
     private long delta = 0;
     private long now;
     private long lastTime = System.currentTimeMillis();
-
 
     private boolean shooting = false;
 
@@ -96,6 +110,7 @@ public class Player extends Creature {
         immortal = true;
         lastTimeRespawn = System.currentTimeMillis();
         animation_respawn.setLastTime(System.currentTimeMillis());
+        typeOfBoost = TypeOfBoost.NO_ACTIVE_BOOST;
     }
 
     public void respawn(){
@@ -107,16 +122,23 @@ public class Player extends Creature {
         y = handler.getWorld().getSpawnY();
         immortal = true;
         animation_respawn.setLastTime(System.currentTimeMillis());
-        //invisible = true;
     }
 
     public void die(){
         if (!dead){
             respawn();
-            //System.out.println("dead");
             lastTimeRespawn = System.currentTimeMillis();
             dead = true;
             numberOfLives--;
+            //reseting boosts when die
+            if (typeOfBoost == TypeOfBoost.SPEED)
+                this.speed = DEFAULT_SPEED;
+            typeOfBoost = TypeOfBoost.NO_ACTIVE_BOOST;
+            durationOfBoost = NO_BOOST_DURATION;
+            //resetting projectile
+            typeOfProjectile = TypeOfProjectile.DEFAULT;
+            remainingProjectiles = DEFAULT_PROJECTILES_REMINING;
+
             if (numberOfLives == -1){
                 numberOfLives = 0;
                 endOfGame = true;
@@ -156,6 +178,38 @@ public class Player extends Creature {
                 deltaRespawn = 0;
             }
         }
+        //special ability
+        timerAbility += System.currentTimeMillis() - lastTimeAbility;
+        lastTimeAbility = System.currentTimeMillis();
+        if (timerAbility >= ABILITYCHARGETIME && !abilityReady){
+            abilityReady = true;
+            //System.out.println("ability ready");
+        }
+
+        //boost
+        if (typeOfBoost != TypeOfBoost.NO_ACTIVE_BOOST){
+            switch (typeOfBoost){
+                case IMMORTALITY:{
+                    immortal = true;
+                    break;
+                }
+                case SPEED:{
+                    this.speed = 4.0f;
+                }
+            }
+            timerBoost += System.currentTimeMillis() - lastTimeBoost;
+            lastTimeBoost = System.currentTimeMillis();
+            if (timerBoost >= durationOfBoost){
+                if (typeOfBoost == TypeOfBoost.IMMORTALITY)
+                    immortal = false;
+                if (typeOfBoost == TypeOfBoost.SPEED)
+                    this.speed = DEFAULT_SPEED;
+                typeOfBoost = TypeOfBoost.NO_ACTIVE_BOOST;
+                durationOfBoost = NO_BOOST_DURATION;
+            }
+        }
+
+
         //movement
         if (animation_respawn.getCurrentFrame() == null){
             getInput();
@@ -453,6 +507,41 @@ public class Player extends Creature {
             }
         }
 
+        //ability
+        if (handler.getKeyManager().a && abilityReady){
+            specialAbility();
+            abilityReady = false;
+            timerAbility = 0;
+            lastTimeAbility = System.currentTimeMillis();
+        }
+    }
+
+    public void specialAbility(){
+        //UP
+        Projectile newProjectile = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.UP, this);
+        projectiles.add(newProjectile);
+        //DOWN
+        Projectile newProjectile2 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.DOWN, this);
+        projectiles.add(newProjectile2);
+        //LEFT
+        Projectile newProjectile3 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.LEFT, this);
+        projectiles.add(newProjectile3);
+        //RIGHT
+        Projectile newProjectile4 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.RIGHT, this);
+        projectiles.add(newProjectile4);
+        //UP LEFT
+        Projectile newProjectile5 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.UP_LEFT, this);
+        projectiles.add(newProjectile5);
+        //UP RIGHT
+        Projectile newProjectile6 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.UP_RIGHT, this);
+        projectiles.add(newProjectile6);
+        //DOWN LEFT
+        Projectile newProjectile7 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.DOWN_LEFT, this);
+        projectiles.add(newProjectile7);
+        //DOWN RIGHT
+        Projectile newProjectile8 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.DOWN_RIGHT, this);
+        projectiles.add(newProjectile8);
+        //System.out.println("ability used");
     }
 
     @Override
@@ -538,16 +627,65 @@ public class Player extends Creature {
             }
         }
 
+        //rendering bar for ability
+        if (abilityReady)
+            g.drawImage(Assets.loading_bar_green_full, Tile.TILEWIDTH * 5, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+        else {
+            rest = timerAbility;
+            for (int i = 0; i < 32; i++){
+                rest -= (int) (ABILITYCHARGETIME / 32);
+                if (rest <= (int) (ABILITYCHARGETIME / 32)){
+                    g.drawImage(Assets.loadingBarArray[31 - i], Tile.TILEWIDTH * 5, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+                    break;
+                }
+            }
+        }
+
+
         //renderinng type of projectile and progress of spending it
         renderTypeOfProjectile(g);
         //rendering banner
         if (notEnoughMoney){
             renderNotEnoughMoneyBanner(g);
         }
+        //boosts
+        renderBoostBar(g);
         //collision box
         //if I want to see collison box
         //g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
                 //(int) (y + bounds.y - handler.getGameCamera().getyOffset()), bounds.width, bounds.height);
+    }
+
+    public void renderBoostBar(Graphics g){
+        if (typeOfBoost != TypeOfBoost.NO_ACTIVE_BOOST){
+            long rest = timerBoost;
+            for (int i = 0; i < 32; i++){
+                rest -= (int) (durationOfBoost / 32);
+                if (rest <= (int) (durationOfBoost / 32)){
+                    g.drawImage(Assets.loadingBarArray[i], Tile.TILEWIDTH * 6, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+                    break;
+                }
+            }
+        }
+        switch (typeOfBoost){
+            case SPEED:{
+                g.drawImage(Assets.speed_boost, Tile.TILEWIDTH * 6, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+                break;
+            }
+            case IMMORTALITY:{
+                g.drawImage(Assets.immortality_boost, Tile.TILEWIDTH * 6, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+                break;
+            }
+            case DOUBLE_COINS:{
+                g.drawImage(Assets.double_coins_boost, Tile.TILEWIDTH * 6, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+                break;
+            }
+            case NO_ACTIVE_BOOST:{
+                g.drawImage(Assets.no_active_boost, Tile.TILEWIDTH * 6, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+                break;
+            }
+        }
+
     }
 
     //if I'll decide to have more banners I'l create class for that
@@ -733,10 +871,29 @@ public class Player extends Creature {
     }
 
     public void addCoin(){
+        if (typeOfBoost == TypeOfBoost.DOUBLE_COINS)
+            numberOfCoins++;
         numberOfCoins++;
     }
 
     public boolean isImmortal() {
         return immortal;
+    }
+
+    public void setTypeOfBoost(TypeOfBoost typeOfBoost) {
+        this.typeOfBoost = typeOfBoost;
+        switch (typeOfBoost){
+            case DOUBLE_COINS:
+                durationOfBoost = DoubleCoinsBoost.BOOST_DURATION;
+                break;
+            case IMMORTALITY:
+                durationOfBoost = ImmortalityBoost.BOOST_DURATION;
+                break;
+            case SPEED:
+                durationOfBoost = SpeedBoost.BOOST_DURATION;
+                break;
+        }
+        timerBoost = 0;
+        lastTimeBoost = System.currentTimeMillis();
     }
 }
