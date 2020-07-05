@@ -19,7 +19,7 @@ public class Player extends Creature {
 
     private static final int DEFAULT_DELTA_PROJECTILE = 250, RIFLE_PROJECTILE_DELTA = 100, RPG_PROJECTILE_DELTA = 280, DEFAULT_NUMBER_OF_LIVES = 3,
             NUMBER_WIDTH = 32, NUMBER_HEIGHT = 32, CONFIRMATION_TIME = 750, ONESECOND = 1000, DEFAULT_PROJECTILES_REMINING = -1,
-            SHOTGUN_PROJECTILE_DELTA = 300, ABILITYCHARGETIME = 15000, NO_BOOST_DURATION = -1;
+            SHOTGUN_PROJECTILE_DELTA = 300, ABILITYCHARGETIME = 15000, NO_BOOST_DURATION = -1, DOG_PRICE = 1;
 
     private Animation animDown, animUp, animLeft, animRight, animDownLeft, animDownRight, animUpLeft, animUpRight;
     private OneTimeAnimation animation_respawn;
@@ -32,22 +32,28 @@ public class Player extends Creature {
     private TypeOfProjectile typeOfProjectile;
     private int remainingProjectiles = DEFAULT_PROJECTILES_REMINING;
     private int numberOfCoins = 0;
+    private boolean activeDog = false;
 
     private boolean ignoreBuyRifle= false;
     private boolean ignoreBuyRPG= false;
     private boolean ignoreBuyShotgun = false;
+    private boolean ignoreBuyDog = false;
     private boolean notEnoughMoney = false;
 
     //confiramtions for buying items
     private long nowItemQ;
     private long nowItemW;
     private long nowItemE;
+    private long nowItemT;
     private long deltaItemQ = 0;
     private long deltaItemW = 0;
     private long deltaItemE = 0;
+    private long deltaItemT = 0;
     private long lastTimeItemQ = System.currentTimeMillis();
     private long lastTimeItemW = System.currentTimeMillis();
     private long lastTimeItemE = System.currentTimeMillis();
+    private long lastTimeItemT = System.currentTimeMillis();
+
 
     //ability
     private boolean abilityReady = false;
@@ -503,6 +509,40 @@ public class Player extends Creature {
                         deltaItemE = 0;
                     }
                     ignoreBuyRPG = true;
+                }
+            }
+        }
+
+        //buying item T
+        if (!handler.getKeyManager().t) {
+            lastTimeItemT = System.currentTimeMillis();
+            deltaItemT = 0;
+            if (activeDog)
+                ignoreBuyDog = true;
+            else
+                ignoreBuyDog = false;
+        }
+        if (!ignoreBuyDog){
+            if (handler.getKeyManager().t){
+                nowItemT = System.currentTimeMillis();
+                deltaItemT += nowItemT - lastTimeItemT;
+                lastTimeItemT = nowItemT;
+                if (deltaItemT >= CONFIRMATION_TIME){
+                    if (numberOfCoins >= DOG_PRICE){
+                        activeDog = true;
+                        handler.getWorld().getEntityManager().addEntity(new Dog(handler, 200, 200));
+                        //entityManager.addEntity(spawner1, 0);
+                        deltaItemT = 0;
+                        numberOfCoins = numberOfCoins - DOG_PRICE;
+                        System.out.println("bought dog");
+                    }else {
+                        System.out.println("not enough money");
+                        notEnoughMoney = true;
+                        deltaBanner = 0;
+                        lastTimeBanner = System.currentTimeMillis();
+                        deltaItemT = 0;
+                    }
+                    ignoreBuyDog = true;
                 }
             }
         }

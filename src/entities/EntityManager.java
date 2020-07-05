@@ -17,6 +17,8 @@ public class EntityManager {
     private ArrayList<Entity> entities;
     private ArrayList<Enemy> enemies;
     private ArrayList<Spawner> spawners;
+    private ArrayList<Coin> coins;
+
 
     private Comparator<Entity> renderSorter = new Comparator<Entity>() {
         @Override
@@ -33,6 +35,7 @@ public class EntityManager {
         entities = new ArrayList<Entity>();
         enemies = new ArrayList<Enemy>();
         spawners = new ArrayList<Spawner>();
+        coins = new ArrayList<Coin>();
         addEntity(player);
     }
 
@@ -48,7 +51,10 @@ public class EntityManager {
                 killedEnemy = e;
         }
         if (killedEnemy != null){
-            addEntity(new Coin(handler, killedEnemy.x, killedEnemy.y, killedEnemy.width, killedEnemy.height));
+            Coin c = new Coin(handler, killedEnemy.x, killedEnemy.y, killedEnemy.width, killedEnemy.height);
+            addEntity(c);
+            //added
+            coins.add(c);
             enemies.remove(killedEnemy);
             entities.remove(killedEnemy);
             handler.getWorld().addDefeatedEnemy();
@@ -57,8 +63,11 @@ public class EntityManager {
         while (itr.hasNext()){
             Entity e = (Entity) itr.next();
             if (e instanceof Coin){
-                if(((Coin) e).isDestroyed())
+                if(((Coin) e).isDestroyed()){
+                    //added because of dog
+                    coins.remove(e);
                     itr.remove();
+                }
             }
             if (e instanceof Boost){
                 if (((Boost) e).isDestroyed())
@@ -116,6 +125,10 @@ public class EntityManager {
 
     public ArrayList<Spawner> getSpawners() {
         return spawners;
+    }
+
+    public ArrayList<Coin> getCoins() {
+        return coins;
     }
 
 }
