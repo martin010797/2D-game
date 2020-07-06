@@ -25,11 +25,11 @@
      inkscape:window-width="1920"
      showgrid="false"
      inkscape:document-rotation="0"
-     inkscape:current-layer="g933-2"
+     inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="484.47791"
-     inkscape:cx="319.12889"
-     inkscape:zoom="0.64213027"
+     inkscape:cy="-198.66192"
+     inkscape:cx="1035.5506"
+     inkscape:zoom="0.64213026"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -53,14 +53,14 @@
      inkscape:label="Vrstva 1">
     <rect
        ry="20.410715"
-       y="90.714287"
-       x="19.65476"
+       y="-268.23663"
+       x="345.97375"
        height="58.208332"
        width="176.89285"
        id="rect839"
-       style="fill:#5d5d5d;fill-opacity:0.99729729;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <g
-       transform="translate(-0.41203996,-2.8842797)"
+       transform="translate(325.90697,-361.83519)"
        id="g933">
       <rect
          ry="20.410715"
@@ -73,27 +73,27 @@
     </g>
     <text
        id="text864"
-       y="129.2704"
-       x="46.492058"
+       y="-229.68051"
+       x="372.81107"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
-         y="129.2704"
-         x="46.492058"
+         y="-229.68051"
+         x="372.81107"
          id="tspan862"
          sodipodi:role="line">START GAME</tspan></text>
     <rect
-       style="fill:#fffff6;fill-opacity:0.46153796;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#fffff6;fill-opacity:0.461538;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect839-0"
        width="176.89285"
        height="58.208332"
-       x="22.517363"
-       y="177.25873"
+       x="348.83636"
+       y="-181.69218"
        ry="20.410715" />
     <rect
        ry="20.410715"
-       y="181.10533"
-       x="26.799723"
+       y="-177.84558"
+       x="353.11874"
        height="58.208332"
        width="176.89285"
        id="rect839-5-3"
@@ -101,28 +101,290 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="47.29446"
-       y="215.4028"
+       x="373.61346"
+       y="-143.54811"
        id="text864-1"><tspan
          sodipodi:role="line"
          id="tspan862-5"
-         x="47.29446"
-         y="215.4028"
+         x="373.61346"
+         y="-143.54811"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.264583">START GAME</tspan></text>
+    <rect
+       style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect14475"
+       width="176.89285"
+       height="58.208332"
+       x="-256.41202"
+       y="84.945724"
+       ry="20.410715" />
     <g
-       id="g933-2"
-       transform="translate(-33.683918,-96.882456)">
+       id="g14479"
+       transform="translate(-276.47882,-8.6528392)">
+      <rect
+         style="fill:#078eff;fill-opacity:0.979757;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect14477"
+         width="176.89285"
+         height="58.208332"
+         x="24.349165"
+         y="97.445168"
+         ry="20.410715" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-221.41675"
+       y="123.50184"
+       id="text14483"><tspan
+         sodipodi:role="line"
+         id="tspan14481"
+         x="-221.41675"
+         y="123.50184"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583">EXIT GAME</tspan></text>
+    <rect
+       ry="20.410715"
+       y="171.49017"
+       x="-253.54941"
+       height="58.208332"
+       width="176.89285"
+       id="rect14485"
+       style="fill:#fffff6;fill-opacity:0.461538;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       style="fill:#078eff;fill-opacity:0.979757;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect14487"
+       width="176.89285"
+       height="58.208332"
+       x="-249.26706"
+       y="175.33678"
+       ry="20.410715" />
+    <text
+       id="text14491"
+       y="209.63425"
+       x="-220.61433"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.264583"
+         y="209.63425"
+         x="-220.61433"
+         id="tspan14489"
+         sodipodi:role="line">EXIT GAME</tspan></text>
+    <rect
+       ry="20.410715"
+       y="92.362442"
+       x="250.39714"
+       height="58.208332"
+       width="176.89285"
+       id="rect14493"
+       style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <g
+       transform="translate(230.33034,-1.2361199)"
+       id="g14497">
+      <rect
+         ry="20.410715"
+         y="97.445168"
+         x="24.349165"
+         height="58.208332"
+         width="176.89285"
+         id="rect14495"
+         style="fill:#078eff;fill-opacity:0.979757;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <text
+       id="text14501"
+       y="130.91856"
+       x="292.38495"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+         y="130.91856"
+         x="292.38495"
+         id="tspan14499"
+         sodipodi:role="line">TUTORIAL</tspan></text>
+    <rect
+       style="fill:#fffff6;fill-opacity:0.461538;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect14503"
+       width="176.89285"
+       height="58.208332"
+       x="253.25975"
+       y="178.90689"
+       ry="20.410715" />
+    <rect
+       ry="20.410715"
+       y="182.75349"
+       x="257.54208"
+       height="58.208332"
+       width="176.89285"
+       id="rect14505"
+       style="fill:#078eff;fill-opacity:0.979757;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="293.18738"
+       y="217.05096"
+       id="text14509"><tspan
+         sodipodi:role="line"
+         id="tspan14507"
+         x="293.18738"
+         y="217.05096"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.264583">TUTORIAL</tspan></text>
+    <rect
+       ry="20.410715"
+       y="261.04108"
+       x="-252.56339"
+       height="58.208332"
+       width="176.89285"
+       id="rect14511"
+       style="fill:#078eff;fill-opacity:0.979757;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-223.91066"
+       y="295.33856"
+       id="text14515"><tspan
+         sodipodi:role="line"
+         id="tspan14513"
+         x="-223.91066"
+         y="295.33856"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.264583">EXIT GAME</tspan></text>
+    <rect
+       style="fill:#078eff;fill-opacity:0.979757;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect14517"
+       width="176.89285"
+       height="58.208332"
+       x="353.11874"
+       y="-96.261673"
+       ry="20.410715" />
+    <text
+       id="text14521"
+       y="-61.964184"
+       x="373.61346"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.264583"
+         y="-61.964184"
+         x="373.61346"
+         id="tspan14519"
+         sodipodi:role="line">START GAME</tspan></text>
+    <rect
+       style="fill:#078eff;fill-opacity:0.979757;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect14523"
+       width="176.89285"
+       height="58.208332"
+       x="256.71802"
+       y="255.27252"
+       ry="20.410715" />
+    <text
+       id="text14527"
+       y="289.57001"
+       x="292.36331"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.264583"
+         y="289.57001"
+         x="292.36331"
+         id="tspan14525"
+         sodipodi:role="line">TUTORIAL</tspan></text>
+    <g
+       transform="translate(-22.282029,-66.58793)"
+       id="g16426">
+      <rect
+         style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect16411"
+         width="176.89285"
+         height="58.208332"
+         x="-5.8456359"
+         y="-81.710052"
+         ry="20.410715" />
+      <g
+         id="g16415"
+         transform="translate(-25.912438,-175.30862)">
+        <rect
+           style="fill:#078eff;fill-opacity:0.979757;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect16413"
+           width="176.89285"
+           height="58.208332"
+           x="24.349165"
+           y="97.445168"
+           ry="20.410715" />
+      </g>
       <text
-         id="text864-1-2"
-         y="379.65381"
-         x="78.300125"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="29.149633"
+         y="-43.153942"
+         id="text16419"><tspan
+           sodipodi:role="line"
+           id="tspan16417"
+           x="29.149633"
+           y="-43.153942"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583">EXIT GAME</tspan></text>
+    </g>
+    <g
+       id="g16443">
+      <rect
+         ry="20.410715"
+         y="-223.95047"
+         x="-28.127666"
+         height="58.208332"
+         width="176.89285"
+         id="rect16428"
+         style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         transform="translate(-48.194466,-317.54904)"
+         id="g16432">
+        <rect
+           ry="20.410715"
+           y="97.445168"
+           x="24.349165"
+           height="58.208332"
+           width="176.89285"
+           id="rect16430"
+           style="fill:#078eff;fill-opacity:0.979757;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <text
+         id="text16436"
+         y="-185.39436"
+         x="-1.2903686"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.264583"
-           y="379.65381"
-           x="78.300125"
-           id="tspan862-5-4"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+           y="-185.39436"
+           x="-1.2903686"
+           id="tspan16434"
            sodipodi:role="line">START GAME</tspan></text>
+    </g>
+    <g
+       transform="translate(-34.950975,69.242494)"
+       id="g16460">
+      <rect
+         ry="20.410715"
+         y="-141.88799"
+         x="6.8233089"
+         height="58.208332"
+         width="176.89285"
+         id="rect16445"
+         style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         transform="translate(-13.243492,-235.48655)"
+         id="g16449">
+        <rect
+           ry="20.410715"
+           y="97.445168"
+           x="24.349165"
+           height="58.208332"
+           width="176.89285"
+           id="rect16447"
+           style="fill:#078eff;fill-opacity:0.979757;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <text
+         id="text16453"
+         y="-103.33187"
+         x="48.811115"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.3444px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+           y="-103.33187"
+           x="48.811115"
+           id="tspan16451"
+           sodipodi:role="line">TUTORIAL</tspan></text>
     </g>
   </g>
 </svg>
