@@ -38,6 +38,7 @@ public class Assets {
     public static BufferedImage[] player_down, player_up, player_left, player_right;
     public static BufferedImage[] player_down_left, player_down_right, player_up_left, player_up_right;
     public static BufferedImage[] respawn_animation;
+    public static BufferedImage[] dog_down, dog_up;
 
 
 
@@ -70,6 +71,10 @@ public class Assets {
         enemy_down_right = new BufferedImage[2];
         enemy_up_left = new BufferedImage[2];
         enemy_up_right = new BufferedImage[2];
+
+        //dog
+        dog_down = new BufferedImage[2];
+        dog_up = new BufferedImage[2];
 
         //boosts
         double_coins_boost_array = new BufferedImage[2];
@@ -243,6 +248,12 @@ public class Assets {
         respawn_animation[3] = sheet.crop(2 * width, 18 * height, width, height);
         respawn_animation[4] = sheet.crop(width, 18 * height, width, height);
         respawn_animation[5] = sheet.crop(0, 18 * height, width, height);
+
+        //dog animation
+        dog_down[0] = sheet.crop(0, 22 * height, width, height);
+        dog_down[1] = sheet.crop(width, 22 * height, width, height);
+        dog_up[0] = sheet.crop(4 * width, 22 * height, width, height);
+        dog_up[1] = sheet.crop(5 * width, 22 * height, width, height);
 
         //boosts
         no_active_boost = sheet.crop(6 * width, 20 * height, width, height);

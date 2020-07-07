@@ -1,8 +1,6 @@
 package entities;
 
-import creatures.Enemy;
-import creatures.Player;
-import creatures.TypeOfBoost;
+import creatures.*;
 import game.Game;
 import game.Handler;
 import org.w3c.dom.css.Rect;
@@ -83,11 +81,12 @@ public abstract class Entity {
             }
             //not getting collison with coins
             if (this instanceof Coin || e instanceof Coin){
-                if (e instanceof Coin && this instanceof Player ){
+                if (e instanceof Coin && this instanceof Player || e instanceof Coin && this instanceof Dog){
                     if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
                         if (!((Coin) e).isDestroyed()){
                             ((Coin) e).destroyCoin();
-                            ((Player) this).addCoin();
+                            //(Player) this).addCoin();
+                            handler.getWorld().getEntityManager().getPlayer().addCoin();
                         }
                     }
                     continue;
@@ -112,8 +111,18 @@ public abstract class Entity {
             if ((int) (x + bounds.x + xOffset) < 0 || ((int) (x + bounds.x + bounds.width + xOffset) > handler.getWidth())
                     || (int) (y + bounds.y + yOffset) < 0)
                 return true;
-            if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset)))
-            {
+            //dog collisions
+            if (this instanceof Dog && e instanceof Projectile || this instanceof Projectile && e instanceof Dog){
+                continue;
+            }
+            if (this instanceof Dog && e instanceof Creature || this instanceof Creature && e instanceof Dog){
+                continue;
+            }
+            if (this instanceof Dog && e instanceof Boost || this instanceof Boost && e instanceof Dog){
+                continue;
+            }
+
+            if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))) {
                 if (this instanceof Player && e instanceof Enemy){
                     //if ((this instanceof Player && e instanceof Enemy) || (this instanceof Enemy && e instanceof Player)){
                     ((Player) this).die();
@@ -137,6 +146,7 @@ public abstract class Entity {
                 }
                 return true;
             }
+
         }
         return false;
     }
@@ -151,11 +161,12 @@ public abstract class Entity {
                 continue;
             //not getting collison with coins
             if (this instanceof Coin || e instanceof Coin){
-                if (e instanceof Coin && this instanceof Player ){
+                if (e instanceof Coin && this instanceof Player || e instanceof Coin && this instanceof Dog){
                     if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
                         if (!((Coin) e).isDestroyed()){
                             ((Coin) e).destroyCoin();
-                            ((Player) this).addCoin();
+                            //((Player) this).addCoin();
+                            handler.getWorld().getEntityManager().getPlayer().addCoin();
                         }
                     }
                     continue;
@@ -192,6 +203,16 @@ public abstract class Entity {
                 if ((int) (x + bounds.x + xOffset) < 0 || ((int) (x + bounds.x + bounds.width + xOffset) > handler.getWidth())
                         || (int) (y + bounds.y + yOffset) < 0)
                     return true;
+            }
+            //dog collisions
+            if (this instanceof Dog && e instanceof Projectile || this instanceof Projectile && e instanceof Dog){
+                continue;
+            }
+            if (this instanceof Dog && e instanceof Creature || this instanceof Creature && e instanceof Dog){
+                continue;
+            }
+            if (this instanceof Dog && e instanceof Boost || this instanceof Boost && e instanceof Dog){
+                continue;
             }
 
             if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
