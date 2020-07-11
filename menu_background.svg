@@ -11,9 +11,12 @@
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
    id="svg15772"
    version="1.1"
-   viewBox="0 0 210 297"
-   height="297mm"
-   width="210mm">
+   viewBox="0 0 207.9625 75.406251"
+   height="75.40625mm"
+   width="207.96249mm"
+   inkscape:export-filename="C:\Users\Martin\Desktop\menu_buttons.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
   <defs
      id="defs15766">
     <meshgradient
@@ -43,156 +46,6 @@
              id="stop16385"
              style="stop-color:#000000;stop-opacity:1"
              path="c 0,-78.393  0,-156.786  0,-235.179" />
-        </meshpatch>
-      </meshrow>
-    </meshgradient>
-    <meshgradient
-       gradientTransform="matrix(0.68266801,0,0,0.68266801,-25.413216,-11.103653)"
-       y="143.50089"
-       x="-21.895756"
-       gradientUnits="userSpaceOnUse"
-       id="meshgradient18832"
-       inkscape:collect="always">
-      <meshrow
-         id="meshrow18834">
-        <meshpatch
-           id="meshpatch18836">
-          <stop
-             id="stop18838"
-             style="stop-color:#fff400;stop-opacity:1"
-             path="c 30.1627,0  60.3254,0  90.4881,0" />
-          <stop
-             id="stop18840"
-             style="stop-color:#ffffff;stop-opacity:1"
-             path="c 0,9.92534  0,19.8507  0,29.776" />
-          <stop
-             id="stop18842"
-             style="stop-color:#fbff00;stop-opacity:1"
-             path="c -30.1627,0  -60.3254,0  -90.4881,0" />
-          <stop
-             id="stop18844"
-             style="stop-color:#000000;stop-opacity:1"
-             path="c 0,-9.92534  0,-19.8507  0,-29.776" />
-        </meshpatch>
-      </meshrow>
-    </meshgradient>
-    <meshgradient
-       gradientTransform="matrix(0.68266801,0,0,0.68266801,-25.413216,-11.103653)"
-       y="187.77202"
-       x="-20.431417"
-       gradientUnits="userSpaceOnUse"
-       id="meshgradient18846"
-       inkscape:collect="always">
-      <meshrow
-         id="meshrow18848">
-        <meshpatch
-           id="meshpatch18850">
-          <stop
-             id="stop18852"
-             style="stop-color:#fff400;stop-opacity:1"
-             path="c 30.1627,0  60.3254,0  90.4881,0" />
-          <stop
-             id="stop18854"
-             style="stop-color:#ffffff;stop-opacity:1"
-             path="c 0,9.92534  0,19.8507  0,29.776" />
-          <stop
-             id="stop18856"
-             style="stop-color:#fbff00;stop-opacity:1"
-             path="c -30.1627,0  -60.3254,0  -90.4881,0" />
-          <stop
-             id="stop18858"
-             style="stop-color:#000000;stop-opacity:1"
-             path="c 0,-9.92534  0,-19.8507  0,-29.776" />
-        </meshpatch>
-      </meshrow>
-    </meshgradient>
-    <meshgradient
-       gradientTransform="matrix(0.68266801,0,0,0.68266801,-25.413216,-11.103653)"
-       y="229.50562"
-       x="-20.431417"
-       gradientUnits="userSpaceOnUse"
-       id="meshgradient18860"
-       inkscape:collect="always">
-      <meshrow
-         id="meshrow18862">
-        <meshpatch
-           id="meshpatch18864">
-          <stop
-             id="stop18866"
-             style="stop-color:#fff400;stop-opacity:1"
-             path="c 30.1627,0  60.3254,0  90.4881,0" />
-          <stop
-             id="stop18868"
-             style="stop-color:#ffffff;stop-opacity:1"
-             path="c 0,9.92534  0,19.8507  0,29.776" />
-          <stop
-             id="stop18870"
-             style="stop-color:#fbff00;stop-opacity:1"
-             path="c -30.1627,0  -60.3254,0  -90.4881,0" />
-          <stop
-             id="stop18872"
-             style="stop-color:#000000;stop-opacity:1"
-             path="c 0,-9.92534  0,-19.8507  0,-29.776" />
-        </meshpatch>
-      </meshrow>
-    </meshgradient>
-    <meshgradient
-       gradientTransform="matrix(0.68266801,0,0,0.68266801,-129.41333,-15.117687)"
-       y="229.50562"
-       x="-20.431417"
-       gradientUnits="userSpaceOnUse"
-       id="meshgradient19002"
-       inkscape:collect="always">
-      <meshrow
-         id="meshrow19014">
-        <meshpatch
-           id="meshpatch19012">
-          <stop
-             path="c 30.1627,0  60.3254,0  90.4881,0"
-             style="stop-color:#fff400;stop-opacity:1"
-             id="stop19004" />
-          <stop
-             path="c 0,9.92534  0,19.8507  0,29.776"
-             style="stop-color:#ffffff;stop-opacity:1"
-             id="stop19006" />
-          <stop
-             path="c -30.1627,0  -60.3254,0  -90.4881,0"
-             style="stop-color:#fbff00;stop-opacity:1"
-             id="stop19008" />
-          <stop
-             path="c 0,-9.92534  0,-19.8507  0,-29.776"
-             style="stop-color:#000000;stop-opacity:1"
-             id="stop19010" />
-        </meshpatch>
-      </meshrow>
-    </meshgradient>
-    <meshgradient
-       gradientTransform="matrix(0.68266801,0,0,0.68266801,-129.41333,-15.117687)"
-       y="187.77202"
-       x="-20.431417"
-       gradientUnits="userSpaceOnUse"
-       id="meshgradient19016"
-       inkscape:collect="always">
-      <meshrow
-         id="meshrow19028">
-        <meshpatch
-           id="meshpatch19026">
-          <stop
-             path="c 30.1627,0  60.3254,0  90.4881,0"
-             style="stop-color:#fff400;stop-opacity:1"
-             id="stop19018" />
-          <stop
-             path="c 0,9.92534  0,19.8507  0,29.776"
-             style="stop-color:#ffffff;stop-opacity:1"
-             id="stop19020" />
-          <stop
-             path="c -30.1627,0  -60.3254,0  -90.4881,0"
-             style="stop-color:#fbff00;stop-opacity:1"
-             id="stop19022" />
-          <stop
-             path="c 0,-9.92534  0,-19.8507  0,-29.776"
-             style="stop-color:#000000;stop-opacity:1"
-             id="stop19024" />
         </meshpatch>
       </meshrow>
     </meshgradient>
@@ -227,186 +80,6 @@
       </meshrow>
     </meshgradient>
     <meshgradient
-       y="229.50562"
-       x="-20.431417"
-       gradientTransform="matrix(0.68266801,0,0,0.68266801,70.923741,-12.198391)"
-       gradientUnits="userSpaceOnUse"
-       id="meshgradient19066"
-       inkscape:collect="always">
-      <meshrow
-         id="meshrow19078">
-        <meshpatch
-           id="meshpatch19076">
-          <stop
-             id="stop19068"
-             style="stop-color:#fff400;stop-opacity:1"
-             path="c 30.1627,0  60.3254,0  90.4881,0" />
-          <stop
-             id="stop19070"
-             style="stop-color:#ffffff;stop-opacity:1"
-             path="c 0,9.92534  0,19.8507  0,29.776" />
-          <stop
-             id="stop19072"
-             style="stop-color:#fbff00;stop-opacity:1"
-             path="c -30.1627,0  -60.3254,0  -90.4881,0" />
-          <stop
-             id="stop19074"
-             style="stop-color:#000000;stop-opacity:1"
-             path="c 0,-9.92534  0,-19.8507  0,-29.776" />
-        </meshpatch>
-      </meshrow>
-    </meshgradient>
-    <meshgradient
-       y="187.77202"
-       x="-20.431417"
-       gradientTransform="matrix(0.68266801,0,0,0.68266801,70.923741,-12.198391)"
-       gradientUnits="userSpaceOnUse"
-       id="meshgradient19080"
-       inkscape:collect="always">
-      <meshrow
-         id="meshrow19092">
-        <meshpatch
-           id="meshpatch19090">
-          <stop
-             id="stop19082"
-             style="stop-color:#fff400;stop-opacity:1"
-             path="c 30.1627,0  60.3254,0  90.4881,0" />
-          <stop
-             id="stop19084"
-             style="stop-color:#ffffff;stop-opacity:1"
-             path="c 0,9.92534  0,19.8507  0,29.776" />
-          <stop
-             id="stop19086"
-             style="stop-color:#fbff00;stop-opacity:1"
-             path="c -30.1627,0  -60.3254,0  -90.4881,0" />
-          <stop
-             id="stop19088"
-             style="stop-color:#000000;stop-opacity:1"
-             path="c 0,-9.92534  0,-19.8507  0,-29.776" />
-        </meshpatch>
-      </meshrow>
-    </meshgradient>
-    <meshgradient
-       y="143.50089"
-       x="-21.895756"
-       gradientTransform="translate(141.11831,-1.6036172)"
-       gradientUnits="userSpaceOnUse"
-       id="meshgradient19094"
-       inkscape:collect="always">
-      <meshrow
-         id="meshrow19106">
-        <meshpatch
-           id="meshpatch19104">
-          <stop
-             id="stop19096"
-             style="stop-color:#fff400;stop-opacity:1"
-             path="c 30.1627,0  60.3254,0  90.4881,0" />
-          <stop
-             id="stop19098"
-             style="stop-color:#ffffff;stop-opacity:1"
-             path="c 0,9.92534  0,19.8507  0,29.776" />
-          <stop
-             id="stop19100"
-             style="stop-color:#fbff00;stop-opacity:1"
-             path="c -30.1627,0  -60.3254,0  -90.4881,0" />
-          <stop
-             id="stop19102"
-             style="stop-color:#000000;stop-opacity:1"
-             path="c 0,-9.92534  0,-19.8507  0,-29.776" />
-        </meshpatch>
-      </meshrow>
-    </meshgradient>
-    <meshgradient
-       gradientTransform="translate(251.76789,14.432554)"
-       y="143.50089"
-       x="-21.895756"
-       gradientUnits="userSpaceOnUse"
-       id="meshgradient19116"
-       inkscape:collect="always">
-      <meshrow
-         id="meshrow19128">
-        <meshpatch
-           id="meshpatch19126">
-          <stop
-             path="c 30.1627,0  60.3254,0  90.4881,0"
-             style="stop-color:#fff400;stop-opacity:1"
-             id="stop19118" />
-          <stop
-             path="c 0,9.92534  0,19.8507  0,29.776"
-             style="stop-color:#ffffff;stop-opacity:1"
-             id="stop19120" />
-          <stop
-             path="c -30.1627,0  -60.3254,0  -90.4881,0"
-             style="stop-color:#fbff00;stop-opacity:1"
-             id="stop19122" />
-          <stop
-             path="c 0,-9.92534  0,-19.8507  0,-29.776"
-             style="stop-color:#000000;stop-opacity:1"
-             id="stop19124" />
-        </meshpatch>
-      </meshrow>
-    </meshgradient>
-    <meshgradient
-       y="143.50089"
-       x="-21.895756"
-       gradientTransform="translate(323.93067,56.66114)"
-       gradientUnits="userSpaceOnUse"
-       id="meshgradient19144"
-       inkscape:collect="always">
-      <meshrow
-         id="meshrow19156">
-        <meshpatch
-           id="meshpatch19154">
-          <stop
-             id="stop19146"
-             style="stop-color:#fff400;stop-opacity:1"
-             path="c 30.1627,0  60.3254,0  90.4881,0" />
-          <stop
-             id="stop19148"
-             style="stop-color:#ffffff;stop-opacity:1"
-             path="c 0,9.92534  0,19.8507  0,29.776" />
-          <stop
-             id="stop19150"
-             style="stop-color:#fbff00;stop-opacity:1"
-             path="c -30.1627,0  -60.3254,0  -90.4881,0" />
-          <stop
-             id="stop19152"
-             style="stop-color:#000000;stop-opacity:1"
-             path="c 0,-9.92534  0,-19.8507  0,-29.776" />
-        </meshpatch>
-      </meshrow>
-    </meshgradient>
-    <meshgradient
-       y="143.50089"
-       x="-21.895756"
-       gradientTransform="translate(322.32705,118.13313)"
-       gradientUnits="userSpaceOnUse"
-       id="meshgradient19172"
-       inkscape:collect="always">
-      <meshrow
-         id="meshrow19184">
-        <meshpatch
-           id="meshpatch19182">
-          <stop
-             path="c 30.1627,0  60.3254,0  90.4881,0"
-             style="stop-color:#fff400;stop-opacity:1"
-             id="stop19174" />
-          <stop
-             path="c 0,9.92534  0,19.8507  0,29.776"
-             style="stop-color:#ffffff;stop-opacity:1"
-             id="stop19176" />
-          <stop
-             path="c -30.1627,0  -60.3254,0  -90.4881,0"
-             style="stop-color:#fbff00;stop-opacity:1"
-             id="stop19178" />
-          <stop
-             path="c 0,-9.92534  0,-19.8507  0,-29.776"
-             style="stop-color:#000000;stop-opacity:1"
-             id="stop19180" />
-        </meshpatch>
-      </meshrow>
-    </meshgradient>
-    <meshgradient
        y="143.50089"
        x="-21.895756"
        gradientTransform="matrix(0.68266801,0,0,0.68266801,-129.41333,-15.117687)"
@@ -436,6 +109,396 @@
         </meshpatch>
       </meshrow>
     </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient1015"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.68266801,0,0,0.68266801,-130.55107,13.911457)"
+       x="-21.895756"
+       y="143.50089">
+      <meshrow
+         id="meshrow1027">
+        <meshpatch
+           id="meshpatch1025">
+          <stop
+             path="c 30.1627,0  60.3254,0  90.4881,0"
+             style="stop-color:#fff400;stop-opacity:1"
+             id="stop1017" />
+          <stop
+             path="c 0,9.92534  0,19.8507  0,29.776"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop1019" />
+          <stop
+             path="c -30.1627,0  -60.3254,0  -90.4881,0"
+             style="stop-color:#fbff00;stop-opacity:1"
+             id="stop1021" />
+          <stop
+             path="c 0,-9.92534  0,-19.8507  0,-29.776"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop1023" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient1029"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.68266801,0,0,0.68266801,-130.55107,13.911457)"
+       x="-21.895756"
+       y="143.50089">
+      <meshrow
+         id="meshrow1041">
+        <meshpatch
+           id="meshpatch1039">
+          <stop
+             id="stop1031"
+             style="stop-color:#fff400;stop-opacity:1"
+             path="c 30.1627,0  60.3254,0  90.4881,0" />
+          <stop
+             id="stop1033"
+             style="stop-color:#ffffff;stop-opacity:1"
+             path="c 0,9.92534  0,19.8507  0,29.776" />
+          <stop
+             id="stop1035"
+             style="stop-color:#fbff00;stop-opacity:1"
+             path="c -30.1627,0  -60.3254,0  -90.4881,0" />
+          <stop
+             id="stop1037"
+             style="stop-color:#000000;stop-opacity:1"
+             path="c 0,-9.92534  0,-19.8507  0,-29.776" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient1069"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.68266801,0,0,0.68266801,-218.54957,35.159385)"
+       x="-21.895756"
+       y="143.50089">
+      <meshrow
+         id="meshrow1081">
+        <meshpatch
+           id="meshpatch1079">
+          <stop
+             path="c 30.1627,0  60.3254,0  90.4881,0"
+             style="stop-color:#fff400;stop-opacity:1"
+             id="stop1071" />
+          <stop
+             path="c 0,9.92534  0,19.8507  0,29.776"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop1073" />
+          <stop
+             path="c -30.1627,0  -60.3254,0  -90.4881,0"
+             style="stop-color:#fbff00;stop-opacity:1"
+             id="stop1075" />
+          <stop
+             path="c 0,-9.92534  0,-19.8507  0,-29.776"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop1077" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient6166"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.68266801,0,0,0.68266801,-238.92887,44.847905)"
+       x="-21.895756"
+       y="143.50089">
+      <meshrow
+         id="meshrow6178">
+        <meshpatch
+           id="meshpatch6176">
+          <stop
+             id="stop6168"
+             style="stop-color:#fff400;stop-opacity:1"
+             path="c 30.1627,0  60.3254,0  90.4881,0" />
+          <stop
+             id="stop6170"
+             style="stop-color:#ffffff;stop-opacity:1"
+             path="c 0,9.92534  0,19.8507  0,29.776" />
+          <stop
+             id="stop6172"
+             style="stop-color:#fbff00;stop-opacity:1"
+             path="c -30.1627,0  -60.3254,0  -90.4881,0" />
+          <stop
+             id="stop6174"
+             style="stop-color:#000000;stop-opacity:1"
+             path="c 0,-9.92534  0,-19.8507  0,-29.776" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient6180"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.68266801,0,0,0.68266801,-237.99342,14.445996)"
+       x="-21.895756"
+       y="143.50089">
+      <meshrow
+         id="meshrow6192">
+        <meshpatch
+           id="meshpatch6190">
+          <stop
+             path="c 30.1627,0  60.3254,0  90.4881,0"
+             style="stop-color:#fff400;stop-opacity:1"
+             id="stop6182" />
+          <stop
+             path="c 0,9.92534  0,19.8507  0,29.776"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop6184" />
+          <stop
+             path="c -30.1627,0  -60.3254,0  -90.4881,0"
+             style="stop-color:#fbff00;stop-opacity:1"
+             id="stop6186" />
+          <stop
+             path="c 0,-9.92534  0,-19.8507  0,-29.776"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop6188" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient6194"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.68266801,0,0,0.68266801,-237.99342,14.445996)"
+       x="-21.895756"
+       y="143.50089">
+      <meshrow
+         id="meshrow6206">
+        <meshpatch
+           id="meshpatch6204">
+          <stop
+             id="stop6196"
+             style="stop-color:#fff400;stop-opacity:1"
+             path="c 30.1627,0  60.3254,0  90.4881,0" />
+          <stop
+             id="stop6198"
+             style="stop-color:#ffffff;stop-opacity:1"
+             path="c 0,9.92534  0,19.8507  0,29.776" />
+          <stop
+             id="stop6200"
+             style="stop-color:#fbff00;stop-opacity:1"
+             path="c -30.1627,0  -60.3254,0  -90.4881,0" />
+          <stop
+             id="stop6202"
+             style="stop-color:#000000;stop-opacity:1"
+             path="c 0,-9.92534  0,-19.8507  0,-29.776" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient6208"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.68266801,0,0,0.68266801,-236.85568,-14.583148)"
+       x="-21.895756"
+       y="143.50089">
+      <meshrow
+         id="meshrow6220">
+        <meshpatch
+           id="meshpatch6218">
+          <stop
+             path="c 30.1627,0  60.3254,0  90.4881,0"
+             style="stop-color:#fff400;stop-opacity:1"
+             id="stop6210" />
+          <stop
+             path="c 0,9.92534  0,19.8507  0,29.776"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop6212" />
+          <stop
+             path="c -30.1627,0  -60.3254,0  -90.4881,0"
+             style="stop-color:#fbff00;stop-opacity:1"
+             id="stop6214" />
+          <stop
+             path="c 0,-9.92534  0,-19.8507  0,-29.776"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop6216" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient6222"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.68266801,0,0,0.68266801,-236.85568,-14.583148)"
+       x="-21.895756"
+       y="143.50089">
+      <meshrow
+         id="meshrow6234">
+        <meshpatch
+           id="meshpatch6232">
+          <stop
+             id="stop6224"
+             style="stop-color:#fff400;stop-opacity:1"
+             path="c 30.1627,0  60.3254,0  90.4881,0" />
+          <stop
+             id="stop6226"
+             style="stop-color:#ffffff;stop-opacity:1"
+             path="c 0,9.92534  0,19.8507  0,29.776" />
+          <stop
+             id="stop6228"
+             style="stop-color:#fbff00;stop-opacity:1"
+             path="c -30.1627,0  -60.3254,0  -90.4881,0" />
+          <stop
+             id="stop6230"
+             style="stop-color:#000000;stop-opacity:1"
+             path="c 0,-9.92534  0,-19.8507  0,-29.776" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient6295"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.68266801,0,0,0.68266801,-39.357441,48.627667)"
+       x="-21.895756"
+       y="143.50089">
+      <meshrow
+         id="meshrow6307">
+        <meshpatch
+           id="meshpatch6305">
+          <stop
+             path="c 30.1627,0  60.3254,0  90.4881,0"
+             style="stop-color:#fff400;stop-opacity:1"
+             id="stop6297" />
+          <stop
+             path="c 0,9.92534  0,19.8507  0,29.776"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop6299" />
+          <stop
+             path="c -30.1627,0  -60.3254,0  -90.4881,0"
+             style="stop-color:#fbff00;stop-opacity:1"
+             id="stop6301" />
+          <stop
+             path="c 0,-9.92534  0,-19.8507  0,-29.776"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop6303" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient6309"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.68266801,0,0,0.68266801,-38.421991,18.225758)"
+       x="-21.895756"
+       y="143.50089">
+      <meshrow
+         id="meshrow6321">
+        <meshpatch
+           id="meshpatch6319">
+          <stop
+             id="stop6311"
+             style="stop-color:#fff400;stop-opacity:1"
+             path="c 30.1627,0  60.3254,0  90.4881,0" />
+          <stop
+             id="stop6313"
+             style="stop-color:#ffffff;stop-opacity:1"
+             path="c 0,9.92534  0,19.8507  0,29.776" />
+          <stop
+             id="stop6315"
+             style="stop-color:#fbff00;stop-opacity:1"
+             path="c -30.1627,0  -60.3254,0  -90.4881,0" />
+          <stop
+             id="stop6317"
+             style="stop-color:#000000;stop-opacity:1"
+             path="c 0,-9.92534  0,-19.8507  0,-29.776" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient6323"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.68266801,0,0,0.68266801,-38.421991,18.225758)"
+       x="-21.895756"
+       y="143.50089">
+      <meshrow
+         id="meshrow6335">
+        <meshpatch
+           id="meshpatch6333">
+          <stop
+             path="c 30.1627,0  60.3254,0  90.4881,0"
+             style="stop-color:#fff400;stop-opacity:1"
+             id="stop6325" />
+          <stop
+             path="c 0,9.92534  0,19.8507  0,29.776"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop6327" />
+          <stop
+             path="c -30.1627,0  -60.3254,0  -90.4881,0"
+             style="stop-color:#fbff00;stop-opacity:1"
+             id="stop6329" />
+          <stop
+             path="c 0,-9.92534  0,-19.8507  0,-29.776"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop6331" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient6337"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.68266801,0,0,0.68266801,-37.284251,-10.803386)"
+       x="-21.895756"
+       y="143.50089">
+      <meshrow
+         id="meshrow6349">
+        <meshpatch
+           id="meshpatch6347">
+          <stop
+             path="c 30.1627,0  60.3254,0  90.4881,0"
+             style="stop-color:#fff400;stop-opacity:1"
+             id="stop6339" />
+          <stop
+             path="c 0,9.92534  0,19.8507  0,29.776"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop6341" />
+          <stop
+             path="c -30.1627,0  -60.3254,0  -90.4881,0"
+             style="stop-color:#fbff00;stop-opacity:1"
+             id="stop6343" />
+          <stop
+             path="c 0,-9.92534  0,-19.8507  0,-29.776"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop6345" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient6351"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.68266801,0,0,0.68266801,-37.284251,-10.803386)"
+       x="-21.895756"
+       y="143.50089">
+      <meshrow
+         id="meshrow6363">
+        <meshpatch
+           id="meshpatch6361">
+          <stop
+             id="stop6353"
+             style="stop-color:#fff400;stop-opacity:1"
+             path="c 30.1627,0  60.3254,0  90.4881,0" />
+          <stop
+             id="stop6355"
+             style="stop-color:#ffffff;stop-opacity:1"
+             path="c 0,9.92534  0,19.8507  0,29.776" />
+          <stop
+             id="stop6357"
+             style="stop-color:#fbff00;stop-opacity:1"
+             path="c -30.1627,0  -60.3254,0  -90.4881,0" />
+          <stop
+             id="stop6359"
+             style="stop-color:#000000;stop-opacity:1"
+             path="c 0,-9.92534  0,-19.8507  0,-29.776" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
   </defs>
   <sodipodi:namedview
      inkscape:snap-global="false"
@@ -448,15 +511,19 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="451.79828"
-     inkscape:cx="-358.07203"
-     inkscape:zoom="0.7"
+     inkscape:cy="193.2908"
+     inkscape:cx="217.67763"
+     inkscape:zoom="0.49497475"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
      bordercolor="#666666"
      pagecolor="#ffffff"
-     id="base" />
+     id="base"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <metadata
      id="metadata15769">
     <rdf:RDF>
@@ -465,14 +532,15 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      id="layer1"
      inkscape:groupmode="layer"
-     inkscape:label="Vrstva 1">
+     inkscape:label="Vrstva 1"
+     transform="translate(294.58391,-88.706027)">
     <rect
        y="-145.33281"
        x="-106.01563"
@@ -480,295 +548,6 @@
        width="321.73334"
        id="rect16353"
        style="opacity:1;fill:url(#meshgradient16373);fill-opacity:1;stroke:none;stroke-width:0.20036;stroke-opacity:1" />
-    <rect
-       style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect839"
-       width="61.773361"
-       height="20.327131"
-       x="-41.856197"
-       y="85.516525"
-       ry="7.1276956" />
-    <rect
-       ry="7.1276956"
-       y="86.85981"
-       x="-40.360748"
-       height="20.327131"
-       width="61.773361"
-       id="rect839-5"
-       style="fill:url(#meshgradient18832);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40611px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0923957"
-       x="-32.484264"
-       y="98.980835"
-       id="text864"><tspan
-         sodipodi:role="line"
-         id="tspan862"
-         x="-32.484264"
-         y="98.980835"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40611px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.0923957">START GAME</tspan></text>
-    <rect
-       ry="7.1276956"
-       y="115.739"
-       x="-40.856544"
-       height="20.327131"
-       width="61.773361"
-       id="rect839-0"
-       style="fill:#fffff6;fill-opacity:0.461538;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <rect
-       style="fill:url(#meshgradient18846);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect839-5-3"
-       width="61.773361"
-       height="20.327131"
-       x="-39.361088"
-       y="117.08229"
-       ry="7.1276956" />
-    <text
-       id="text864-1"
-       y="129.05942"
-       x="-32.204056"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40611px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40611px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.0923957"
-         y="129.05942"
-         x="-32.204056"
-         id="tspan862-5"
-         sodipodi:role="line">START GAME</tspan></text>
-    <rect
-       ry="7.1276956"
-       y="145.57248"
-       x="-39.361088"
-       height="20.327131"
-       width="61.773361"
-       id="rect14517"
-       style="fill:url(#meshgradient18860);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40611px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
-       x="-32.204056"
-       y="157.54964"
-       id="text14521"><tspan
-         sodipodi:role="line"
-         id="tspan14519"
-         x="-32.204056"
-         y="157.54964"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40611px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.0923957">START GAME</tspan></text>
-    <rect
-       style="fill:#fffff6;fill-opacity:0.461538;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect18988"
-       width="61.77335"
-       height="20.327131"
-       x="-144.85667"
-       y="111.72497"
-       ry="7.1276956" />
-    <rect
-       ry="7.1276956"
-       y="113.06826"
-       x="-143.36121"
-       height="20.327131"
-       width="61.77335"
-       id="rect18990"
-       style="fill:url(#meshgradient19016);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
-       x="-132.19029"
-       y="125.04541"
-       id="text18994"><tspan
-         sodipodi:role="line"
-         id="tspan18992"
-         x="-132.19029"
-         y="125.04541"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.0923957">EXIT GAME</tspan></text>
-    <rect
-       style="fill:url(#meshgradient19002);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect18996"
-       width="61.77335"
-       height="20.327131"
-       x="-143.36121"
-       y="141.55844"
-       ry="7.1276956" />
-    <text
-       id="text19000"
-       y="153.53563"
-       x="-132.19029"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.0923957"
-         y="153.53563"
-         x="-132.19029"
-         id="tspan18998"
-         sodipodi:role="line">EXIT GAME</tspan></text>
-    <g
-       transform="matrix(0.68266801,0,0,0.68266801,-25.413217,-11.103653)"
-       id="g19224">
-      <rect
-         ry="10.44094"
-         y="139.92957"
-         x="117.03195"
-         height="29.776012"
-         width="90.488144"
-         id="rect19044"
-         style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:1.02308;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         style="fill:url(#meshgradient19094);fill-opacity:1;stroke:#000000;stroke-width:1.02308;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect19046"
-         width="90.488144"
-         height="29.776012"
-         x="119.22256"
-         y="141.89726"
-         ry="10.44094" />
-      <text
-         id="text19050"
-         y="159.65263"
-         x="140.38206"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.38393px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.135345"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.38393px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.135345"
-           y="159.65263"
-           x="140.38206"
-           id="tspan19048"
-           sodipodi:role="line">TUTORIAL</tspan></text>
-    </g>
-    <rect
-       ry="7.1276956"
-       y="114.64426"
-       x="55.480408"
-       height="20.327131"
-       width="61.773361"
-       id="rect19052"
-       style="fill:#fffff6;fill-opacity:0.461538;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <rect
-       style="fill:url(#meshgradient19080);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect19054"
-       width="61.773361"
-       height="20.327131"
-       x="56.975857"
-       y="115.98755"
-       ry="7.1276956" />
-    <text
-       id="text19058"
-       y="127.96468"
-       x="70.701332"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40611px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40611px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.0923957"
-         y="127.96468"
-         x="70.701332"
-         id="tspan19056"
-         sodipodi:role="line">TUTORIAL</tspan></text>
-    <rect
-       ry="7.1276956"
-       y="144.47774"
-       x="56.975857"
-       height="20.327131"
-       width="61.773361"
-       id="rect19060"
-       style="fill:url(#meshgradient19066);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40611px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
-       x="70.701332"
-       y="156.4549"
-       id="text19064"><tspan
-         sodipodi:role="line"
-         id="tspan19062"
-         x="70.701332"
-         y="156.4549"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40611px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.0923957">TUTORIAL</tspan></text>
-    <g
-       transform="matrix(0.69514164,0,0,0.69514164,102.11456,-27.14657)"
-       id="g19134">
-      <rect
-         style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:1.02308;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect19108"
-         width="90.488144"
-         height="29.776012"
-         x="227.68153"
-         y="155.96574"
-         ry="10.44094" />
-      <rect
-         ry="10.44094"
-         y="157.93344"
-         x="229.87215"
-         height="29.776012"
-         width="90.488144"
-         id="rect19110"
-         style="fill:url(#meshgradient19116);fill-opacity:1;stroke:#000000;stroke-width:1.02308;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.38393px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.135345"
-         x="241.40993"
-         y="175.68881"
-         id="text19114"><tspan
-           sodipodi:role="line"
-           id="tspan19112"
-           x="241.40993"
-           y="175.68881"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.38393px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.135345">START GAME</tspan></text>
-    </g>
-    <g
-       transform="matrix(0.69514164,0,0,0.69514164,51.616109,0.67927996)"
-       id="g19162">
-      <rect
-         ry="10.44094"
-         y="198.19434"
-         x="299.8443"
-         height="29.776012"
-         width="90.488144"
-         id="rect19136"
-         style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:1.02308;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         style="fill:url(#meshgradient19144);fill-opacity:1;stroke:#000000;stroke-width:1.02308;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect19138"
-         width="90.488144"
-         height="29.776012"
-         x="302.03491"
-         y="200.16203"
-         ry="10.44094" />
-      <text
-         id="text19142"
-         y="217.9174"
-         x="319.45264"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.38393px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.135345"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.38393px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.135345"
-           y="217.9174"
-           x="319.45264"
-           id="tspan19140"
-           sodipodi:role="line">EXIT GAME</tspan></text>
-    </g>
-    <g
-       transform="matrix(0.69514164,0,0,0.69514164,52.694379,-69.8783)"
-       id="g19190">
-      <rect
-         style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:1.02308;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect19164"
-         width="90.488144"
-         height="29.776012"
-         x="298.24069"
-         y="259.66632"
-         ry="10.44094" />
-      <rect
-         ry="10.44094"
-         y="261.634"
-         x="300.4313"
-         height="29.776012"
-         width="90.488144"
-         id="rect19166"
-         style="fill:url(#meshgradient19172);fill-opacity:1;stroke:#000000;stroke-width:1.02308;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.38393px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.135345"
-         x="321.59079"
-         y="279.38937"
-         id="text19170"><tspan
-           sodipodi:role="line"
-           id="tspan19168"
-           x="321.59079"
-           y="279.38937"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.38393px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.135345">TUTORIAL</tspan></text>
-    </g>
     <text
        transform="scale(0.94257272,1.0609261)"
        id="text19194"
@@ -781,69 +560,537 @@
          x="-23.643694"
          id="tspan19192"
          sodipodi:role="line">JOHN WICK</tspan></text>
-    <rect
-       y="79.973541"
-       x="-148.86838"
-       height="24.94025"
-       width="69.125664"
-       id="rect19257"
-       style="opacity:1;fill:#e8e8e8;fill-opacity:1;stroke:#ffffff;stroke-width:0.195166;stroke-opacity:1" />
     <g
-       id="g19303">
-      <rect
-         style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect18980"
-         width="61.77335"
-         height="20.327131"
-         x="-145.85632"
-         y="81.502487"
-         ry="7.1276956" />
-      <rect
-         ry="7.1276956"
-         y="82.845772"
-         x="-144.36087"
-         height="20.327131"
-         width="61.77335"
-         id="rect18982"
-         style="fill:url(#meshgradient19281);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0923957"
-         x="-132.47049"
-         y="94.96682"
-         id="text18986"><tspan
-           sodipodi:role="line"
-           id="tspan18984"
-           x="-132.47049"
-           y="94.96682"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.0923957">EXIT GAME</tspan></text>
-      <rect
-         ry="7.1276956"
-         y="81.502487"
-         x="-145.85632"
-         height="20.327131"
-         width="61.77335"
-         id="rect19259"
-         style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         style="fill:url(#meshgradient19030);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect19261"
-         width="61.77335"
-         height="20.327131"
-         x="-144.36087"
-         y="82.845772"
-         ry="7.1276956" />
-      <text
-         id="text19265"
-         y="94.96682"
-         x="-132.47049"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0923957"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.0923957"
-           y="94.96682"
-           x="-132.47049"
-           id="tspan19263"
-           sodipodi:role="line">EXIT GAME</tspan></text>
+       id="g6544"
+       transform="translate(-40.540567,-11.127631)">
+      <g
+         transform="translate(-105.07738,70.228533)"
+         id="g6425">
+        <rect
+           y="79.973541"
+           x="-148.86838"
+           height="24.94025"
+           width="69.125664"
+           id="rect19257"
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.195166;stroke-opacity:1" />
+        <g
+           id="g19303">
+          <rect
+             style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect18980"
+             width="61.77335"
+             height="20.327131"
+             x="-145.85632"
+             y="81.502487"
+             ry="7.1276956" />
+          <rect
+             ry="7.1276956"
+             y="82.845772"
+             x="-144.36087"
+             height="20.327131"
+             width="61.77335"
+             id="rect18982"
+             style="fill:url(#meshgradient19281);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+             x="-132.47049"
+             y="94.96682"
+             id="text18986"><tspan
+               sodipodi:role="line"
+               id="tspan18984"
+               x="-132.47049"
+               y="94.96682"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.0923957">EXIT GAME</tspan></text>
+          <rect
+             ry="7.1276956"
+             y="81.502487"
+             x="-145.85632"
+             height="20.327131"
+             width="61.77335"
+             id="rect19259"
+             style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <rect
+             style="fill:url(#meshgradient19030);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect19261"
+             width="61.77335"
+             height="20.327131"
+             x="-144.36087"
+             y="82.845772"
+             ry="7.1276956" />
+          <text
+             id="text19265"
+             y="94.96682"
+             x="-132.47049"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+             xml:space="preserve"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.0923957"
+               y="94.96682"
+               x="-132.47049"
+               id="tspan19263"
+               sodipodi:role="line">EXIT GAME</tspan></text>
+        </g>
+      </g>
+      <g
+         transform="translate(-34.618792,41.199404)"
+         id="g6413">
+        <rect
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.195166;stroke-opacity:1"
+           id="rect995"
+           width="69.125664"
+           height="24.94025"
+           x="-150.00613"
+           y="109.00267" />
+        <rect
+           style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect997"
+           width="61.77335"
+           height="20.327131"
+           x="-146.99408"
+           y="110.53162"
+           ry="7.1276956" />
+        <rect
+           ry="7.1276956"
+           y="111.8749"
+           x="-145.49863"
+           height="20.327131"
+           width="61.77335"
+           id="rect999"
+           style="fill:url(#meshgradient1015);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           x="-133.60825"
+           y="123.99596"
+           id="text1003"><tspan
+             sodipodi:role="line"
+             id="tspan1001"
+             x="-133.60825"
+             y="123.99596"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.0923957">EXIT GAME</tspan></text>
+        <rect
+           ry="7.1276956"
+           y="110.53162"
+           x="-146.99408"
+           height="20.327131"
+           width="61.77335"
+           id="rect1005"
+           style="fill:#ffffff;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           style="fill:url(#meshgradient1029);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect1007"
+           width="61.77335"
+           height="20.327131"
+           x="-145.49863"
+           y="111.8749"
+           ry="7.1276956" />
+        <text
+           id="text1011"
+           y="123.99596"
+           x="-133.60825"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.0923957"
+             y="123.99596"
+             x="-133.60825"
+             id="tspan1009"
+             sodipodi:role="line">EXIT GAME</tspan></text>
+      </g>
+      <g
+         transform="translate(34.167507,9.3943201)"
+         id="g6402">
+        <text
+           id="text19000"
+           y="153.53563"
+           x="-132.19029"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.0923957"
+             y="153.53563"
+             x="-132.19029"
+             id="tspan18998"
+             sodipodi:role="line">EXIT GAME</tspan></text>
+        <rect
+           y="140.80775"
+           x="-149.4716"
+           height="24.94025"
+           width="69.125664"
+           id="rect1051"
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.195166;stroke-opacity:1" />
+        <g
+           id="g6112"
+           transform="translate(87.063049,9.1539813)">
+          <rect
+             style="fill:url(#meshgradient1069);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect1063"
+             width="61.77335"
+             height="20.327131"
+             x="-233.49712"
+             y="133.12283"
+             ry="7.1276956" />
+          <text
+             id="text1067"
+             y="145.2439"
+             x="-221.60674"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+             xml:space="preserve"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.0923957"
+               y="145.2439"
+               x="-221.60674"
+               id="tspan1065"
+               sodipodi:role="line">EXIT GAME</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g6484"
+       transform="translate(-38.175594,8.3154762)">
+      <g
+         transform="translate(70.458586,-29.049075)"
+         id="g6385">
+        <rect
+           y="109.53721"
+           x="-257.44849"
+           height="24.94025"
+           width="69.125664"
+           id="rect6138"
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.195166;stroke-opacity:1" />
+        <rect
+           ry="7.1276956"
+           y="111.06615"
+           x="-254.43643"
+           height="20.327131"
+           width="61.77335"
+           id="rect6140"
+           style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           style="fill:url(#meshgradient6194);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect6142"
+           width="61.77335"
+           height="20.327131"
+           x="-252.94098"
+           y="112.40944"
+           ry="7.1276956" />
+        <text
+           id="text6146"
+           y="124.53049"
+           x="-241.0506"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.0923957"
+             y="124.53049"
+             x="-241.0506"
+             id="tspan6144"
+             sodipodi:role="line">EXIT GAME</tspan></text>
+        <rect
+           style="fill:#ffffff;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect6148"
+           width="61.77335"
+           height="20.327131"
+           x="-254.43643"
+           y="111.06615"
+           ry="7.1276956" />
+        <rect
+           ry="7.1276956"
+           y="112.40944"
+           x="-252.94098"
+           height="20.327131"
+           width="61.77335"
+           id="rect6150"
+           style="fill:url(#meshgradient6180);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           x="-245.01935"
+           y="124.53049"
+           id="text6154"><tspan
+             sodipodi:role="line"
+             id="tspan6152"
+             x="-245.01935"
+             y="124.53049"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.0923957">START GAME</tspan></text>
+      </g>
+      <g
+         transform="translate(0,-0.01994611)"
+         id="g6374">
+        <rect
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.195166;stroke-opacity:1"
+           id="rect6118"
+           width="69.125664"
+           height="24.94025"
+           x="-256.31073"
+           y="80.50808" />
+        <rect
+           style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect6120"
+           width="61.77335"
+           height="20.327131"
+           x="-253.29868"
+           y="82.037025"
+           ry="7.1276956" />
+        <rect
+           ry="7.1276956"
+           y="83.38031"
+           x="-251.80322"
+           height="20.327131"
+           width="61.77335"
+           id="rect6122"
+           style="fill:url(#meshgradient6208);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           x="-239.91284"
+           y="95.501358"
+           id="text6126"><tspan
+             sodipodi:role="line"
+             id="tspan6124"
+             x="-239.91284"
+             y="95.501358"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.0923957">EXIT GAME</tspan></text>
+        <rect
+           ry="7.1276956"
+           y="82.037025"
+           x="-253.29868"
+           height="20.327131"
+           width="61.77335"
+           id="rect6128"
+           style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           style="fill:url(#meshgradient6222);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect6130"
+           width="61.77335"
+           height="20.327131"
+           x="-251.80322"
+           y="83.38031"
+           ry="7.1276956" />
+        <text
+           id="text6134"
+           y="95.501358"
+           x="-243.88159"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.0923957"
+             y="95.501358"
+             x="-243.88159"
+             id="tspan6132"
+             sodipodi:role="line">START GAME</tspan></text>
+      </g>
+      <g
+         transform="translate(139.24487,-60.854167)"
+         id="g6393">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           x="-239.63264"
+           y="154.07018"
+           id="text6116"><tspan
+             sodipodi:role="line"
+             id="tspan6114"
+             x="-239.63264"
+             y="154.07018"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.0923957">EXIT GAME</tspan></text>
+        <rect
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.195166;stroke-opacity:1"
+           id="rect6156"
+           width="69.125664"
+           height="24.94025"
+           x="-256.91394"
+           y="141.3423" />
+        <rect
+           style="fill:url(#meshgradient6166);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect6158"
+           width="61.77335"
+           height="20.327131"
+           x="-253.87642"
+           y="142.81136"
+           ry="7.1276956" />
+        <text
+           id="text6162"
+           y="154.93242"
+           x="-245.95479"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.0923957"
+             y="154.93242"
+             x="-245.95479"
+             id="tspan6160"
+             sodipodi:role="line">START GAME</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g6513"
+       transform="translate(-44.601194,-1.3428636)">
+      <g
+         transform="translate(-193.14583,30.994048)"
+         id="g6436">
+        <rect
+           y="84.287842"
+           x="-56.7393"
+           height="24.94025"
+           width="69.125664"
+           id="rect6251"
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.195166;stroke-opacity:1" />
+        <rect
+           ry="7.1276956"
+           y="85.816788"
+           x="-53.727245"
+           height="20.327131"
+           width="61.77335"
+           id="rect6253"
+           style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           style="fill:url(#meshgradient6351);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect6255"
+           width="61.77335"
+           height="20.327131"
+           x="-52.231792"
+           y="87.160072"
+           ry="7.1276956" />
+        <text
+           id="text6259"
+           y="99.28112"
+           x="-40.341412"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.0923957"
+             y="99.28112"
+             x="-40.341412"
+             id="tspan6257"
+             sodipodi:role="line">EXIT GAME</tspan></text>
+        <rect
+           style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect6261"
+           width="61.77335"
+           height="20.327131"
+           x="-53.727245"
+           y="85.816788"
+           ry="7.1276956" />
+        <rect
+           ry="7.1276956"
+           y="87.160072"
+           x="-52.231792"
+           height="20.327131"
+           width="61.77335"
+           id="rect6263"
+           style="fill:url(#meshgradient6337);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           x="-39.585461"
+           y="99.28112"
+           id="text6267"><tspan
+             sodipodi:role="line"
+             id="tspan6265"
+             x="-39.585461"
+             y="99.28112"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.0923957">TUTORIAL</tspan></text>
+      </g>
+      <g
+         transform="translate(-122.68724,1.964919)"
+         id="g6447">
+        <rect
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.195166;stroke-opacity:1"
+           id="rect6269"
+           width="69.125664"
+           height="24.94025"
+           x="-57.877056"
+           y="113.31697" />
+        <rect
+           style="fill:#5d5d5d;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect6271"
+           width="61.77335"
+           height="20.327131"
+           x="-54.865002"
+           y="114.84591"
+           ry="7.1276956" />
+        <rect
+           ry="7.1276956"
+           y="116.1892"
+           x="-53.369549"
+           height="20.327131"
+           width="61.77335"
+           id="rect6273"
+           style="fill:url(#meshgradient6323);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           x="-41.479168"
+           y="128.31024"
+           id="text6277"><tspan
+             sodipodi:role="line"
+             id="tspan6275"
+             x="-41.479168"
+             y="128.31024"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.0923957">EXIT GAME</tspan></text>
+        <rect
+           ry="7.1276956"
+           y="114.84591"
+           x="-54.865002"
+           height="20.327131"
+           width="61.77335"
+           id="rect6279"
+           style="fill:#ffffff;fill-opacity:0.997297;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           style="fill:url(#meshgradient6309);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect6281"
+           width="61.77335"
+           height="20.327131"
+           x="-53.369549"
+           y="116.1892"
+           ry="7.1276956" />
+        <text
+           id="text6285"
+           y="128.31024"
+           x="-40.723217"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.0923957"
+             y="128.31024"
+             x="-40.723217"
+             id="tspan6283"
+             sodipodi:role="line">TUTORIAL</tspan></text>
+      </g>
+      <g
+         transform="translate(-53.90096,-29.840165)"
+         id="g6455">
+        <text
+           id="text6249"
+           y="157.84993"
+           x="-40.061214"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#feffff;fill-opacity:1;stroke-width:0.0923957"
+             y="157.84993"
+             x="-40.061214"
+             id="tspan6247"
+             sodipodi:role="line">EXIT GAME</tspan></text>
+        <rect
+           y="145.12206"
+           x="-57.34251"
+           height="24.94025"
+           width="69.125664"
+           id="rect6287"
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.195166;stroke-opacity:1" />
+        <rect
+           ry="7.1276956"
+           y="146.59111"
+           x="-54.304989"
+           height="20.327131"
+           width="61.77335"
+           id="rect6289"
+           style="fill:url(#meshgradient6295);fill-opacity:1;stroke:#000000;stroke-width:0.698424;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.0923957"
+           x="-41.658657"
+           y="158.71217"
+           id="text6293"><tspan
+             sodipodi:role="line"
+             id="tspan6291"
+             x="-41.658657"
+             y="158.71217"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.40612px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.0923957">TUTORIAL</tspan></text>
+      </g>
     </g>
   </g>
   <script
