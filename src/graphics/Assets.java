@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 
 public class Assets {
 
-    private static final int width = 64;
+    private static final int width = 64, button_width = 262, button_height = 95;
     private static final int height = 64;
     public static BufferedImage enemy, nothing, world1Texture, spawner, coin, player_stats_background,
             bubble_background1, bubble_background2, store_background;
@@ -24,12 +24,12 @@ public class Assets {
             shotgun_image;
     public static BufferedImage one, two, three, four, five, six,seven, eight, nine, zero;
     public static BufferedImage store_rpg_green, store_rpg_red, store_rifle_green, store_rifle_red, store_shotgun_green,
-            store_shotgun_red;
+            store_shotgun_red, store_life_green, store_life_red, store_dog_green, store_dog_red;
     public static BufferedImage banner_not_enough_money, immortalBubble, player_ability, loading_bar_green_full,no_active_boost,
-            speed_boost, double_coins_boost, immortality_boost;
+            speed_boost, double_coins_boost, immortality_boost, menu_backgrounnd;
     //arrays
     public static BufferedImage[] speed_boost_array, double_coins_boost_array, immortality_boost_array;
-    public static BufferedImage[] btn_start;
+    public static BufferedImage[] btn_start, btn_exit, btn_tutorial;
     public static BufferedImage[] spawner_door;
     public static BufferedImage[] enemy_down, enemy_up, enemy_right, enemy_left, enemy_down_left, enemy_down_right,
             enemy_up_left, enemy_up_right;
@@ -38,14 +38,14 @@ public class Assets {
     public static BufferedImage[] player_down, player_up, player_left, player_right;
     public static BufferedImage[] player_down_left, player_down_right, player_up_left, player_up_right;
     public static BufferedImage[] respawn_animation;
-    public static BufferedImage[] dog_down, dog_up;
+    public static BufferedImage[] dog_down, dog_up, dog_right, dog_left, dog_up_right, dog_up_left, dog_down_right, dog_down_left;
 
 
 
     public static void  init(){
         SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/testwick.png"));
+        SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/menu_buttons.png"));
         SpriteSheet sheet3 = new SpriteSheet(ImageLoader.loadImage("/textures/sheet2.png"));
-
 
         //player
         player_down = new BufferedImage[2];
@@ -75,6 +75,12 @@ public class Assets {
         //dog
         dog_down = new BufferedImage[2];
         dog_up = new BufferedImage[2];
+        dog_left = new BufferedImage[2];
+        dog_right = new BufferedImage[2];
+        dog_up_left = new BufferedImage[2];
+        dog_up_right = new BufferedImage[2];
+        dog_down_left = new BufferedImage[2];
+        dog_down_right = new BufferedImage[2];
 
         //boosts
         double_coins_boost_array = new BufferedImage[2];
@@ -83,8 +89,16 @@ public class Assets {
 
         //menu
         btn_start = new BufferedImage[2];
-        btn_start[0] = sheet3.crop((int) (width / 2) * 6, (int) (height / 2) * 4, width,(int) (height / 2));
-        btn_start[1] = sheet3.crop((int) (width / 2) * 6, (int) (height / 2) * 5, width, (int) (height / 2));
+        btn_exit = new BufferedImage[2];
+        btn_tutorial = new BufferedImage[2];
+        //btn_start[0] = sheet3.crop((int) (width / 2) * 6, (int) (height / 2) * 4, width,(int) (height / 2));
+        //btn_start[1] = sheet3.crop((int) (width / 2) * 6, (int) (height / 2) * 5, width, (int) (height / 2));
+        btn_start[0] = sheet2.crop(0, 0, button_width,button_height);
+        btn_start[1] = sheet2.crop(button_width, 0,button_width, button_height);
+        btn_tutorial[0] = sheet2.crop(0, button_height, button_width,button_height);
+        btn_tutorial[1] = sheet2.crop(button_width, button_height, button_width,button_height);
+        btn_exit[0] = sheet2.crop(0, 2 * button_height, button_width,button_height);
+        btn_exit[1] = sheet2.crop(button_width, 2 * button_height, button_width,button_height);
 
         //player
         static_player_down = sheet.crop(0,0,width, height);
@@ -254,6 +268,18 @@ public class Assets {
         dog_down[1] = sheet.crop(width, 22 * height, width, height);
         dog_up[0] = sheet.crop(4 * width, 22 * height, width, height);
         dog_up[1] = sheet.crop(5 * width, 22 * height, width, height);
+        dog_left[0] = sheet.crop(6 * width, 22 * height, width, height);
+        dog_left[1] = sheet.crop(7 * width, 22 * height, width, height);
+        dog_right[0] = sheet.crop(8 * width, 22 * height, width, height);
+        dog_right[1] = sheet.crop(9 * width, 22 * height, width, height);
+        dog_up_left[0] = sheet.crop(6 * width, 17 * height, width, height);
+        dog_up_left[1] = sheet.crop(7 * width, 17 * height, width, height);
+        dog_up_right[0] = sheet.crop(8 * width, 17 * height, width, height);
+        dog_up_right[1] = sheet.crop(9 * width, 17 * height, width, height);
+        dog_down_left[0] = sheet.crop(0, 23 * height, width, height);
+        dog_down_left[1] = sheet.crop(width, 23 * height, width, height);
+        dog_down_right[0] = sheet.crop(2 * width, 23 * height, width, height);
+        dog_down_right[1] = sheet.crop(3 * width, 23 * height, width, height);
 
         //boosts
         no_active_boost = sheet.crop(6 * width, 20 * height, width, height);
@@ -268,9 +294,11 @@ public class Assets {
         double_coins_boost_array[1] = sheet.crop(5 * width, 20 * height, width, height);
 
         //others
+        menu_backgrounnd = ImageLoader.loadImage("/textures/menu_background.png");
         enemy = sheet.crop(0,3 * width, width, height);
         nothing = sheet.crop(9 * width, 7 * height, width, height);
-        world1Texture = sheet.crop(width, 4 * height, width, height);
+        //world1Texture = sheet.crop(width, 4 * height, width, height);
+        world1Texture = sheet.crop(6 * width, 23 * height, width, height);
         player_stats_background = sheet.crop(5 * width, 10 * height, width, height);
         store_background = sheet.crop(4 * width, 10 * height, width, height);
         bubble_background1 = sheet.crop(8 * width, 13 * height, width, height);
@@ -281,6 +309,10 @@ public class Assets {
         store_rifle_red = sheet.crop(6 * width, 14 * height, width * 2, height);
         store_shotgun_green = sheet.crop(0, 17 * height, width * 2, height);
         store_shotgun_red = sheet.crop(2 * width, 17 * height, width * 2, height);
+        store_life_green = sheet.crop(0, 21 * height, width * 2, height);
+        store_life_red = sheet.crop(2 * width, 21 * height, width * 2, height);
+        store_dog_green = sheet.crop(4 * width, 21 * height, width * 2, height);
+        store_dog_red = sheet.crop(6 * width, 21 * height, width * 2, height);
         banner_not_enough_money = sheet.crop(0, 19 * height, width * 10, height);
         immortalBubble = sheet.crop(6 * width, 18 * height, width, height);
         player_ability = sheet.crop(7 * width, 18 * height, width, height);

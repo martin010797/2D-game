@@ -16,7 +16,6 @@ public class RifleProjectile extends Projectile {
         super(pHandler, x, y, pWidth, pHeight, pDirection, pPlayer);
         speed = DEFAULT_SPEED;
 
-
         switch (direction){
             case UP:
                 projectileImage = Assets.rifle_projectile_up;

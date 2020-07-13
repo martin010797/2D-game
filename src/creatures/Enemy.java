@@ -3,6 +3,7 @@ package creatures;
 import game.Handler;
 import graphics.Animation;
 import graphics.Assets;
+import tiles.Tile;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -20,6 +21,7 @@ public class Enemy extends Creature {
     private Direction direction;
     private BufferedImage enemyImage;
     private boolean dead = false;
+    private boolean wrongDirection =false;
 
     public Enemy(Handler pHandler, float x, float y) {
         super(pHandler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
@@ -73,8 +75,62 @@ public class Enemy extends Creature {
     public void move() {
         if (!chceckEntityCollisionExcludeEntity(xMove, 0f, handler.getWorld().getEntityManager().getPlayer()))
             moveX();
+        else wrongDirection = true;
         if (!chceckEntityCollisionExcludeEntity(0f, yMove, handler.getWorld().getEntityManager().getPlayer()))
             moveY();
+        else wrongDirection = true;
+    }
+
+    //overriden because of changing direction
+    //enemies kept walking into wall
+    @Override
+    public void moveX() {
+        if (xMove > 0){//moving right
+            int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
+            //checking upper and lower right corners of the box
+            if (!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
+                    !collisionWithTile(tx, (int) (y + bounds.y + bounds.height) /Tile.TILEHEIGHT)){
+                x += xMove;
+            }else {
+                x = tx * Tile.TILEWIDTH - bounds.x - bounds.width - 1;
+                wrongDirection = true;
+            }
+        }else if (xMove < 0){//moving left
+            int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
+            //checking upper and lower right corners of the box
+            if (!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
+                    !collisionWithTile(tx, (int) (y + bounds.y + bounds.height) /Tile.TILEHEIGHT)){
+                x += xMove;
+            }else {
+                x = tx * Tile.TILEWIDTH + Tile.TILEWIDTH - bounds.x;
+                wrongDirection = true;
+            }
+        }
+    }
+
+    @Override
+    public void moveY() {
+        if (yMove < 0){//movin up
+            int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
+
+            if (!collisionWithTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
+                    !collisionWithTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
+                y += yMove;
+            }else {
+                y = ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - bounds.y;
+                wrongDirection = true;
+            }
+        }else if (yMove > 0){//moving down
+            int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
+
+            if (!collisionWithTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
+                    !collisionWithTile((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
+                y += yMove;
+            }else {
+                y = ty * Tile.TILEHEIGHT - bounds.y - bounds.height - 1;
+                wrongDirection = true;
+            }
+        }
     }
 
     private void simpleAIMove(){
@@ -82,6 +138,12 @@ public class Enemy extends Creature {
         if (dir == null){
             //1 percent chance of changing direction
             int changeOfDirection = ThreadLocalRandom.current().nextInt(ZERO, HUNDREDPERCENT + 1);
+            //if enemmy want to go to wall he'll change direction;
+            if (wrongDirection) {
+                changeOfDirection = PROBABILITYOFDIRECTIONCHANGE;
+                wrongDirection = false;
+            }
+
             int randomDirection = UNDEFINED;
             if (changeOfDirection <= PROBABILITYOFDIRECTIONCHANGE){
                 //choosing random direction

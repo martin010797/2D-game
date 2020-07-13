@@ -17,7 +17,7 @@ public class Dog extends Creature {
     private static final float DOG_SPEED = 2.7f;
     private static final int UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3, UPLEFT = 4, UPRIGHT = 5, DOWNLEFT = 6, DOWNRIGHT = 7;
 
-    private Animation animDown, animUp;
+    private Animation animDown, animUp, animLeft, animRight, animDownLeft, animDownRight, animUpLeft, animUpRight;
     private Direction direction;
 
     public Dog(Handler pHandler, float x, float y) {
@@ -35,12 +35,24 @@ public class Dog extends Creature {
         //animations
         animDown = new Animation(175, Assets.dog_down);
         animUp = new Animation(175, Assets.dog_up);
+        animRight = new Animation(175, Assets.dog_right);
+        animLeft = new Animation(175, Assets.dog_left);
+        animUpLeft = new Animation(175, Assets.dog_up_left);
+        animUpRight = new Animation(175, Assets.dog_up_right);
+        animDownLeft = new Animation(175, Assets.dog_down_left);
+        animDownRight = new Animation(175, Assets.dog_down_right);
     }
 
     @Override
     public void tick() {
         animUp.tick();
         animDown.tick();
+        animLeft.tick();
+        animRight.tick();
+        animUpRight.tick();
+        animUpLeft.tick();
+        animDownRight.tick();
+        animDownLeft.tick();
 
         simpleAIMove();
         move();
@@ -218,7 +230,7 @@ public class Dog extends Creature {
     }
 
     private BufferedImage getCurrentAnimationFrame(){
-        /*if (xMove < 0){//moving left
+        if (xMove < 0){//moving left
             if (yMove > 0)
                 return animDownLeft.getCurrentFrame();
             if(yMove < 0)
@@ -237,9 +249,9 @@ public class Dog extends Creature {
             return animDown.getCurrentFrame();
         }
         //default value
-        return Assets.enemy_down[0];*/
+        return Assets.dog_down[0];
 
         //temporary
-        return animDown.getCurrentFrame();
+        //return animDown.getCurrentFrame();
     }
 }

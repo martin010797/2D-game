@@ -19,7 +19,7 @@ public class Player extends Creature {
 
     private static final int DEFAULT_DELTA_PROJECTILE = 250, RIFLE_PROJECTILE_DELTA = 100, RPG_PROJECTILE_DELTA = 280, DEFAULT_NUMBER_OF_LIVES = 3,
             NUMBER_WIDTH = 32, NUMBER_HEIGHT = 32, CONFIRMATION_TIME = 750, ONESECOND = 1000, DEFAULT_PROJECTILES_REMINING = -1,
-            SHOTGUN_PROJECTILE_DELTA = 300, ABILITYCHARGETIME = 15000, NO_BOOST_DURATION = -1, DOG_PRICE = 1;
+            SHOTGUN_PROJECTILE_DELTA = 300, ABILITYCHARGETIME = 15000, NO_BOOST_DURATION = -1, DOG_PRICE = 300, EXTRA_LIFE_PRICE = 500;
 
     private Animation animDown, animUp, animLeft, animRight, animDownLeft, animDownRight, animUpLeft, animUpRight;
     private OneTimeAnimation animation_respawn;
@@ -38,6 +38,7 @@ public class Player extends Creature {
     private boolean ignoreBuyRPG= false;
     private boolean ignoreBuyShotgun = false;
     private boolean ignoreBuyDog = false;
+    private boolean ignoreBuyLife = false;
     private boolean notEnoughMoney = false;
 
     //confiramtions for buying items
@@ -45,15 +46,17 @@ public class Player extends Creature {
     private long nowItemW;
     private long nowItemE;
     private long nowItemT;
+    private long nowItemR;
     private long deltaItemQ = 0;
     private long deltaItemW = 0;
     private long deltaItemE = 0;
     private long deltaItemT = 0;
+    private long deltaItemR = 0;
     private long lastTimeItemQ = System.currentTimeMillis();
     private long lastTimeItemW = System.currentTimeMillis();
     private long lastTimeItemE = System.currentTimeMillis();
     private long lastTimeItemT = System.currentTimeMillis();
-
+    private long lastTimeItemR = System.currentTimeMillis();
 
     //ability
     private boolean abilityReady = false;
@@ -513,6 +516,35 @@ public class Player extends Creature {
             }
         }
 
+        //buying item R
+        if (!handler.getKeyManager().r) {
+            lastTimeItemR = System.currentTimeMillis();
+            deltaItemR = 0;
+            ignoreBuyLife = false;
+        }
+
+        if (!ignoreBuyLife){
+            if (handler.getKeyManager().r){
+                nowItemR = System.currentTimeMillis();
+                deltaItemR += nowItemR - lastTimeItemR;
+                lastTimeItemR = nowItemR;
+                if (deltaItemR >= CONFIRMATION_TIME){
+                    if (numberOfCoins >= EXTRA_LIFE_PRICE){
+                        numberOfLives++;
+                        deltaItemR = 0;
+                        numberOfCoins = numberOfCoins - EXTRA_LIFE_PRICE;
+                    }else {
+                        System.out.println("not enough money");
+                        notEnoughMoney = true;
+                        deltaBanner = 0;
+                        lastTimeBanner = System.currentTimeMillis();
+                        deltaItemE = 0;
+                    }
+                    ignoreBuyLife = true;
+                }
+            }
+        }
+
         //buying item T
         if (!handler.getKeyManager().t) {
             lastTimeItemT = System.currentTimeMillis();
@@ -625,26 +657,56 @@ public class Player extends Creature {
         //g.drawImage(Assets.store_background, handler.getGame().getWidth() - Tile.TILEWIDTH * 2, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
         //g.drawImage(Assets.store_background, handler.getGame().getWidth() - Tile.TILEWIDTH * 3, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
 
-        if (numberOfCoins >= RPGProjectile.PRICE)
-            g.drawImage(Assets.store_rpg_green, handler.getGame().getWidth() - Tile.TILEWIDTH * 2, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+        if (numberOfCoins >= DOG_PRICE && !activeDog)
+            g.drawImage(Assets.store_dog_green, handler.getGame().getWidth() - Tile.TILEWIDTH * 2, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
         else
-            g.drawImage(Assets.store_rpg_red, handler.getGame().getWidth() - Tile.TILEWIDTH * 2, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+            g.drawImage(Assets.store_dog_red, handler.getGame().getWidth() - Tile.TILEWIDTH * 2, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+
+        if (numberOfCoins >= EXTRA_LIFE_PRICE)
+            g.drawImage(Assets.store_life_green, handler.getGame().getWidth() - Tile.TILEWIDTH * 4, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+        else
+            g.drawImage(Assets.store_life_red, handler.getGame().getWidth() - Tile.TILEWIDTH * 4, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+
+        if (numberOfCoins >= RPGProjectile.PRICE)
+            g.drawImage(Assets.store_rpg_green, handler.getGame().getWidth() - Tile.TILEWIDTH * 6, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+        else
+            g.drawImage(Assets.store_rpg_red, handler.getGame().getWidth() - Tile.TILEWIDTH * 6, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
 
         if (numberOfCoins >= RifleProjectile.PRICE)
-            g.drawImage(Assets.store_rifle_green, handler.getGame().getWidth() - Tile.TILEWIDTH * 4, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+            g.drawImage(Assets.store_rifle_green, handler.getGame().getWidth() - Tile.TILEWIDTH * 8, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
         else
-            g.drawImage(Assets.store_rifle_red, handler.getGame().getWidth() - Tile.TILEWIDTH * 4, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+            g.drawImage(Assets.store_rifle_red, handler.getGame().getWidth() - Tile.TILEWIDTH * 8, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
         if (numberOfCoins >= ShotgunProjectile.PRICE)
-            g.drawImage(Assets.store_shotgun_green, handler.getGame().getWidth() - Tile.TILEWIDTH * 6, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+            g.drawImage(Assets.store_shotgun_green, handler.getGame().getWidth() - Tile.TILEWIDTH * 10, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
         else
-            g.drawImage(Assets.store_shotgun_red, handler.getGame().getWidth() - Tile.TILEWIDTH * 6, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+            g.drawImage(Assets.store_shotgun_red, handler.getGame().getWidth() - Tile.TILEWIDTH * 10, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
 
-        //loading bar for buying item E
-        long rest = deltaItemE;
+        //loading bar for buying item T
+        long rest = deltaItemT;
         for (int i = 0; i < 32; i++){
             rest -= (int) (CONFIRMATION_TIME / 32);
             if (rest <= (int) (CONFIRMATION_TIME / 32)){
-                g.drawImage(Assets.loadingBarArray[31 - i], handler.getGame().getWidth() - Tile.TILEWIDTH, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+                g.drawImage(Assets.loadingBarArray[31 - i], handler.getGame().getWidth() - Tile.TILEWIDTH + Tile.TILEWIDTH * 1/4, handler.getGame().getHeight() - Tile.TILEHEIGHT, Tile.TILEWIDTH * 3/4, Tile.TILEHEIGHT, null);
+                break;
+            }
+        }
+
+        //loading bar for buying item R
+        rest = deltaItemR;
+        for (int i = 0; i < 32; i++){
+            rest -= (int) (CONFIRMATION_TIME / 32);
+            if (rest <= (int) (CONFIRMATION_TIME / 32)){
+                g.drawImage(Assets.loadingBarArray[31 - i], handler.getGame().getWidth() - Tile.TILEWIDTH * 3 + Tile.TILEWIDTH * 1/4, handler.getGame().getHeight() - Tile.TILEHEIGHT, Tile.TILEWIDTH * 3/4, Tile.TILEHEIGHT, null);
+                break;
+            }
+        }
+
+        //loading bar for buying item E
+        rest = deltaItemE;
+        for (int i = 0; i < 32; i++){
+            rest -= (int) (CONFIRMATION_TIME / 32);
+            if (rest <= (int) (CONFIRMATION_TIME / 32)){
+                g.drawImage(Assets.loadingBarArray[31 - i], handler.getGame().getWidth() - Tile.TILEWIDTH * 5, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
                 break;
             }
         }
@@ -653,7 +715,7 @@ public class Player extends Creature {
         for (int i = 0; i < 32; i++){
             rest -= (int) (CONFIRMATION_TIME / 32);
             if (rest <= (int) (CONFIRMATION_TIME / 32)){
-                g.drawImage(Assets.loadingBarArray[31 - i], handler.getGame().getWidth() - Tile.TILEWIDTH * 3, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+                g.drawImage(Assets.loadingBarArray[31 - i], handler.getGame().getWidth() - Tile.TILEWIDTH * 7, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
                 break;
             }
         }
@@ -662,7 +724,7 @@ public class Player extends Creature {
         for (int i = 0; i < 32; i++){
             rest -= (int) (CONFIRMATION_TIME / 32);
             if (rest <= (int) (CONFIRMATION_TIME / 32)){
-                g.drawImage(Assets.loadingBarArray[31 - i], handler.getGame().getWidth() - Tile.TILEWIDTH * 5, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
+                g.drawImage(Assets.loadingBarArray[31 - i], handler.getGame().getWidth() - Tile.TILEWIDTH * 9, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
                 break;
             }
         }
