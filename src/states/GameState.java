@@ -1,5 +1,6 @@
 package states;
 
+import audio.AudioPlayer;
 import game.Handler;
 import worlds.World;
 
@@ -14,6 +15,7 @@ public class GameState extends State {
         super(pHandler);
         testWorld = new World(pHandler,"resources/worlds/world1.txt");
         handler.setWorld(testWorld);
+
         //player = new Player(pHandler,200,200);
 
         //changing camera
@@ -23,6 +25,8 @@ public class GameState extends State {
     @Override
     public void tick() {
         testWorld.tick();
+        //if (!backgroundMusic.isPlaying())
+            //backgroundMusic.play();
         //player.tick();
 
     }

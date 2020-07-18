@@ -1,5 +1,6 @@
 package states;
 
+import audio.AudioPlayer;
 import game.Game;
 import game.Handler;
 import graphics.Assets;
@@ -26,6 +27,7 @@ public class MenuState extends State {
             public void onClick() {
                 handler.getMouseManager().setUiManager(null);
                 State.setState(handler.getGame().gameState);
+                handler.getWorld().getEntityManager().getPlayer().playerInitialSetUp();
             }
         }));
 
@@ -64,4 +66,9 @@ public class MenuState extends State {
         g.setFont(new Font("Serif", Font.BOLD, 12));
         g.drawString("testing string", 150, 150);*/
     }
+
+    public UIManager getUiManager() {
+        return uiManager;
+    }
+
 }

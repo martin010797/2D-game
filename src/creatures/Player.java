@@ -1,11 +1,17 @@
 package creatures;
+import audio.AudioPlayer;
+import com.sun.jdi.ArrayReference;
 import entities.*;
+import game.Game;
 import game.Handler;
 import graphics.Animation;
 import graphics.Assets;
 import graphics.OneTimeAnimation;
+import states.MenuState;
+import states.State;
 import statics.DoubleCoinsBoost;
 import statics.ImmortalityBoost;
+import statics.Spawner;
 import statics.SpeedBoost;
 import tiles.Tile;
 
@@ -13,13 +19,15 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class Player extends Creature {
 
     private static final int DEFAULT_DELTA_PROJECTILE = 250, RIFLE_PROJECTILE_DELTA = 100, RPG_PROJECTILE_DELTA = 280, DEFAULT_NUMBER_OF_LIVES = 3,
             NUMBER_WIDTH = 32, NUMBER_HEIGHT = 32, CONFIRMATION_TIME = 750, ONESECOND = 1000, DEFAULT_PROJECTILES_REMINING = -1,
-            SHOTGUN_PROJECTILE_DELTA = 300, ABILITYCHARGETIME = 15000, NO_BOOST_DURATION = -1, DOG_PRICE = 300, EXTRA_LIFE_PRICE = 500;
+            SHOTGUN_PROJECTILE_DELTA = 300, ABILITYCHARGETIME = 15000, NO_BOOST_DURATION = -1, DOG_PRICE = 1, EXTRA_LIFE_PRICE = 500,
+            SIZE_OF_PISTOL_SOUND_BUFFER = 10;
 
     private Animation animDown, animUp, animLeft, animRight, animDownLeft, animDownRight, animUpLeft, animUpRight;
     private OneTimeAnimation animation_respawn;
@@ -89,6 +97,10 @@ public class Player extends Creature {
     private long now;
     private long lastTime = System.currentTimeMillis();
 
+    //sound effects
+    private HashMap<String, ArrayList<AudioPlayer>> sounds;
+    private int pistolIndexSound = 0;
+
     private boolean shooting = false;
 
     public Player(Handler pHandler, float x, float y) {
@@ -96,7 +108,6 @@ public class Player extends Creature {
         direction = Direction.DOWN;
         numberOfLives = DEFAULT_NUMBER_OF_LIVES;
         typeOfProjectile = TypeOfProjectile.DEFAULT;
-        //remainingProjectiles = DefaultProjectile.
 
         bounds.x = 20;
         bounds.y = 2;
@@ -120,6 +131,39 @@ public class Player extends Creature {
         lastTimeRespawn = System.currentTimeMillis();
         animation_respawn.setLastTime(System.currentTimeMillis());
         typeOfBoost = TypeOfBoost.NO_ACTIVE_BOOST;
+
+        sounds = new HashMap<String, ArrayList<AudioPlayer>>();
+        sounds.put("pistol", new ArrayList<AudioPlayer>());
+        for (int i = 0; i < SIZE_OF_PISTOL_SOUND_BUFFER; i++){
+            sounds.get("pistol").add(new AudioPlayer("/sounds/pistol.mp3"));
+        }
+        //sounds.put("pistol", new AudioPlayer("/sounds/pistol.mp3"));
+        //...
+
+        //playerInitialSetUp();
+    }
+
+    public void playerInitialSetUp(){
+        direction = Direction.DOWN;
+        numberOfLives = DEFAULT_NUMBER_OF_LIVES;
+        typeOfProjectile = TypeOfProjectile.DEFAULT;
+        x = 600;
+        y = 375;
+
+        immortal = true;
+        lastTimeRespawn = System.currentTimeMillis();
+        animation_respawn.setLastTime(System.currentTimeMillis());
+        typeOfBoost = TypeOfBoost.NO_ACTIVE_BOOST;
+
+        activeDog = false;
+        numberOfCoins = 0;
+
+        abilityReady = false;
+        lastTimeAbility = System.currentTimeMillis();
+        timerAbility = 0;
+
+        lastTimeBoost = System.currentTimeMillis();
+        timerBoost = 0;
     }
 
     public void respawn(){
@@ -152,6 +196,25 @@ public class Player extends Creature {
                 numberOfLives = 0;
                 endOfGame = true;
                 System.out.println("end of game");
+                State.setState(handler.getGame().menuState);
+                handler.getMouseManager().setUiManager(((MenuState) (handler.getGame().menuState)).getUiManager());
+                Iterator itr = handler.getWorld().getEntityManager().getEntities().iterator();
+                while (itr.hasNext()){
+                    Entity e = (Entity) itr.next();
+                    if (e instanceof Coin){
+                        handler.getWorld().getEntityManager().getCoins().remove(e);
+                    }
+                    if (e instanceof Enemy){
+                        handler.getWorld().getEntityManager().getEnemies().remove(e);
+                    }
+                    if (!(e instanceof Player) && !(e instanceof Spawner))
+                        itr.remove();
+                }
+                itr = projectiles.iterator();
+                while (itr.hasNext()){
+                    Projectile p = (Projectile) itr.next();
+                    itr.remove();
+                }
             }
         }
     }
@@ -338,7 +401,11 @@ public class Player extends Creature {
                         shooting = true;
                         Projectile newProjectile = new DefaultProjectile(handler, posX, posY, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, direction, this);
                         projectiles.add(newProjectile);
-                        //System.out.println("shooting");
+                        if (pistolIndexSound == SIZE_OF_PISTOL_SOUND_BUFFER){
+                            pistolIndexSound = 0;
+                        }
+                        sounds.get("pistol").get(pistolIndexSound).play();
+                        pistolIndexSound++;
                     }
                     if (!handler.getKeyManager().space){
                         shooting = false;
@@ -613,6 +680,16 @@ public class Player extends Creature {
         //DOWN RIGHT
         Projectile newProjectile8 = new DefaultProjectile(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, Direction.DOWN_RIGHT, this);
         projectiles.add(newProjectile8);
+
+        //sounds for special ability
+        for (int i = 0; i < 3; i++){
+            if (pistolIndexSound == SIZE_OF_PISTOL_SOUND_BUFFER){
+                pistolIndexSound = 0;
+            }
+            sounds.get("pistol").get(pistolIndexSound).play();
+            pistolIndexSound++;
+        }
+
         //System.out.println("ability used");
     }
 

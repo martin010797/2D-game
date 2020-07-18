@@ -73,7 +73,6 @@ public class World {
         entityManager.getPlayer().setY(spawnY);
 
         //enemies = new ArrayList<Enemy>();
-
     }
 
     public boolean elapsedOneSecond(){

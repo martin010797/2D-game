@@ -1,5 +1,6 @@
 package entities;
 
+import audio.AudioPlayer;
 import creatures.Direction;
 import creatures.Player;
 import game.Handler;
@@ -9,6 +10,7 @@ import java.awt.*;
 
 public class DefaultProjectile extends Projectile{
     private static final float DEFAULT_SPEED = 6.0f;
+    //private AudioPlayer sound;
 
     public DefaultProjectile(Handler pHandler, float x, float y, int pWidth, int pHeight, Direction pDirection, Player pPlayer) {
         super(pHandler, x, y, pWidth, pHeight, pDirection, pPlayer);
@@ -45,6 +47,7 @@ public class DefaultProjectile extends Projectile{
         bounds.y = 27;
         bounds.width = 10;
         bounds.height = 10;
+
     }
 
     @Override
