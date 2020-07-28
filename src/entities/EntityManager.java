@@ -1,5 +1,7 @@
 package entities;
 
+import audio.AudioPlayer;
+import audio.Sounds;
 import creatures.Enemy;
 import creatures.Player;
 import game.Handler;
@@ -9,16 +11,17 @@ import statics.Spawner;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class EntityManager {
+
     private Handler handler;
     private Player player;
     private ArrayList<Entity> entities;
     private ArrayList<Enemy> enemies;
     private ArrayList<Spawner> spawners;
     private ArrayList<Coin> coins;
-
 
     private Comparator<Entity> renderSorter = new Comparator<Entity>() {
         @Override
@@ -37,6 +40,7 @@ public class EntityManager {
         spawners = new ArrayList<Spawner>();
         coins = new ArrayList<Coin>();
         addEntity(player);
+
     }
 
     public void tick(){

@@ -1,59 +1,73 @@
 package worlds;
 
-import creatures.Enemy;
-import creatures.Player;
 import entities.EntityManager;
 import game.Handler;
+import graphics.Animation;
 import graphics.Assets;
-import jdk.swing.interop.SwingInterOpUtils;
-import statics.DoubleCoinsBoost;
-import statics.ImmortalityBoost;
 import statics.Spawner;
-import statics.SpeedBoost;
 import tiles.Tile;
 import utils.Utils;
 
 import java.awt.*;
-import java.util.concurrent.ThreadLocalRandom;
 
-public class World {
+public abstract class World {
 
-    private static final int NUMBEROFENEMIES = 250, MAXNUMBEROFENEMIESONSCREEN = 20, NUMBEROFSPAWNERS = 4, ZERO = 0,
-            NUMBER_OF_BOOSTS = 3;
-    private static final int FIRSTSPAWNER = 0, SECONDSPAWNER = 1, THIRDSPAWNER = 2, FOURTHSPAWNER = 3;
-    private static final int FIRST_BOOST = 0, SECOND_BOOST = 1, THIRD_BOOST = 2;
-    private static final int XFIRSTSPAWNER = 192, YFIRSTSPAWNER = 0, XSECONDSPAWNER = 0, YSECONDSPAWNER = 511,
-        XTHIRDSPAWNER = 1152, YTHIRDSPAWNER = 128, XFOURTHSPAWNER = 960, YFOURTHSPAWNER = 639;
-    private static final int ONESECOND = 1000, BOOST_TIMER_EACH = 20000;
+    private static final int NUMBEROFENEMIES = 1, MAXNUMBEROFENEMIESONSCREEN = 20, BANNER_END_LEVEL_WIDTH = 600,
+            BANNER_END_LEVEL_HEIGHT = 70;
 
-    private Handler handler;
-    //how big world will be (number of tiles)
-    private int width, height;
+    protected static final int NUMBEROFSPAWNERS = 4, ZERO = 0, NUMBER_OF_BOOSTS = 3;
+    protected static final int FIRSTSPAWNER = 0, SECONDSPAWNER = 1, THIRDSPAWNER = 2, FOURTHSPAWNER = 3;
+    protected static final int FIRST_BOOST = 0, SECOND_BOOST = 1, THIRD_BOOST = 2;
+    protected static final int XFIRSTSPAWNER = 192, YFIRSTSPAWNER = 0, XSECONDSPAWNER = 0, YSECONDSPAWNER = 511,
+            XTHIRDSPAWNER = 1152, YTHIRDSPAWNER = 128, XFOURTHSPAWNER = 960, YFOURTHSPAWNER = 639;
+    protected static final int XFIRSTSPAWNER_SECOND_WORLD = 960, YFIRSTSPAWNER_SECOND_WORLD = 0, XSECONDSPAWNER_SECOND_WORLD = 0,
+            YSECONDSPAWNER_SECOND_WORLD = 128, XTHIRDSPAWNER_SECOND_WORLD = 1152, YTHIRDSPAWNER_SECOND_WORLD = 511,
+            XFOURTHSPAWNER_SECOND_WORLD = 192, YFOURTHSPAWNER_SECOND_WORLD = 639;
+    protected static final int ONESECOND = 1000, BOOST_TIMER_EACH = 20000, WAIT_TIME_BEFORE_START_OF_LEVEL = 0,
+            BLACK_SCREEN_LENGTH = 3000;
 
-    private int spawnX, spawnY;
+    protected Handler handler;
+
+    protected int spawnX, spawnY;
     //x and y coordinates
-    private int[][] tiles;
+    protected int[][] tiles;
+
     //entities
-    private EntityManager entityManager;
-    //array list of enemies
-    //private ArrayList<Enemy> enemies;
-    private int defeatedEnemies = 0;
+    protected EntityManager entityManager;
+
+    //how big world will be (number of tiles)
+    protected int width, height;
+
+    protected int defeatedEnemies = 0;
+
+    protected boolean defeatedWorld = false;
 
     //for timing
-    private long now;
-    private long lastTime = System.currentTimeMillis();;
-    private long delta = 0;
+    protected long now;
+    protected long lastTime = System.currentTimeMillis();;
+    protected long delta = 0;
 
     //timing booster
-    private long lastTimeBooster = System.currentTimeMillis();
-    private long timerBooster = 0;
+    protected long lastTimeBooster = System.currentTimeMillis();
+    protected long timerBooster = 0;
 
-    public World(Handler pHandler, String pPath){
+    //timing start
+    protected long lastTimeStartLevel = System.currentTimeMillis();
+    protected long timerStartLevel = 0;
+
+    //timing end
+    protected long lastTimeEndLevel = System.currentTimeMillis();
+    protected long timerEndLevel = 0;
+    protected boolean blackscreen = false;
+    protected Animation endLevelAnimation;
+
+    public World(Handler pHandler, String pPath, EntityManager pEntityManager){
+        entityManager = pEntityManager;
+
         handler = pHandler;
         loadWorld(pPath);
-        entityManager = new EntityManager(handler, new Player(handler, 200, 200));
 
-        Spawner spawner1 = new Spawner(handler, XFIRSTSPAWNER, YFIRSTSPAWNER);
+        /*Spawner spawner1 = new Spawner(handler, XFIRSTSPAWNER, YFIRSTSPAWNER);
         entityManager.addEntity(spawner1, 0);
         entityManager.getSpawners().add(spawner1);
         Spawner spawner2 = new Spawner(handler, XSECONDSPAWNER, YSECONDSPAWNER);
@@ -64,162 +78,17 @@ public class World {
         entityManager.getSpawners().add(spawner3);
         Spawner spawner4 = new Spawner(handler, XFOURTHSPAWNER, YFOURTHSPAWNER);
         entityManager.addEntity(spawner4, 3);
-        entityManager.getSpawners().add(spawner4);
-
-        //creating world from file
-        //loadWorld(pPath);
+        entityManager.getSpawners().add(spawner4);*/
 
         entityManager.getPlayer().setX(spawnX);
         entityManager.getPlayer().setY(spawnY);
 
-        //enemies = new ArrayList<Enemy>();
+        endLevelAnimation = new Animation(175, Assets.banner_end_level_animation);
+
+        //lastTimeBooster = System.currentTimeMillis();
     }
 
-    public boolean elapsedOneSecond(){
-        now = System.currentTimeMillis();
-        delta += now - lastTime;
-        lastTime = now;
-        if (delta >= ONESECOND)
-            return true;
-        else
-            return false;
-    }
-
-    public void tick(){
-        entityManager.tick();
-        if (NUMBEROFENEMIES == defeatedEnemies){
-            System.out.println("WIN");
-        }
-        if (entityManager.getEnemies().size() < MAXNUMBEROFENEMIESONSCREEN && (defeatedEnemies + entityManager.getEnemies().size()) < NUMBEROFENEMIES){
-            //entityManager.getSpawners().get(0).setOpening(true);
-            if (elapsedOneSecond()){
-                int randomSpawner = ThreadLocalRandom.current().nextInt(ZERO, NUMBEROFSPAWNERS);
-                switch (randomSpawner){
-                    case FIRSTSPAWNER:{
-                        Enemy e = new Enemy(handler, XFIRSTSPAWNER, YFIRSTSPAWNER);
-                        entityManager.getSpawners().get(FIRSTSPAWNER).setOpening(true);
-                        entityManager.getEnemies().add(e);
-                        entityManager.addEntity(e);
-                        break;
-                    }
-                    case SECONDSPAWNER:{
-                        Enemy e = new Enemy(handler, XSECONDSPAWNER, YSECONDSPAWNER);
-                        entityManager.getSpawners().get(SECONDSPAWNER).setOpening(true);
-                        entityManager.getEnemies().add(e);
-                        entityManager.addEntity(e);
-                        break;
-                    }
-                    case THIRDSPAWNER:{
-                        Enemy e = new Enemy(handler, XTHIRDSPAWNER, YTHIRDSPAWNER);
-                        entityManager.getSpawners().get(THIRDSPAWNER).setOpening(true);
-                        entityManager.getEnemies().add(e);
-                        entityManager.addEntity(e);
-                        break;
-                    }
-                    case FOURTHSPAWNER:{
-                        Enemy e = new Enemy(handler, XFOURTHSPAWNER, YFOURTHSPAWNER);
-                        entityManager.getSpawners().get(FOURTHSPAWNER).setOpening(true);
-                        entityManager.getEnemies().add(e);
-                        entityManager.addEntity(e);
-                        break;
-                    }
-                }
-                delta = 0;
-            }
-
-        }
-    }
-
-    public void render(Graphics g){
-        //render just object which we can see on screen
-        int xStart = (int) Math.max(0, handler.getGameCamera().getxOffset() / Tile.TILEWIDTH );
-        int xEnd = (int) Math.min(width, (handler.getGameCamera().getxOffset() + handler.getWidth()) / Tile.TILEWIDTH + 1);
-        int yStart = (int) Math.max(0, handler.getGameCamera().getyOffset() / Tile.TILEHEIGHT);
-        int yEnd = (int) Math.min(height, (handler.getGameCamera().getyOffset() + handler.getHeight()) / Tile.TILEHEIGHT + 1);
-
-        for (int y = yStart; y < yEnd; y++) {
-            for (int x = xStart; x < xEnd; x++) {
-                getTile(x,y).render(g,(int) (x * Tile.TILEWIDTH - handler.getGameCamera().getxOffset()), (int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
-                //if else because of rock tile need grass under it
-                /*if (tiles[x][y] != 2){
-                    getTile(x,y).render(g,(int) (x * Tile.TILEWIDTH - handler.getGameCamera().getxOffset()), (int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
-                }else {
-                    Tile.tiles[0].render(g,(int) (x * Tile.TILEWIDTH - handler.getGameCamera().getxOffset()), (int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
-                    getTile(x,y).render(g,(int) (x * Tile.TILEWIDTH - handler.getGameCamera().getxOffset()), (int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
-                }*/
-            }
-        }
-        for (int i = 0; i < 7; i++){
-            g.drawImage(Assets.player_stats_background, i * Tile.TILEWIDTH, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
-        }
-        g.drawImage(Assets.bubble_background1, 0, handler.getGame().getHeight() - Tile.TILEHEIGHT, Tile.TILEWIDTH - 20 ,Tile.TILEHEIGHT , null);
-        g.drawImage(Assets.static_player_down, - 7, handler.getGame().getHeight() - Tile.TILEHEIGHT + 3,Tile.TILEWIDTH - 7 ,Tile.TILEHEIGHT - 7 , null);
-        g.drawImage(Assets.bubble_background1, 100, handler.getGame().getHeight() - Tile.TILEHEIGHT + 3,Tile.TILEWIDTH - 22 ,Tile.TILEHEIGHT - 7 , null);
-        g.drawImage(Assets.coin, 92, handler.getGame().getHeight() - Tile.TILEHEIGHT + 3,Tile.TILEWIDTH - 7 ,Tile.TILEHEIGHT - 7 , null);
-        g.drawImage(Assets.player_ability, 5 * Tile.TILEWIDTH, handler.getGame().getHeight() - Tile.TILEHEIGHT, null);
-
-        /*
-        timerAbility += System.currentTimeMillis() - lastTimeAbility;
-        lastTimeAbility = System.currentTimeMillis();
-        if (timerAbility >= ABILITYCHARGETIME && !abilityReady){
-            abilityReady = true;
-            //System.out.println("ability ready");
-        }
-         */
-
-        timerBooster += System.currentTimeMillis() - lastTimeBooster;
-        lastTimeBooster = System.currentTimeMillis();
-        if (timerBooster >= BOOST_TIMER_EACH){
-            int randomBoost = ThreadLocalRandom.current().nextInt(ZERO, NUMBER_OF_BOOSTS);
-            int randomX = ThreadLocalRandom.current().nextInt((int) (Tile.TILEWIDTH * 2) , (int) (width * Tile.TILEWIDTH - Tile.TILEWIDTH * 2 + 1));
-            int randomY = ThreadLocalRandom.current().nextInt((int) (Tile.TILEHEIGHT * 2), (int) (height * Tile.TILEWIDTH - Tile.TILEHEIGHT * 2 + 1));
-            switch (randomBoost){
-                case FIRST_BOOST:{
-                    DoubleCoinsBoost boost = new DoubleCoinsBoost(handler, randomX, randomY, Tile.TILEWIDTH, Tile.TILEHEIGHT);
-                    entityManager.addEntity(boost);
-                    break;
-                }
-                case SECOND_BOOST:{
-                    ImmortalityBoost boost = new ImmortalityBoost(handler, randomX, randomY, Tile.TILEWIDTH, Tile.TILEHEIGHT);
-                    entityManager.addEntity(boost);
-                    break;
-                }
-                case THIRD_BOOST:{
-                    SpeedBoost boost = new SpeedBoost(handler, randomX, randomY, Tile.TILEWIDTH, Tile.TILEHEIGHT);
-                    entityManager.addEntity(boost);
-                    break;
-                }
-            }
-            timerBooster = 0;
-        }
-        //entities
-        entityManager.render(g);
-    }
-
-    public Tile getTile(int x, int y){
-        //make sure its not outside of the map
-        if (x < 0 || y < 0 || x >= width || y >= height)
-            return Tile.nothingTile;
-
-        Tile t = Tile.tiles[tiles[x][y]];
-        if (t == null){
-            //default return nothing tile
-            return Tile.nothingTile;
-        }else
-            return t;
-    }
-
-    private void loadWorld(String pPath){
-        /*width = 5;
-        height = 5;
-        tiles = new int[width][height];
-
-        for (int x = 0; x < width; x++){
-            for (int y = 0; y < height ;y++){
-                tiles[x][y] = 0;
-            }
-        }
-         */
+    protected void loadWorld(String pPath){
         String file = Utils.loadFileAsString(pPath);
         //split up every number of String and put it into array
         String[] tokens = file.split("\\s+");
@@ -235,6 +104,42 @@ public class World {
                 //adding 4 because on first four positions are width, height, x and y
                 tiles[x][y] = Utils.parseInt(tokens[(x + y * width) + 4]);
             }
+        }
+    }
+
+    public Tile getTile(int x, int y){
+        //make sure its not outside of the map
+        if (x < 0 || y < 0 || x >= width || y >= height)
+            return Tile.nothingTile;
+
+        Tile t = Tile.tiles[tiles[x][y]];
+        if (t == null){
+            //default return nothing tile
+            return Tile.nothingTile;
+        }else
+            return t;
+    }
+
+    protected void renderEndLevelBanner(Graphics g){
+        g.drawImage(endLevelAnimation.getCurrentFrame(), handler.getGame().getWidth() / 2 - BANNER_END_LEVEL_WIDTH / 2,
+                handler.getGame().getHeight() / 4 - (handler.getGame().getHeight() / 18) / 2,
+                BANNER_END_LEVEL_WIDTH,
+                BANNER_END_LEVEL_HEIGHT, null);
+    }
+
+    //abstract part
+    public abstract void tick();
+    public abstract void render(Graphics g);
+
+    //getters and setters
+    public boolean isDefeatedWorld() {
+        return defeatedWorld;
+    }
+
+    public void setDefeatedWorld(boolean defeatedWorld) {
+        this.defeatedWorld = defeatedWorld;
+        if (!defeatedWorld){
+            blackscreen = false;
         }
     }
 
@@ -270,4 +175,22 @@ public class World {
         defeatedEnemies++;
     }
 
+    public void setDefeatedEnemies(int defeatedEnemies) {
+        this.defeatedEnemies = defeatedEnemies;
+    }
+
+    public void setLastTimeBooster(long lastTimeBooster) {
+        this.lastTimeBooster = lastTimeBooster;
+    }
+
+    public void setLastTimeStartLevel(long lastTimeStartLevel) {
+        this.lastTimeStartLevel = lastTimeStartLevel;
+    }
+
+    public void setTimerStartLevel(long timerStartLevel) {
+        this.timerStartLevel = timerStartLevel;
+    }
+    public long getTimerStartLevel() {
+        return timerStartLevel;
+    }
 }

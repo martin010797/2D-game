@@ -1,5 +1,6 @@
 package creatures;
 
+import audio.Sounds;
 import game.Handler;
 import graphics.Animation;
 import graphics.Assets;
@@ -21,7 +22,10 @@ public class Enemy extends Creature {
     private Direction direction;
     private BufferedImage enemyImage;
     private boolean dead = false;
-    private boolean wrongDirection =false;
+    private boolean wrongDirection = false;
+
+    //sound
+    private int deathIndexSound = 0;
 
     public Enemy(Handler pHandler, float x, float y) {
         super(pHandler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
@@ -292,6 +296,15 @@ public class Enemy extends Creature {
     }
 
     public void setDead(boolean dead) {
+        if (!this.dead && dead){
+            /*if (deathIndexSound == Sounds.SIZE_OF_ENEMY_SOUND_BUFFER){
+                deathIndexSound = 0;
+            }
+            Sounds.sounds.get("enemy_death").get(deathIndexSound).play();
+            deathIndexSound++;*/
+            Sounds.getSound("enemy_death").play();
+            //handler.getWorld().addDefeatedEnemy();
+        }
         this.dead = dead;
     }
 }

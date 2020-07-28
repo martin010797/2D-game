@@ -105,12 +105,13 @@ public abstract class Entity {
             //if both are projectiles
             if (this instanceof Projectile && e instanceof Projectile)
                 continue;
-            if (e.equals(this))
-                continue;
             //checking if entity dont want to leave map
             if ((int) (x + bounds.x + xOffset) < 0 || ((int) (x + bounds.x + bounds.width + xOffset) > handler.getWidth())
                     || (int) (y + bounds.y + yOffset) < 0)
                 return true;
+            if (e.equals(this))
+                continue;
+
             //dog collisions
             if (this instanceof Dog && e instanceof Projectile || this instanceof Projectile && e instanceof Dog){
                 continue;

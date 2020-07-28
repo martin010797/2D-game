@@ -1,5 +1,7 @@
 package ui;
 
+import audio.Sounds;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
@@ -24,15 +26,20 @@ public abstract class UIObject {
 
     //detecting if users mouse is over this UIObject, if yes we'll set hovering to true
     public void onMouseMove(MouseEvent e){
-        if (bounds.contains(e.getX(), e.getY()))
+        if (bounds.contains(e.getX(), e.getY())){
+            if(!hovering)
+                Sounds.menu_button_hovering.play();
             hovering = true;
+        }
         else
             hovering = false;
     }
 
     public void onMouseRelease(MouseEvent e){
-        if (hovering)
+        if (hovering){
+            Sounds.menu_button_click.play();
             onClick();
+        }
     }
 
     //getters and setters
