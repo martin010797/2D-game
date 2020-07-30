@@ -46,7 +46,7 @@ public class Game implements Runnable {
     //Handler
     private Handler handler;
 
-    public static Level level;
+    private Level level;
     private EntityManager entityManager;
 
     public Game(String pTitle, int pWidth, int pHeight){
@@ -244,5 +244,13 @@ public class Game implements Runnable {
 
     public int getHeight(){
         return height;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public void setLevel(Level level) {
+        this.level = level;
     }
 }

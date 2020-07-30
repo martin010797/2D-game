@@ -17,6 +17,7 @@ import statics.ImmortalityBoost;
 import statics.Spawner;
 import statics.SpeedBoost;
 import tiles.Tile;
+import worlds.World;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -228,6 +229,19 @@ public class Player extends Creature {
                 endOfGame = true;
                 System.out.println("end of game");
                 State.setState(handler.getGame().menuState);
+
+                //change spawners coordinates for first world
+                if (handler.getGame().getLevel() != Level.FIRST_LEVEL){
+                    handler.getWorld().getEntityManager().getSpawners().get(0).setX(World.XFIRSTSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(0).setY(World.YFIRSTSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(1).setX(World.XSECONDSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(1).setY(World.YSECONDSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(2).setX(World.XTHIRDSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(2).setY(World.YTHIRDSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(3).setX(World.XFOURTHSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(3).setY(World.YFOURTHSPAWNER);
+                }
+
                 handler.getMouseManager().setUiManager(((MenuState) (handler.getGame().menuState)).getUiManager());
                 Iterator itr = handler.getWorld().getEntityManager().getEntities().iterator();
                 while (itr.hasNext()){
@@ -248,17 +262,14 @@ public class Player extends Creature {
                 }
                 handler.getWorld().setLastTimeStartLevel(System.currentTimeMillis());
                 handler.getWorld().setTimerStartLevel(0);
-                Game.level = Level.FIRST_LEVEL;
+                handler.getGame().setLevel(Level.FIRST_LEVEL);
                 if (handler.getGame().firstLevelState instanceof FirstLevelState){
                     ((FirstLevelState)handler.getGame().firstLevelState).setDefeated(false);
                 }
                 if (handler.getGame().secondLevelState instanceof SecondLevelState){
                     ((SecondLevelState)handler.getGame().secondLevelState).setDefeated(false);
                 }
-                /*
-                world.setDefeatedEnemies(0);
-        world.setDefeatedWorld(false);
-                 */
+
             }
         }
     }

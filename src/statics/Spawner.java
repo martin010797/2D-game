@@ -37,7 +37,7 @@ public class Spawner extends StaticEntity {
     public void render(Graphics g) {
 
         if (!opening){
-            switch (Game.level){
+            switch (handler.getGame().getLevel()){
                 case FIRST_LEVEL:{
                     g.drawImage(Assets.spawner, (int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
                     break;
@@ -60,7 +60,7 @@ public class Spawner extends StaticEntity {
     public void animationOpeningDoor(Graphics g){
         timer += System.currentTimeMillis() - lastTime;
         lastTime = System.currentTimeMillis();
-        switch (Game.level){
+        switch (handler.getGame().getLevel()){
             case FIRST_LEVEL:{
                 if (timer <= 175){
                     g.drawImage(Assets.spawner_door[0], (int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
