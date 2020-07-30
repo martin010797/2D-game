@@ -1,7 +1,6 @@
 package entities;
 
-import audio.AudioPlayer;
-import audio.Sounds;
+import creatures.BasicEnemy;
 import creatures.Enemy;
 import creatures.Player;
 import game.Handler;
@@ -11,7 +10,6 @@ import statics.Spawner;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Iterator;
 
 public class EntityManager {

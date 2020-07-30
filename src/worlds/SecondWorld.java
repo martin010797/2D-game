@@ -1,6 +1,6 @@
 package worlds;
 
-import creatures.Enemy;
+import creatures.BasicEnemy;
 import creatures.Player;
 import entities.Coin;
 import entities.Entity;
@@ -65,7 +65,7 @@ public class SecondWorld extends World {
                         if (e instanceof Coin){
                             handler.getWorld().getEntityManager().getCoins().remove(e);
                         }
-                        if (e instanceof Enemy){
+                        if (e instanceof BasicEnemy){
                             handler.getWorld().getEntityManager().getEnemies().remove(e);
                         }
                         if (!(e instanceof Player) && !(e instanceof Spawner))
@@ -100,28 +100,28 @@ public class SecondWorld extends World {
                     int randomSpawner = ThreadLocalRandom.current().nextInt(ZERO, NUMBEROFSPAWNERS);
                     switch (randomSpawner){
                         case FIRSTSPAWNER:{
-                            Enemy e = new Enemy(handler, XFIRSTSPAWNER_SECOND_WORLD, YFIRSTSPAWNER_SECOND_WORLD);
+                            BasicEnemy e = new BasicEnemy(handler, XFIRSTSPAWNER_SECOND_WORLD, YFIRSTSPAWNER_SECOND_WORLD);
                             entityManager.getSpawners().get(FIRSTSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);
                             break;
                         }
                         case SECONDSPAWNER:{
-                            Enemy e = new Enemy(handler, XSECONDSPAWNER_SECOND_WORLD, YSECONDSPAWNER_SECOND_WORLD);
+                            BasicEnemy e = new BasicEnemy(handler, XSECONDSPAWNER_SECOND_WORLD, YSECONDSPAWNER_SECOND_WORLD);
                             entityManager.getSpawners().get(SECONDSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);
                             break;
                         }
                         case THIRDSPAWNER:{
-                            Enemy e = new Enemy(handler, XTHIRDSPAWNER_SECOND_WORLD, YTHIRDSPAWNER_SECOND_WORLD);
+                            BasicEnemy e = new BasicEnemy(handler, XTHIRDSPAWNER_SECOND_WORLD, YTHIRDSPAWNER_SECOND_WORLD);
                             entityManager.getSpawners().get(THIRDSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);
                             break;
                         }
                         case FOURTHSPAWNER:{
-                            Enemy e = new Enemy(handler, XFOURTHSPAWNER_SECOND_WORLD, YFOURTHSPAWNER_SECOND_WORLD);
+                            BasicEnemy e = new BasicEnemy(handler, XFOURTHSPAWNER_SECOND_WORLD, YFOURTHSPAWNER_SECOND_WORLD);
                             entityManager.getSpawners().get(FOURTHSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);

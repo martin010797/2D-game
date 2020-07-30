@@ -1,30 +1,26 @@
 package worlds;
 
 import creatures.Dog;
-import creatures.Enemy;
+import creatures.BasicEnemy;
 import creatures.Player;
 import entities.Coin;
 import entities.Entity;
 import entities.EntityManager;
 import entities.Projectile;
 import game.Handler;
-import graphics.Animation;
 import graphics.Assets;
-import states.MenuState;
 import statics.DoubleCoinsBoost;
 import statics.ImmortalityBoost;
 import statics.Spawner;
 import statics.SpeedBoost;
 import tiles.Tile;
-import utils.Utils;
 
 import java.awt.*;
-import java.security.PrivilegedAction;
 import java.util.Iterator;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class FirstWorld extends World{
-    private static final int NUMBEROFENEMIES = 1, MAXNUMBEROFENEMIESONSCREEN = 20;
+    private static final int NUMBEROFENEMIES = 15, MAXNUMBEROFENEMIESONSCREEN = 20;
 
     public FirstWorld(Handler pHandler, String pPath, EntityManager pEntityManager){
         super(pHandler,pPath, pEntityManager);
@@ -80,7 +76,7 @@ public class FirstWorld extends World{
                         if (e instanceof Coin){
                             handler.getWorld().getEntityManager().getCoins().remove(e);
                         }
-                        if (e instanceof Enemy){
+                        if (e instanceof BasicEnemy){
                             handler.getWorld().getEntityManager().getEnemies().remove(e);
                         }
                         if (!(e instanceof Player) && !(e instanceof Spawner) && !(e instanceof Dog))
@@ -117,28 +113,28 @@ public class FirstWorld extends World{
                     int randomSpawner = ThreadLocalRandom.current().nextInt(ZERO, NUMBEROFSPAWNERS);
                     switch (randomSpawner){
                         case FIRSTSPAWNER:{
-                            Enemy e = new Enemy(handler, XFIRSTSPAWNER, YFIRSTSPAWNER);
+                            BasicEnemy e = new BasicEnemy(handler, XFIRSTSPAWNER, YFIRSTSPAWNER);
                             entityManager.getSpawners().get(FIRSTSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);
                             break;
                         }
                         case SECONDSPAWNER:{
-                            Enemy e = new Enemy(handler, XSECONDSPAWNER, YSECONDSPAWNER);
+                            BasicEnemy e = new BasicEnemy(handler, XSECONDSPAWNER, YSECONDSPAWNER);
                             entityManager.getSpawners().get(SECONDSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);
                             break;
                         }
                         case THIRDSPAWNER:{
-                            Enemy e = new Enemy(handler, XTHIRDSPAWNER, YTHIRDSPAWNER);
+                            BasicEnemy e = new BasicEnemy(handler, XTHIRDSPAWNER, YTHIRDSPAWNER);
                             entityManager.getSpawners().get(THIRDSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);
                             break;
                         }
                         case FOURTHSPAWNER:{
-                            Enemy e = new Enemy(handler, XFOURTHSPAWNER, YFOURTHSPAWNER);
+                            BasicEnemy e = new BasicEnemy(handler, XFOURTHSPAWNER, YFOURTHSPAWNER);
                             entityManager.getSpawners().get(FOURTHSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);
