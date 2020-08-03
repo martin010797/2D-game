@@ -2,6 +2,7 @@ package worlds;
 
 import creatures.Dog;
 import creatures.BasicEnemy;
+import creatures.Enemy;
 import creatures.Player;
 import entities.Coin;
 import entities.Entity;
@@ -76,7 +77,7 @@ public class FirstWorld extends World{
                         if (e instanceof Coin){
                             handler.getWorld().getEntityManager().getCoins().remove(e);
                         }
-                        if (e instanceof BasicEnemy){
+                        if (e instanceof Enemy){
                             handler.getWorld().getEntityManager().getEnemies().remove(e);
                         }
                         if (!(e instanceof Player) && !(e instanceof Spawner) && !(e instanceof Dog))

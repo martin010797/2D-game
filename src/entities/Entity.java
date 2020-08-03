@@ -213,15 +213,29 @@ public abstract class Entity {
                 continue;
             }
 
-            if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
-                if (this instanceof Projectile && e instanceof Enemy){
-                    ((Enemy) e).setDead(true);
+            if (!(e instanceof BulletproofEnemy)){
+                if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
+                    if (this instanceof Projectile && e instanceof Enemy){
+                        ((Enemy) e).setDead(true);
+                    }
+                    //rpg projectile wont destroy after hitting enemy
+                    if ((this instanceof RPGProjectile && e instanceof Enemy) || (this instanceof Enemy && e instanceof RPGProjectile) ){
+                        return false;
+                    }
+                    return true;
                 }
-                //rpg projectile wont destroy after hitting enemy
-                if ((this instanceof RPGProjectile && e instanceof Enemy) || (this instanceof Enemy && e instanceof RPGProjectile) ){
-                    return false;
+            }else {
+                BulletproofEnemy bulletproofEnemy = ((BulletproofEnemy) e);
+                if (bulletproofEnemy.getCollisionHeadBounds(xOffset, yOffset).intersects(getCollisionBounds(xOffset, yOffset))){
+                    if (this instanceof Projectile && e instanceof Enemy){
+                        ((Enemy) e).setDead(true);
+                    }
+                    //rpg projectile wont destroy after hitting enemy
+                    if ((this instanceof RPGProjectile && e instanceof Enemy) || (this instanceof Enemy && e instanceof RPGProjectile) ){
+                        return false;
+                    }
+                    return true;
                 }
-                return true;
             }
         }
         return false;

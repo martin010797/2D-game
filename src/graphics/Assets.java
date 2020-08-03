@@ -27,6 +27,7 @@ public class Assets {
             store_shotgun_red, store_life_green, store_life_red, store_dog_green, store_dog_red;
     public static BufferedImage banner_not_enough_money, immortalBubble, player_ability, loading_bar_green_full,no_active_boost,
             speed_boost, double_coins_boost, immortality_boost, menu_backgrounnd, banner_level_finished;
+    public static BufferedImage bulletproof_enemy_test;
     //arrays
     public static BufferedImage[] speed_boost_array, double_coins_boost_array, immortality_boost_array;
     public static BufferedImage[] btn_start, btn_exit, btn_tutorial;
@@ -210,6 +211,9 @@ public class Assets {
         spawner_door_second_world[2] = sheet.crop(3 * width, 28 * height, width, height);
         spawner_door_second_world[3] = sheet.crop(2 * width, 28 * height, width, height);
         spawner_door_second_world[4] = sheet.crop(width, 28 * height, width, height);
+
+        //bulletproof enemy
+        bulletproof_enemy_test = sheet.crop(8 * width, 28 * height, width, height);
 
         //coin
         coin = sheet.crop(8 * width, 7 * height, width, height);

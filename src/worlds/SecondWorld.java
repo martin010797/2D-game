@@ -1,6 +1,8 @@
 package worlds;
 
 import creatures.BasicEnemy;
+import creatures.BulletproofEnemy;
+import creatures.Enemy;
 import creatures.Player;
 import entities.Coin;
 import entities.Entity;
@@ -20,8 +22,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class SecondWorld extends World {
 
-    private static final int NUMBEROFENEMIES = 5, MAXNUMBEROFENEMIESONSCREEN = 20;
-    //TODO implement second world
+    //TODO implement adding two types of enemies
+    private static final int NUMBEROFENEMIES = 15, MAXNUMBEROFENEMIESONSCREEN = 20, NUMBER_OF_BASIC_ENEMIES = 20,
+            NUMBER_OF_BULLETPROOF_ENEMIES = 10;
 
     public SecondWorld(Handler pHandler, String pPath, EntityManager pEntityManager) {
         super(pHandler, pPath, pEntityManager);
@@ -65,7 +68,7 @@ public class SecondWorld extends World {
                         if (e instanceof Coin){
                             handler.getWorld().getEntityManager().getCoins().remove(e);
                         }
-                        if (e instanceof BasicEnemy){
+                        if (e instanceof Enemy){
                             handler.getWorld().getEntityManager().getEnemies().remove(e);
                         }
                         if (!(e instanceof Player) && !(e instanceof Spawner))
@@ -98,30 +101,43 @@ public class SecondWorld extends World {
                 //entityManager.getSpawners().get(0).setOpening(true);
                 if (elapsedOneSecond()){
                     int randomSpawner = ThreadLocalRandom.current().nextInt(ZERO, NUMBEROFSPAWNERS);
+                    int randomEnemy = ThreadLocalRandom.current().nextInt(ZERO, 3);
                     switch (randomSpawner){
                         case FIRSTSPAWNER:{
-                            BasicEnemy e = new BasicEnemy(handler, XFIRSTSPAWNER_SECOND_WORLD, YFIRSTSPAWNER_SECOND_WORLD);
+                            /*Enemy e = null;
+                            if (randomEnemy == 0){
+
+                                e = new BulletproofEnemy(handler, XFIRSTSPAWNER_SECOND_WORLD, YFIRSTSPAWNER_SECOND_WORLD);
+                            }else {
+
+                            }*/
+
+                            //BasicEnemy e = new BasicEnemy(handler, XFIRSTSPAWNER_SECOND_WORLD, YFIRSTSPAWNER_SECOND_WORLD);
+                            BulletproofEnemy e = new BulletproofEnemy(handler, XFIRSTSPAWNER_SECOND_WORLD, YFIRSTSPAWNER_SECOND_WORLD);
                             entityManager.getSpawners().get(FIRSTSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);
                             break;
                         }
                         case SECONDSPAWNER:{
-                            BasicEnemy e = new BasicEnemy(handler, XSECONDSPAWNER_SECOND_WORLD, YSECONDSPAWNER_SECOND_WORLD);
+                            //BasicEnemy e = new BasicEnemy(handler, XSECONDSPAWNER_SECOND_WORLD, YSECONDSPAWNER_SECOND_WORLD);
+                            BulletproofEnemy e = new BulletproofEnemy(handler, XFIRSTSPAWNER_SECOND_WORLD, YFIRSTSPAWNER_SECOND_WORLD);
                             entityManager.getSpawners().get(SECONDSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);
                             break;
                         }
                         case THIRDSPAWNER:{
-                            BasicEnemy e = new BasicEnemy(handler, XTHIRDSPAWNER_SECOND_WORLD, YTHIRDSPAWNER_SECOND_WORLD);
+                            //BasicEnemy e = new BasicEnemy(handler, XTHIRDSPAWNER_SECOND_WORLD, YTHIRDSPAWNER_SECOND_WORLD);
+                            BulletproofEnemy e = new BulletproofEnemy(handler, XFIRSTSPAWNER_SECOND_WORLD, YFIRSTSPAWNER_SECOND_WORLD);
                             entityManager.getSpawners().get(THIRDSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);
                             break;
                         }
                         case FOURTHSPAWNER:{
-                            BasicEnemy e = new BasicEnemy(handler, XFOURTHSPAWNER_SECOND_WORLD, YFOURTHSPAWNER_SECOND_WORLD);
+                            //BasicEnemy e = new BasicEnemy(handler, XFOURTHSPAWNER_SECOND_WORLD, YFOURTHSPAWNER_SECOND_WORLD);
+                            BulletproofEnemy e = new BulletproofEnemy(handler, XFIRSTSPAWNER_SECOND_WORLD, YFIRSTSPAWNER_SECOND_WORLD);
                             entityManager.getSpawners().get(FOURTHSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);

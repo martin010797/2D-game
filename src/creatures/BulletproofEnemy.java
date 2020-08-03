@@ -3,62 +3,56 @@ package creatures;
 import audio.AudioPlayer;
 import audio.Sounds;
 import game.Handler;
-import graphics.Animation;
 import graphics.Assets;
-import tiles.Tile;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class BasicEnemy extends Enemy {
+public class BulletproofEnemy extends Enemy {
 
-    private static final float ENEMY_SPEED = 1.5f;
-    private static final int SIZE_OF_REACH = 150;
+    private static final float ENEMY_SPEED = 1.8f;
+    private static final int SIZE_OF_REACH = 200;
 
-    //sound
-    //private int deathIndexSound = 0;
+    private Rectangle headBounds;
+    private BufferedImage testTexture;
 
-    public BasicEnemy(Handler pHandler, float x, float y) {
+    public BulletproofEnemy(Handler pHandler, float x, float y) {
         super(pHandler, x, y);
 
         speed = ENEMY_SPEED;
-
-        //animations
-        animDown = new Animation(175, Assets.enemy_down);
-        animUp = new Animation(175, Assets.enemy_up);
-        animLeft = new Animation(175, Assets.enemy_left);
-        animRight = new Animation(175, Assets.enemy_right);
-        animDownLeft = new Animation(175, Assets.enemy_down_left);
-        animDownRight = new Animation(175, Assets.enemy_down_right);
-        animUpLeft = new Animation(175, Assets.enemy_up_left);
-        animUpRight = new Animation(175, Assets.enemy_up_right);
-
         sizeOfReach = SIZE_OF_REACH;
+        /*
+         bounds.x = 20;
+        bounds.y = 2;
+        bounds.width = 22;
+        bounds.height = 60;
+         */
+        headBounds = new Rectangle(19, 1, 24, 25);
+
+        //temporary
+        testTexture = Assets.bulletproof_enemy_test;
+
     }
 
     @Override
     public void tick() {
-        super.tick();
+        //temporary commented
+        //super.tick();
         simpleAIMove();
         move();
     }
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(getCurrentAnimationFrame(),(int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-        //g.drawImage(Assets.enemy,(int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-        //g.setColor(Color.red);
-        //g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
-        //(int) (y + bounds.y - handler.getGameCamera().getyOffset()), bounds.width, bounds.height);
+        g.setColor(Color.red);
+        g.fillRect((int) (x + headBounds.x - handler.getGameCamera().getxOffset()),
+        (int) (y + headBounds.y - handler.getGameCamera().getyOffset()), headBounds.width, headBounds.height);
+
+        g.drawImage(testTexture,(int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+
     }
 
-    @Override
-    public AudioPlayer getSound() {
-        return Sounds.getSound("enemy_death");
-    }
-
-    @Override
     public void move() {
         if (!chceckEntityCollisionExcludeEntity(xMove, 0f, handler.getWorld().getEntityManager().getPlayer()))
             moveX();
@@ -156,5 +150,21 @@ public class BasicEnemy extends Enemy {
                     break;
             }
         }
+    }
+
+    @Override
+    public AudioPlayer getSound() {
+        //maybe change later for specific sound
+        return Sounds.getSound("enemy_death");
+    }
+
+    /*
+    public Rectangle getCollisionBounds(float xOffset, float yOffset){
+        return new Rectangle((int) (x + bounds.x + xOffset), (int) (y + bounds.y + yOffset), bounds.width, bounds.height);
+    }
+     */
+
+    public Rectangle getCollisionHeadBounds(float xOffset, float yOffset) {
+        return new Rectangle((int) (x + headBounds.x + xOffset), (int) (y + headBounds.y + yOffset), headBounds.width, headBounds.height);
     }
 }
