@@ -1,16 +1,13 @@
 package entities;
 
 import creatures.*;
-import game.Game;
 import game.Handler;
-import org.w3c.dom.css.Rect;
 import statics.Boost;
 import statics.DoubleCoinsBoost;
 import statics.ImmortalityBoost;
 import statics.SpeedBoost;
 
 import java.awt.*;
-import java.util.Comparator;
 
 public abstract class Entity {
 
@@ -95,7 +92,7 @@ public abstract class Entity {
                     continue;
             }
             //if player is immortal then dont check collision with enemy
-            if (this instanceof Player && e instanceof Enemy ){
+            if (this instanceof Player && e instanceof Enemy){
                 if (((Player) this).isImmortal())
                     continue;
             }else if (this instanceof Enemy && e instanceof Player){
@@ -105,12 +102,13 @@ public abstract class Entity {
             //if both are projectiles
             if (this instanceof Projectile && e instanceof Projectile)
                 continue;
-            if (e.equals(this))
-                continue;
             //checking if entity dont want to leave map
             if ((int) (x + bounds.x + xOffset) < 0 || ((int) (x + bounds.x + bounds.width + xOffset) > handler.getWidth())
                     || (int) (y + bounds.y + yOffset) < 0)
                 return true;
+            if (e.equals(this))
+                continue;
+
             //dog collisions
             if (this instanceof Dog && e instanceof Projectile || this instanceof Projectile && e instanceof Dog){
                 continue;
@@ -175,7 +173,7 @@ public abstract class Entity {
                     continue;
             }
             //if player is immortal then dont check collision with enemy
-            if (this instanceof Player && e instanceof Enemy ){
+            if (this instanceof Player && e instanceof Enemy){
                 if (((Player) this).isImmortal())
                     continue;
             }else if (this instanceof Enemy && e instanceof Player){
@@ -215,15 +213,29 @@ public abstract class Entity {
                 continue;
             }
 
-            if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
-                if (this instanceof Projectile && e instanceof Enemy){
-                    ((Enemy) e).setDead(true);
+            if (!(e instanceof BulletproofEnemy)){
+                if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))){
+                    if (this instanceof Projectile && e instanceof Enemy){
+                        ((Enemy) e).setDead(true);
+                    }
+                    //rpg projectile wont destroy after hitting enemy
+                    if ((this instanceof RPGProjectile && e instanceof Enemy) || (this instanceof Enemy && e instanceof RPGProjectile) ){
+                        return false;
+                    }
+                    return true;
                 }
-                //rpg projectile wont destroy after hitting enemy
-                if ((this instanceof RPGProjectile && e instanceof Enemy) || (this instanceof Enemy && e instanceof RPGProjectile) ){
-                    return false;
+            }else {
+                BulletproofEnemy bulletproofEnemy = ((BulletproofEnemy) e);
+                if (bulletproofEnemy.getCollisionHeadBounds(xOffset, yOffset).intersects(getCollisionBounds(xOffset, yOffset))){
+                    if (this instanceof Projectile && e instanceof Enemy){
+                        ((Enemy) e).setDead(true);
+                    }
+                    //rpg projectile wont destroy after hitting enemy
+                    if ((this instanceof RPGProjectile && e instanceof Enemy) || (this instanceof Enemy && e instanceof RPGProjectile) ){
+                        return false;
+                    }
+                    return true;
                 }
-                return true;
             }
         }
         return false;

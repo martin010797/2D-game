@@ -48,6 +48,12 @@ public class AudioPlayer {
         gainControl.setValue(-10.0f);
     }
 
+    public void higherVolume(){
+        FloatControl gainControl =
+                (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl.setValue(gainControl.getMaximum());
+    }
+
     public void stop(){
         if (clip.isRunning()){
             clip.stop();

@@ -1,18 +1,20 @@
 package game;
 
+import audio.Sounds;
+import creatures.Player;
 import display.Display;
+import entities.EntityManager;
 import graphics.Assets;
 import graphics.GameCamera;
 import input.KeyManager;
 import input.MouseManager;
-import states.GameState;
+import states.FirstLevelState;
 import states.MenuState;
+import states.SecondLevelState;
 import states.State;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
 
 public class Game implements Runnable {
 
@@ -30,7 +32,8 @@ public class Game implements Runnable {
     public String title;
 
     //States
-    public State gameState;
+    public State firstLevelState;
+    public State secondLevelState;
     public State menuState;
 
     //Input
@@ -43,12 +46,17 @@ public class Game implements Runnable {
     //Handler
     private Handler handler;
 
+    private Level level;
+    private EntityManager entityManager;
+
     public Game(String pTitle, int pWidth, int pHeight){
         width = pWidth;
         height = pHeight;
         title = pTitle;
         keyManager = new KeyManager();
         mouseManager = new MouseManager();
+        Sounds.init();
+        level = Level.FIRST_LEVEL;
     }
 
     //initialization of graphics
@@ -70,15 +78,36 @@ public class Game implements Runnable {
         handler = new Handler(this);
         gameCamera = new GameCamera(handler, 0,0);
 
-        gameState = new GameState(handler);
+        entityManager = new EntityManager(handler, new Player(handler, 200, 200));
+        firstLevelState = new FirstLevelState(handler, entityManager);
+        secondLevelState = new SecondLevelState(handler, entityManager);
         menuState = new MenuState(handler);
-        State.setState(menuState);
 
+        State.setState(menuState);
+        ((FirstLevelState)firstLevelState).setWorld();
     }
 
     private void tick(){
         keyManager.tick();
         if(State.getState() != null){
+            //changing levels
+            switch (level){
+                case FIRST_LEVEL:{
+                    if(State.getState() instanceof FirstLevelState){
+                        if(((FirstLevelState) (State.getState())).isDefeated() == true){
+                            level = Level.SECOND_LEVEL;
+                            ((SecondLevelState)secondLevelState).setWorld();
+                            State.setState(secondLevelState);
+                        }
+
+                    }
+                    break;
+                }
+                case SECOND_LEVEL:{
+                    break;
+                }
+            }
+            //((SecondLevelState) (State.getState())).isDefeated();
             State.getState().tick();
         }
     }
@@ -215,5 +244,13 @@ public class Game implements Runnable {
 
     public int getHeight(){
         return height;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public void setLevel(Level level) {
+        this.level = level;
     }
 }

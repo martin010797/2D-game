@@ -11,6 +11,7 @@ public class Tile {
     //public static Tile waterTile = new WaterTile(1);
     public static Tile nothingTile = new NothingTile(0);
     public static Tile world1TextureTile = new World1TextureTile(1);
+    public static Tile world2TextureTile = new World2TextureTile(2);
 
     public static final int TILEWIDTH = 64, TILEHEIGHT = 64;
 

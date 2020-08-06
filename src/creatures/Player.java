@@ -1,23 +1,26 @@
 package creatures;
 import audio.AudioPlayer;
-import com.sun.jdi.ArrayReference;
+import audio.Sounds;
 import entities.*;
 import game.Game;
 import game.Handler;
+import game.Level;
 import graphics.Animation;
 import graphics.Assets;
 import graphics.OneTimeAnimation;
+import states.FirstLevelState;
 import states.MenuState;
+import states.SecondLevelState;
 import states.State;
 import statics.DoubleCoinsBoost;
 import statics.ImmortalityBoost;
 import statics.Spawner;
 import statics.SpeedBoost;
 import tiles.Tile;
+import worlds.World;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -27,7 +30,8 @@ public class Player extends Creature {
     private static final int DEFAULT_DELTA_PROJECTILE = 250, RIFLE_PROJECTILE_DELTA = 100, RPG_PROJECTILE_DELTA = 280, DEFAULT_NUMBER_OF_LIVES = 3,
             NUMBER_WIDTH = 32, NUMBER_HEIGHT = 32, CONFIRMATION_TIME = 750, ONESECOND = 1000, DEFAULT_PROJECTILES_REMINING = -1,
             SHOTGUN_PROJECTILE_DELTA = 300, ABILITYCHARGETIME = 15000, NO_BOOST_DURATION = -1, DOG_PRICE = 1, EXTRA_LIFE_PRICE = 500,
-            SIZE_OF_PISTOL_SOUND_BUFFER = 10;
+            SIZE_OF_PISTOL_SOUND_BUFFER = 5, SIZE_OF_RIFLE_SOUND_BUFFER = 10, SIZE_OF_SHOTGUN_SOUND_BUFFER = 5,
+            SIZE_OF_RPG_SOUNND_BUFFER = 5, SIZE_OF_COIN_SOUND_BUFFER = 10, WAIT_TIME_BEFORE_START_OF_LEVEL = 0;
 
     private Animation animDown, animUp, animLeft, animRight, animDownLeft, animDownRight, animUpLeft, animUpRight;
     private OneTimeAnimation animation_respawn;
@@ -99,7 +103,12 @@ public class Player extends Creature {
 
     //sound effects
     private HashMap<String, ArrayList<AudioPlayer>> sounds;
+    private AudioPlayer playerDeathSound;
     private int pistolIndexSound = 0;
+    private int rifleIndexSound = 0;
+    private int shotgunIndexSound = 0;
+    private int rpgIndexSound = 0;
+    private int coinIndexSound = 0;
 
     private boolean shooting = false;
 
@@ -132,15 +141,31 @@ public class Player extends Creature {
         animation_respawn.setLastTime(System.currentTimeMillis());
         typeOfBoost = TypeOfBoost.NO_ACTIVE_BOOST;
 
+        //sounds
         sounds = new HashMap<String, ArrayList<AudioPlayer>>();
         sounds.put("pistol", new ArrayList<AudioPlayer>());
+        sounds.put("rifle", new ArrayList<AudioPlayer>());
+        sounds.put("shotgun", new ArrayList<AudioPlayer>());
+        sounds.put("rpg", new ArrayList<AudioPlayer>());
+        sounds.put("coin", new ArrayList<AudioPlayer>());
         for (int i = 0; i < SIZE_OF_PISTOL_SOUND_BUFFER; i++){
             sounds.get("pistol").add(new AudioPlayer("/sounds/pistol.mp3"));
         }
-        //sounds.put("pistol", new AudioPlayer("/sounds/pistol.mp3"));
-        //...
-
-        //playerInitialSetUp();
+        for (int i = 0; i < SIZE_OF_RIFLE_SOUND_BUFFER; i++){
+            sounds.get("rifle").add(new AudioPlayer("/sounds/rifle.mp3"));
+        }
+        for (int i = 0; i < SIZE_OF_SHOTGUN_SOUND_BUFFER; i++){
+            sounds.get("shotgun").add(new AudioPlayer("/sounds/shotgun.mp3"));
+        }
+        for (int i = 0; i < SIZE_OF_RPG_SOUNND_BUFFER; i++){
+            sounds.get("rpg").add(new AudioPlayer("/sounds/RPG2.mp3"));
+        }
+        for (int i = 0; i < SIZE_OF_COIN_SOUND_BUFFER; i++){
+            AudioPlayer ap = new AudioPlayer("/sounds/coins.mp3");
+            ap.higherVolume();
+            sounds.get("coin").add(ap);
+        }
+        playerDeathSound = new AudioPlayer("/sounds/player_death.mp3");
     }
 
     public void playerInitialSetUp(){
@@ -164,6 +189,11 @@ public class Player extends Creature {
 
         lastTimeBoost = System.currentTimeMillis();
         timerBoost = 0;
+
+        handler.getWorld().setDefeatedEnemies(0);
+        handler.getWorld().setLastTimeBooster(System.currentTimeMillis());
+        handler.getWorld().setLastTimeStartLevel(System.currentTimeMillis());
+        handler.getWorld().setTimerStartLevel(0);
     }
 
     public void respawn(){
@@ -175,10 +205,12 @@ public class Player extends Creature {
         y = handler.getWorld().getSpawnY();
         immortal = true;
         animation_respawn.setLastTime(System.currentTimeMillis());
+        //handler.getWorld().setLastTimeStartLevel(System.currentTimeMillis());
     }
 
     public void die(){
         if (!dead){
+            playerDeathSound.play();
             respawn();
             lastTimeRespawn = System.currentTimeMillis();
             dead = true;
@@ -197,6 +229,19 @@ public class Player extends Creature {
                 endOfGame = true;
                 System.out.println("end of game");
                 State.setState(handler.getGame().menuState);
+
+                //change spawners coordinates for first world
+                if (handler.getGame().getLevel() != Level.FIRST_LEVEL){
+                    handler.getWorld().getEntityManager().getSpawners().get(0).setX(World.XFIRSTSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(0).setY(World.YFIRSTSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(1).setX(World.XSECONDSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(1).setY(World.YSECONDSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(2).setX(World.XTHIRDSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(2).setY(World.YTHIRDSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(3).setX(World.XFOURTHSPAWNER);
+                    handler.getWorld().getEntityManager().getSpawners().get(3).setY(World.YFOURTHSPAWNER);
+                }
+
                 handler.getMouseManager().setUiManager(((MenuState) (handler.getGame().menuState)).getUiManager());
                 Iterator itr = handler.getWorld().getEntityManager().getEntities().iterator();
                 while (itr.hasNext()){
@@ -204,7 +249,7 @@ public class Player extends Creature {
                     if (e instanceof Coin){
                         handler.getWorld().getEntityManager().getCoins().remove(e);
                     }
-                    if (e instanceof Enemy){
+                    if (e instanceof BasicEnemy){
                         handler.getWorld().getEntityManager().getEnemies().remove(e);
                     }
                     if (!(e instanceof Player) && !(e instanceof Spawner))
@@ -215,6 +260,16 @@ public class Player extends Creature {
                     Projectile p = (Projectile) itr.next();
                     itr.remove();
                 }
+                handler.getWorld().setLastTimeStartLevel(System.currentTimeMillis());
+                handler.getWorld().setTimerStartLevel(0);
+                handler.getGame().setLevel(Level.FIRST_LEVEL);
+                if (handler.getGame().firstLevelState instanceof FirstLevelState){
+                    ((FirstLevelState)handler.getGame().firstLevelState).setDefeated(false);
+                }
+                if (handler.getGame().secondLevelState instanceof SecondLevelState){
+                    ((SecondLevelState)handler.getGame().secondLevelState).setDefeated(false);
+                }
+
             }
         }
     }
@@ -262,11 +317,17 @@ public class Player extends Creature {
         if (typeOfBoost != TypeOfBoost.NO_ACTIVE_BOOST){
             switch (typeOfBoost){
                 case IMMORTALITY:{
+                    this.speed = DEFAULT_SPEED;
                     immortal = true;
                     break;
                 }
                 case SPEED:{
                     this.speed = 4.0f;
+                    break;
+                }
+                case DOUBLE_COINS:{
+                    this.speed = DEFAULT_SPEED;
+                    break;
                 }
             }
             timerBoost += System.currentTimeMillis() - lastTimeBoost;
@@ -382,6 +443,11 @@ public class Player extends Creature {
                         Projectile newProjectile = new RifleProjectile(handler, posX, posY, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, direction, this);
                         projectiles.add(newProjectile);
                         remainingProjectiles--;
+                        if (rifleIndexSound == SIZE_OF_RIFLE_SOUND_BUFFER){
+                            rifleIndexSound = 0;
+                        }
+                        sounds.get("rifle").get(rifleIndexSound).play();
+                        rifleIndexSound++;
                         if (remainingProjectiles == 0){
                             remainingProjectiles = DEFAULT_PROJECTILES_REMINING;
                             typeOfProjectile = TypeOfProjectile.DEFAULT;
@@ -401,6 +467,7 @@ public class Player extends Creature {
                         shooting = true;
                         Projectile newProjectile = new DefaultProjectile(handler, posX, posY, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT, direction, this);
                         projectiles.add(newProjectile);
+                        //sound
                         if (pistolIndexSound == SIZE_OF_PISTOL_SOUND_BUFFER){
                             pistolIndexSound = 0;
                         }
@@ -425,6 +492,12 @@ public class Player extends Creature {
                             remainingProjectiles = DEFAULT_PROJECTILES_REMINING;
                             typeOfProjectile = TypeOfProjectile.DEFAULT;
                         }
+                        //sound
+                        if (rpgIndexSound == SIZE_OF_RPG_SOUNND_BUFFER){
+                            rpgIndexSound = 0;
+                        }
+                        sounds.get("rpg").get(rpgIndexSound).play();
+                        rpgIndexSound++;
                     }
                     if (!handler.getKeyManager().space){
                         shooting = false;
@@ -484,6 +557,12 @@ public class Player extends Creature {
                             remainingProjectiles = DEFAULT_PROJECTILES_REMINING;
                             typeOfProjectile = TypeOfProjectile.DEFAULT;
                         }
+                        //sound
+                        if (shotgunIndexSound == SIZE_OF_SHOTGUN_SOUND_BUFFER){
+                            shotgunIndexSound = 0;
+                        }
+                        sounds.get("shotgun").get(shotgunIndexSound).play();
+                        shotgunIndexSound++;
                     }
                     if (!handler.getKeyManager().space) {
                         shooting = false;
@@ -682,15 +761,18 @@ public class Player extends Creature {
         projectiles.add(newProjectile8);
 
         //sounds for special ability
-        for (int i = 0; i < 3; i++){
+        /*for (int i = 0; i < 3; i++){
             if (pistolIndexSound == SIZE_OF_PISTOL_SOUND_BUFFER){
                 pistolIndexSound = 0;
             }
             sounds.get("pistol").get(pistolIndexSound).play();
             pistolIndexSound++;
+        }*/
+        if (pistolIndexSound == SIZE_OF_PISTOL_SOUND_BUFFER){
+            pistolIndexSound = 0;
         }
-
-        //System.out.println("ability used");
+        sounds.get("pistol").get(pistolIndexSound).play();
+        pistolIndexSound++;
     }
 
     @Override
@@ -707,7 +789,9 @@ public class Player extends Creature {
 
         //respawning
         if (animation_respawn.getCurrentFrame() != null){
-            g.drawImage(animation_respawn.getCurrentFrame(),(int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+            if(handler.getWorld().getTimerStartLevel() >= WAIT_TIME_BEFORE_START_OF_LEVEL){
+                g.drawImage(animation_respawn.getCurrentFrame(),(int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+            }
         }else{
             g.drawImage(getCurrentAnimationFrame(),(int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
             if (immortal)
@@ -829,6 +913,10 @@ public class Player extends Creature {
         }
         //boosts
         renderBoostBar(g);
+
+        //System.out.println("Player X position:" + x);
+        //System.out.println("Player Y position" + y);
+
         //collision box
         //if I want to see collison box
         //g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
@@ -1029,6 +1117,8 @@ public class Player extends Creature {
         return Assets.player_down[0];
     }
 
+    //getters and setters
+
     public boolean isDead() {
         return dead;
     }
@@ -1053,6 +1143,12 @@ public class Player extends Creature {
         if (typeOfBoost == TypeOfBoost.DOUBLE_COINS)
             numberOfCoins++;
         numberOfCoins++;
+        //sound
+        if (coinIndexSound == SIZE_OF_COIN_SOUND_BUFFER){
+            coinIndexSound = 0;
+        }
+        sounds.get("coin").get(coinIndexSound).play();
+        coinIndexSound++;
     }
 
     public boolean isImmortal() {
@@ -1060,6 +1156,7 @@ public class Player extends Creature {
     }
 
     public void setTypeOfBoost(TypeOfBoost typeOfBoost) {
+        Sounds.pickUpBoost.play();
         this.typeOfBoost = typeOfBoost;
         switch (typeOfBoost){
             case DOUBLE_COINS:
@@ -1074,5 +1171,9 @@ public class Player extends Creature {
         }
         timerBoost = 0;
         lastTimeBoost = System.currentTimeMillis();
+    }
+
+    public ArrayList<Projectile> getProjectiles() {
+        return projectiles;
     }
 }

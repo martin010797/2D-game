@@ -3,6 +3,7 @@ package game;
 import graphics.GameCamera;
 import input.KeyManager;
 import input.MouseManager;
+import worlds.FirstWorld;
 import worlds.World;
 
 public class Handler {

@@ -1,7 +1,6 @@
 package states;
 
 import audio.AudioPlayer;
-import game.Game;
 import game.Handler;
 
 import java.awt.*;
@@ -13,6 +12,9 @@ public abstract class State {
     protected static AudioPlayer backgroundMusic;
     protected static AudioPlayer menuMusic;
     protected static AudioPlayer level1Music;
+    protected static AudioPlayer level2Music;
+
+    protected Handler handler;
 
     public State(Handler pHandler){
         handler = pHandler;
@@ -22,6 +24,10 @@ public abstract class State {
         if(level1Music == null){
             level1Music = new AudioPlayer("/music/level_1.mp3");
             level1Music.lowerVolume();
+        }
+        if(level2Music == null){
+            level2Music = new AudioPlayer("/music/level_2.mp3");
+            level2Music.lowerVolume();
         }
         //"/textures/testwick.png"
         //backgroundMusic.play();
@@ -35,25 +41,26 @@ public abstract class State {
                 backgroundMusic.stop();
             }
             backgroundMusic = menuMusic;
-            //backgroundMusic.play();
             backgroundMusic.loop();
-        }else if (pState instanceof GameState){
+        }else if (pState instanceof FirstLevelState){
             if (backgroundMusic != null){
                 backgroundMusic.stop();
             }
             backgroundMusic = level1Music;
-            //backgroundMusic.play();
+            backgroundMusic.loop();
+        }else if (pState instanceof SecondLevelState){
+            if (backgroundMusic != null){
+                backgroundMusic.stop();
+            }
+            backgroundMusic = level2Music;
             backgroundMusic.loop();
         }
 
     }
 
-
     public static State getState(){
         return currentState;
     }
-
-    protected Handler handler;
 
     //abstract part
     public abstract void tick();

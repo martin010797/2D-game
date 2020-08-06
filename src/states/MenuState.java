@@ -1,10 +1,7 @@
 package states;
 
-import audio.AudioPlayer;
-import game.Game;
 import game.Handler;
 import graphics.Assets;
-import statics.StaticEntity;
 import ui.ClickListener;
 import ui.UIImageButton;
 import ui.UIManager;
@@ -26,7 +23,10 @@ public class MenuState extends State {
             @Override
             public void onClick() {
                 handler.getMouseManager().setUiManager(null);
-                State.setState(handler.getGame().gameState);
+                State.setState(handler.getGame().firstLevelState);
+                if (handler.getGame().firstLevelState instanceof FirstLevelState){
+                    ((FirstLevelState)handler.getGame().firstLevelState).setWorld();
+                }
                 handler.getWorld().getEntityManager().getPlayer().playerInitialSetUp();
             }
         }));

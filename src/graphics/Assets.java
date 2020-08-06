@@ -9,8 +9,8 @@ public class Assets {
 
     private static final int width = 64, button_width = 262, button_height = 95;
     private static final int height = 64;
-    public static BufferedImage enemy, nothing, world1Texture, spawner, coin, player_stats_background,
-            bubble_background1, bubble_background2, store_background;
+    public static BufferedImage enemy, nothing, world1Texture, world2Texture, spawner, coin, player_stats_background,
+            bubble_background1, bubble_background2, store_background, spawner_second_world;
     public static BufferedImage static_player_down, static_player_up, static_player_left, static_player_right;
     public static BufferedImage static_player_down_left, static_player_down_right, static_player_up_left, static_player_up_right;
     public static BufferedImage projectile_left, projectile_right, projectile_up, projectile_down,
@@ -26,11 +26,12 @@ public class Assets {
     public static BufferedImage store_rpg_green, store_rpg_red, store_rifle_green, store_rifle_red, store_shotgun_green,
             store_shotgun_red, store_life_green, store_life_red, store_dog_green, store_dog_red;
     public static BufferedImage banner_not_enough_money, immortalBubble, player_ability, loading_bar_green_full,no_active_boost,
-            speed_boost, double_coins_boost, immortality_boost, menu_backgrounnd;
+            speed_boost, double_coins_boost, immortality_boost, menu_backgrounnd, banner_level_finished;
+    public static BufferedImage bulletproof_enemy_test;
     //arrays
     public static BufferedImage[] speed_boost_array, double_coins_boost_array, immortality_boost_array;
     public static BufferedImage[] btn_start, btn_exit, btn_tutorial;
-    public static BufferedImage[] spawner_door;
+    public static BufferedImage[] spawner_door, spawner_door_second_world;
     public static BufferedImage[] enemy_down, enemy_up, enemy_right, enemy_left, enemy_down_left, enemy_down_right,
             enemy_up_left, enemy_up_right;
     public static BufferedImage[] loadingBarArray;
@@ -39,6 +40,7 @@ public class Assets {
     public static BufferedImage[] player_down_left, player_down_right, player_up_left, player_up_right;
     public static BufferedImage[] respawn_animation;
     public static BufferedImage[] dog_down, dog_up, dog_right, dog_left, dog_up_right, dog_up_left, dog_down_right, dog_down_left;
+    public static BufferedImage[] banner_end_level_animation;
 
 
 
@@ -46,6 +48,7 @@ public class Assets {
         SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/testwick.png"));
         SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/menu_buttons.png"));
         SpriteSheet sheet3 = new SpriteSheet(ImageLoader.loadImage("/textures/sheet2.png"));
+        SpriteSheet sheet4 = new SpriteSheet(ImageLoader.loadImage("/textures/level_finished_texture.png"));
 
         //player
         player_down = new BufferedImage[2];
@@ -58,6 +61,7 @@ public class Assets {
         player_up_right = new BufferedImage[2];
 
         spawner_door = new BufferedImage[5];
+        spawner_door_second_world = new BufferedImage[5];
         coin_animation = new BufferedImage[12];
         loadingBarArray = new BufferedImage[32];
         respawn_animation = new BufferedImage[6];
@@ -99,6 +103,11 @@ public class Assets {
         btn_tutorial[1] = sheet2.crop(button_width, button_height, button_width,button_height);
         btn_exit[0] = sheet2.crop(0, 2 * button_height, button_width,button_height);
         btn_exit[1] = sheet2.crop(button_width, 2 * button_height, button_width,button_height);
+
+        //end level banner
+        banner_end_level_animation = new BufferedImage[2];
+        banner_end_level_animation[0] = sheet4.crop(0, 0,910, 100);
+        banner_end_level_animation[1] = sheet4.crop(0, 100,910, 100);
 
         //player
         static_player_down = sheet.crop(0,0,width, height);
@@ -187,12 +196,24 @@ public class Assets {
         shotgun_image = sheet.crop(5 * width, 17 * height, width, height);
 
         //spawners
+        //first world spawnner
         spawner = sheet.crop(9 * width, 64, width, height);
         spawner_door[0] = sheet.crop(0, 2 * height, width, height);
         spawner_door[1] = sheet.crop(width, 2 * height, width, height);
         spawner_door[2] = sheet.crop(2 * width, 2 * height, width, height);
         spawner_door[3] = sheet.crop(width, 2 * height, width, height);
         spawner_door[4] = sheet.crop(0, 2 * height, width, height);
+
+        //second world spawner
+        spawner_second_world = sheet.crop(0, 28 * height, width, height);
+        spawner_door_second_world[0] = sheet.crop(width, 28 * height, width, height);
+        spawner_door_second_world[1] = sheet.crop(2 * width, 28 * height, width, height);
+        spawner_door_second_world[2] = sheet.crop(3 * width, 28 * height, width, height);
+        spawner_door_second_world[3] = sheet.crop(2 * width, 28 * height, width, height);
+        spawner_door_second_world[4] = sheet.crop(width, 28 * height, width, height);
+
+        //bulletproof enemy
+        bulletproof_enemy_test = sheet.crop(8 * width, 28 * height, width, height);
 
         //coin
         coin = sheet.crop(8 * width, 7 * height, width, height);
@@ -299,6 +320,7 @@ public class Assets {
         nothing = sheet.crop(9 * width, 7 * height, width, height);
         //world1Texture = sheet.crop(width, 4 * height, width, height);
         world1Texture = sheet.crop(6 * width, 23 * height, width, height);
+        world2Texture = sheet.crop(3 * width, 25 * height, width, height);
         player_stats_background = sheet.crop(5 * width, 10 * height, width, height);
         store_background = sheet.crop(4 * width, 10 * height, width, height);
         bubble_background1 = sheet.crop(8 * width, 13 * height, width, height);
@@ -317,5 +339,6 @@ public class Assets {
         immortalBubble = sheet.crop(6 * width, 18 * height, width, height);
         player_ability = sheet.crop(7 * width, 18 * height, width, height);
         loading_bar_green_full = sheet.crop(8 * width, 18 * height, width, height);
+        banner_level_finished = sheet4.crop(0, 100,910, 100);
     }
 }

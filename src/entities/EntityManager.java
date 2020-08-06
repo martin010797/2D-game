@@ -1,5 +1,6 @@
 package entities;
 
+import creatures.BasicEnemy;
 import creatures.Enemy;
 import creatures.Player;
 import game.Handler;
@@ -12,13 +13,13 @@ import java.util.Comparator;
 import java.util.Iterator;
 
 public class EntityManager {
+
     private Handler handler;
     private Player player;
     private ArrayList<Entity> entities;
     private ArrayList<Enemy> enemies;
     private ArrayList<Spawner> spawners;
     private ArrayList<Coin> coins;
-
 
     private Comparator<Entity> renderSorter = new Comparator<Entity>() {
         @Override
@@ -37,6 +38,7 @@ public class EntityManager {
         spawners = new ArrayList<Spawner>();
         coins = new ArrayList<Coin>();
         addEntity(player);
+
     }
 
     public void tick(){
