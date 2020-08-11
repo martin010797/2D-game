@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class FirstWorld extends World{
-    private static final int NUMBEROFENEMIES = 15, MAXNUMBEROFENEMIESONSCREEN = 20;
+    private static final int NUMBEROFENEMIES = 5, MAXNUMBEROFENEMIESONSCREEN = 20;
 
     public FirstWorld(Handler pHandler, String pPath, EntityManager pEntityManager){
         super(pHandler,pPath, pEntityManager);

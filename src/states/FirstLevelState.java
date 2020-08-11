@@ -35,6 +35,9 @@ public class FirstLevelState extends State {
     public void tick() {
         testWorld.tick();
         defeated = testWorld.isDefeatedWorld();
+        //if (testWorld.isDefeatedWorld()){
+          //  testWorld.setDefeatedEnemies(0);
+        //}
         //if (!backgroundMusic.isPlaying())
             //backgroundMusic.play();
         //player.tick();

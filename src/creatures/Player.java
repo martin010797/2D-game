@@ -249,7 +249,7 @@ public class Player extends Creature {
                     if (e instanceof Coin){
                         handler.getWorld().getEntityManager().getCoins().remove(e);
                     }
-                    if (e instanceof BasicEnemy){
+                    if (e instanceof Enemy){
                         handler.getWorld().getEntityManager().getEnemies().remove(e);
                     }
                     if (!(e instanceof Player) && !(e instanceof Spawner))
