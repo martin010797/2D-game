@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
 public abstract class Enemy extends Creature {
 
     protected static final int MINVALUEOFDIRECTIONN = 0, MAXVALUEOFDIRECTION = 7, PROBABILITYOFDIRECTIONCHANGE = 1,
-            HUNDREDPERCENT = 100, ZERO = 0, UNDEFINED = -1;
+            HUNDREDPERCENT = 100, ZERO = 0, UNDEFINED = -1, NEGLIGIBLE_DIFFERENCE = 20;
     protected static final int UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3, UPLEFT = 4, UPRIGHT = 5, DOWNLEFT = 6, DOWNRIGHT = 7;
 
     protected static int sizeOfReach = 150;
@@ -154,21 +154,21 @@ public abstract class Enemy extends Creature {
         if (((int) x >= (int) (p.getX() - sizeOfReach)) && ((int) x <= (int) (p.getX() + sizeOfReach)) &&
                 ((int) y >= (int) (p.getY() - sizeOfReach)) && ((int) y <= (int) (p.getY() + sizeOfReach))){
             //checking where is enemy
-            if ((int) x > (int) p.getX()){//enemy is on right side of player
-                if ((int) y > (int) p.getY()){
+            if ((int) x > (int) (p.getX() + NEGLIGIBLE_DIFFERENCE)){//enemy is on right side of player
+                if ((int) y > (int) (p.getY() + NEGLIGIBLE_DIFFERENCE)){
                     return Direction.UP_LEFT;
                 }else {
-                    if ((int) y < (int) p.getY()){
+                    if ((int) y < (int) (p.getY() - NEGLIGIBLE_DIFFERENCE)){
                         return Direction.DOWN_LEFT;
                     }else
                         return Direction.LEFT;
                 }
             }else {
-                if ((int) x < (int) p.getX()){//enemy is on left side of player
-                    if ((int) y > (int) p.getY()){
+                if ((int) x < (int) (p.getX() - NEGLIGIBLE_DIFFERENCE)){//enemy is on left side of player
+                    if ((int) y > (int) (p.getY() + NEGLIGIBLE_DIFFERENCE)){
                         return Direction.UP_RIGHT;
                     }else {
-                        if ((int) y < (int) p.getY()){
+                        if ((int) y < (int) (p.getY() - NEGLIGIBLE_DIFFERENCE)){
                             return Direction.DOWN_RIGHT;
                         }else
                             return Direction.RIGHT;

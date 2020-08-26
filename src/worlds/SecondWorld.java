@@ -121,7 +121,7 @@ public class SecondWorld extends World {
                         }
                         case SECONDSPAWNER:{
                             //BasicEnemy e = new BasicEnemy(handler, XSECONDSPAWNER_SECOND_WORLD, YSECONDSPAWNER_SECOND_WORLD);
-                            BulletproofEnemy e = new BulletproofEnemy(handler, XFIRSTSPAWNER_SECOND_WORLD, YFIRSTSPAWNER_SECOND_WORLD);
+                            BulletproofEnemy e = new BulletproofEnemy(handler, XSECONDSPAWNER_SECOND_WORLD, YSECONDSPAWNER_SECOND_WORLD);
                             entityManager.getSpawners().get(SECONDSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);
@@ -129,7 +129,7 @@ public class SecondWorld extends World {
                         }
                         case THIRDSPAWNER:{
                             //BasicEnemy e = new BasicEnemy(handler, XTHIRDSPAWNER_SECOND_WORLD, YTHIRDSPAWNER_SECOND_WORLD);
-                            BulletproofEnemy e = new BulletproofEnemy(handler, XFIRSTSPAWNER_SECOND_WORLD, YFIRSTSPAWNER_SECOND_WORLD);
+                            BulletproofEnemy e = new BulletproofEnemy(handler, XTHIRDSPAWNER_SECOND_WORLD, YTHIRDSPAWNER_SECOND_WORLD);
                             entityManager.getSpawners().get(THIRDSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);
@@ -137,7 +137,7 @@ public class SecondWorld extends World {
                         }
                         case FOURTHSPAWNER:{
                             //BasicEnemy e = new BasicEnemy(handler, XFOURTHSPAWNER_SECOND_WORLD, YFOURTHSPAWNER_SECOND_WORLD);
-                            BulletproofEnemy e = new BulletproofEnemy(handler, XFIRSTSPAWNER_SECOND_WORLD, YFIRSTSPAWNER_SECOND_WORLD);
+                            BulletproofEnemy e = new BulletproofEnemy(handler, XFOURTHSPAWNER_SECOND_WORLD, YFOURTHSPAWNER_SECOND_WORLD);
                             entityManager.getSpawners().get(FOURTHSPAWNER).setOpening(true);
                             entityManager.getEnemies().add(e);
                             entityManager.addEntity(e);

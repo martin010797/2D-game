@@ -158,11 +158,6 @@ public class BulletproofEnemy extends Enemy {
         return Sounds.getSound("enemy_death");
     }
 
-    /*
-    public Rectangle getCollisionBounds(float xOffset, float yOffset){
-        return new Rectangle((int) (x + bounds.x + xOffset), (int) (y + bounds.y + yOffset), bounds.width, bounds.height);
-    }
-     */
 
     public Rectangle getCollisionHeadBounds(float xOffset, float yOffset) {
         return new Rectangle((int) (x + headBounds.x + xOffset), (int) (y + headBounds.y + yOffset), headBounds.width, headBounds.height);
